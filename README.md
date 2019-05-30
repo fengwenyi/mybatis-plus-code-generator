@@ -24,9 +24,9 @@
 
 ## 支持的数据库
 
--[x] MySQL
+* [x] MySQL
 
--[x] Oracle
+* [x] Oracle
 
 ## 使用方法
 
