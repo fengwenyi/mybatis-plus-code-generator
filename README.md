@@ -71,3 +71,29 @@ git clone ...
 第三步：MySQL:MySQL8CodeGenerator
 
 第三步：Oracle:OracleCodeGenerator
+
+## 注意事项
+
+1、关于指定生成的表名
+
+```
+// 表名，为空，生成所有的表
+String [] tableNames = {};
+
+// 表名，具体表名
+String [] tableNames = {"table"};
+
+// 表名，多张表
+String [] tableNames = {"table1", "table1"};
+
+// 注意：生成多张表时，不能写成
+String [] tableNames = {""};
+```
+
+2、包名
+
+```
+// 基础包名
+// 这是基础包名，会在后面加dao/model/service等包名
+String packageName = "com.example.module_name.db";
+```
