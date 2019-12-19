@@ -46,10 +46,12 @@ public class CommonUtils {
                 .setActiveRecord(false)
                 .setAuthor(Config.AUTHOR)
                 .setOutputDir(Config.outputDir)
-                .setFileOverride(true)
+                .setFileOverride(true) // 是否覆盖已有文件
+                .setOpen(true) // 是否打开输出目录
+                .setDateType(DateType.TIME_PACK) // 时间采用java 8，（操作工具类：JavaLib => DateTimeUtils）
                 .setActiveRecord(true)// 不需要ActiveRecord特性的请改为false
                 .setEnableCache(false)// XML 二级缓存
-                .setBaseResultMap(true)// XML ResultMap
+                .setBaseResultMap(false)// XML ResultMap
                 .setBaseColumnList(false)// XML columList
                 .setKotlin(false) //是否生成 kotlin 代码
                 // 自定义文件命名，注意 %s 会自动填充表实体属性！
@@ -60,7 +62,7 @@ public class CommonUtils {
                 .setServiceImplName(Config.FILE_NAME_SERVICE_IMPL)
                 .setControllerName(Config.FILE_NAME_CONTROLLER)
                 .setDateType(DateType.ONLY_DATE) //只使用 java.util.date 代替
-                .setIdType(IdType.ID_WORKER)
+                .setIdType(IdType.ASSIGN_ID) // 主键类型
 //                .setSwagger2(true) // model swagger2
                 //.setOpen(true) // 是否打开输出目录
                 ;
@@ -69,11 +71,13 @@ public class CommonUtils {
     }
 
 
-    private static StrategyConfig strategyConfig(String [] tablePrefixs, String [] tableNames) {
+    private static StrategyConfig strategyConfig(String [] tablePrefixes, String [] tableNames, String [] fieldPrefixes) {
         return new StrategyConfig()
                 .setCapitalMode(true) // 全局大写命名 ORACLE 注意
+                .setSkipView(false) // 是否跳过视图
                 //.setDbColumnUnderline(true)
-                .setTablePrefix(tablePrefixs)// 此处可以修改为您的表前缀(数组)
+                .setTablePrefix(tablePrefixes)// 此处可以修改为您的表前缀(数组)
+                .setFieldPrefix(fieldPrefixes) // 字段前缀
                 .setNaming(NamingStrategy.underline_to_camel) // 表名生成策略
                 .setInclude(tableNames)//修改替换成你需要的表名，多个表名传数组
                 //.setExclude(new String[]{"test"}) // 排除生成的表
@@ -134,15 +138,15 @@ public class CommonUtils {
      * @param username
      * @param password
      * @param driver
-     * @param tablePrefixs
+     * @param tablePrefixes
      * @param tableNames
      * @param packageName
      */
     public static void execute(DbType dbType, String dbUrl, String username, String password, String driver,
-                               String [] tablePrefixs, String [] tableNames, String packageName) {
+                               String [] tablePrefixes, String [] tableNames, String packageName, String [] fieldPrefixes) {
         GlobalConfig globalConfig = globalConfig();
         DataSourceConfig dataSourceConfig = dataSourceConfig(dbType, dbUrl, username, password, driver);
-        StrategyConfig strategyConfig = strategyConfig(tablePrefixs, tableNames);
+        StrategyConfig strategyConfig = strategyConfig(tablePrefixes, tableNames, fieldPrefixes);
         PackageConfig packageConfig = packageConfig(packageName);
         InjectionConfig injectionConfig = injectionConfig(packageConfig);
         new AutoGenerator()

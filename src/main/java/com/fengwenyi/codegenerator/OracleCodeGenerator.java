@@ -17,12 +17,14 @@ public class OracleCodeGenerator {
         String password = "password";
         String driver = "oracle.jdbc.OracleDriver";
         // 表前缀，生成的实体类，不含前缀
-        String [] tablePrefixs = {"t_"};
+        String [] tablePrefixes = {""};
         // 表名，为空，生成所有的表
         String [] tableNames = {};
+        // 字段前缀
+        String [] fieldPrefixes = {""};
         // 基础包名
         String packageName = "com.example.module_name.db";
-        CommonUtils.execute(dbType, dbUrl, username, password, driver, tablePrefixs, tableNames, packageName);
+        CommonUtils.execute(dbType, dbUrl, username, password, driver, tablePrefixes, tableNames, packageName, fieldPrefixes);
     }
 
 }

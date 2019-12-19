@@ -37,7 +37,7 @@ public class Config {
     public static final String FILE_NAME_SERVICE = "MP%sService";
 
     /** 文件名后缀：ServiceImpl */
-    public static final String FILE_NAME_SERVICE_IMPL = "%sServiceImpl";
+    public static final String FILE_NAME_SERVICE_IMPL = "MP%sServiceImpl";
 
     /** 文件名后缀：Controller */
     public static final String FILE_NAME_CONTROLLER = "%sController";
