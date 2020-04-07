@@ -43,7 +43,6 @@ public class CommonUtils {
     // 配置
     private static GlobalConfig globalConfig() {
         return new GlobalConfig()
-                .setActiveRecord(false)
                 .setAuthor(Config.AUTHOR)
                 .setOutputDir(Config.outputDir)
                 .setFileOverride(true) // 是否覆盖已有文件
@@ -61,10 +60,8 @@ public class CommonUtils {
                 .setServiceName(Config.FILE_NAME_SERVICE)
                 .setServiceImplName(Config.FILE_NAME_SERVICE_IMPL)
                 .setControllerName(Config.FILE_NAME_CONTROLLER)
-                .setDateType(DateType.ONLY_DATE) //只使用 java.util.date 代替
                 .setIdType(IdType.ASSIGN_ID) // 主键类型
 //                .setSwagger2(true) // model swagger2
-                .setOpen(true) // 是否打开输出目录
                 ;
 //                if (!serviceNameStartWithI)
 //                    config.setServiceName("%sService");

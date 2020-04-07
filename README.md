@@ -180,3 +180,9 @@ String packageName = "com.example.module.db";
 ```
 
 3、数据库操作服务接口默认以 `MP` 为前缀，如：`MPUserService`
+
+4、报错 `Error java: 错误；不支持发行版5`
+
+解决办法：
+
+将 `Java Compiler` 下 `module` 对应的 `java` 版本改成 `8+`
