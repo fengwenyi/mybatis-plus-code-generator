@@ -69,7 +69,7 @@ git clone git@github.com:fengwenyi/mybatis-plus-code-generator.git
 
 #### 第二步：IDE导入
 
-### 第三步：简单且必应的配置即可运行
+#### 第三步：简单且必应的配置即可运行
 
 `MySQL`：MySQL8CodeGenerator
 
