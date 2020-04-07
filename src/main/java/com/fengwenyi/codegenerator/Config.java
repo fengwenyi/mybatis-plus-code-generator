@@ -37,7 +37,7 @@ public class Config {
     public static final String FILE_NAME_SERVICE = "MP%sService";
 
     /** 文件名后缀：ServiceImpl */
-    public static final String FILE_NAME_SERVICE_IMPL = "MP%sServiceImpl";
+    public static final String FILE_NAME_SERVICE_IMPL = "%sServiceImpl";
 
     /** 文件名后缀：Controller */
     public static final String FILE_NAME_CONTROLLER = "%sController";
@@ -46,11 +46,11 @@ public class Config {
     /** 作者 */
     public static final String AUTHOR = "Erwin Feng";
 
-    // 生成文件的输出目录
+    /** 生成文件的输出目录 */
     public static String projectPath = System.getProperty("user.dir");
 
-    // 输出目录
+    /** 输出目录 */
 //    public static final String outputDir = projectPath + "/src/main/java";
-    public static final String outputDir = "/Users/wenyifeng/Workspaces/code-generator";
+    public static final String outputDir = "/Users/code-generator";
 
 }

@@ -17,13 +17,13 @@ public class MySQL8CodeGenerator {
         String password = "dbPassword";
         String driver = "com.mysql.cj.jdbc.Driver";
         // 表前缀，生成的实体类，不含前缀
-        String [] tablePrefixes = {""};
+        String [] tablePrefixes = {};
         // 表名，为空，生成所有的表
-        String [] tableNames = {""};
+        String [] tableNames = {};
         // 字段前缀
-        String [] fieldPrefixes = {""};
+        String [] fieldPrefixes = {};
         // 基础包名
-        String packageName = "com.fengwenyi.mount.db";
+        String packageName = "com.example.module.db";
         CommonUtils.execute(dbType, dbUrl, username, password, driver, tablePrefixes, tableNames, packageName, fieldPrefixes);
     }
 

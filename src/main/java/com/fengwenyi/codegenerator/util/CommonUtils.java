@@ -64,7 +64,7 @@ public class CommonUtils {
                 .setDateType(DateType.ONLY_DATE) //只使用 java.util.date 代替
                 .setIdType(IdType.ASSIGN_ID) // 主键类型
 //                .setSwagger2(true) // model swagger2
-                //.setOpen(true) // 是否打开输出目录
+                .setOpen(true) // 是否打开输出目录
                 ;
 //                if (!serviceNameStartWithI)
 //                    config.setServiceName("%sService");
