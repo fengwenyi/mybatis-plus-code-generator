@@ -1,4 +1,4 @@
-package com.fengwenyi.codegenerator;
+package com.fengwenyi.code_generator;
 
 /**
  * @author Erwin Feng
@@ -42,6 +42,8 @@ public class Config {
     /** 文件名后缀：Controller */
     public static final String FILE_NAME_CONTROLLER = "%sController";
 
+    /** 逻辑删除字段 */
+    public static final String FIELD_LOGIC_DELETE_NAME = "delete_state";
 
     /** 作者 */
     public static final String AUTHOR = "Erwin Feng";

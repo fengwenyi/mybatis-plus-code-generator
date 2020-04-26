@@ -1,11 +1,11 @@
-package com.fengwenyi.codegenerator;
+package com.fengwenyi.code_generator;
 
 import com.baomidou.mybatisplus.annotation.DbType;
-import com.fengwenyi.codegenerator.util.CommonUtils;
+import com.fengwenyi.code_generator.util.CommonUtils;
 
 /**
  * MySQL 数据库代码生成类
- * @author Erwin Feng[xfsy_2015@163.com]
+ * @author Erwin Feng
  * @since 2019-04-17 10:33
  */
 public class MySQL8CodeGenerator {

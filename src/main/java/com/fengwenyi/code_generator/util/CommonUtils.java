@@ -1,4 +1,4 @@
-package com.fengwenyi.codegenerator.util;
+package com.fengwenyi.code_generator.util;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
-import com.fengwenyi.codegenerator.Config;
+import com.fengwenyi.code_generator.Config;
 import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
@@ -61,7 +61,7 @@ public class CommonUtils {
                 .setServiceImplName(Config.FILE_NAME_SERVICE_IMPL)
                 .setControllerName(Config.FILE_NAME_CONTROLLER)
                 .setIdType(IdType.ASSIGN_ID) // 主键类型
-//                .setSwagger2(true) // model swagger2
+                .setSwagger2(true) // model swagger2
                 ;
 //                if (!serviceNameStartWithI)
 //                    config.setServiceName("%sService");
@@ -79,9 +79,9 @@ public class CommonUtils {
                 .setInclude(tableNames)//修改替换成你需要的表名，多个表名传数组
                 //.setExclude(new String[]{"test"}) // 排除生成的表
                 .setEntityLombokModel(true) // lombok实体
-                .setEntityBuilderModel(false) // 【实体】是否为构建者模型（默认 false）
+                .setEntityBuilderModel(true) // 【实体】是否为构建者模型（默认 false）
                 .setEntityColumnConstant(false) // 【实体】是否生成字段常量（默认 false）// 可通过常量名获取数据库字段名 // 3.x支持lambda表达式
-                //.setLogicDeleteFieldName("is_delete") // 逻辑删除属性名称
+                .setLogicDeleteFieldName(Config.FIELD_LOGIC_DELETE_NAME) // 逻辑删除属性名称
                 //.setEntityTableFieldAnnotationEnable
                 //.entityTableFieldAnnotationEnable(true)
                 ;

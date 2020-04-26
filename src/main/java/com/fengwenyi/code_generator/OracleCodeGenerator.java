@@ -1,7 +1,7 @@
-package com.fengwenyi.codegenerator;
+package com.fengwenyi.code_generator;
 
 import com.baomidou.mybatisplus.annotation.DbType;
-import com.fengwenyi.codegenerator.util.CommonUtils;
+import com.fengwenyi.code_generator.util.CommonUtils;
 
 /**
  * Oracle 数据库代码生成类

@@ -95,7 +95,7 @@ String packageName = "com.example.module.db";
 ## 更多配置
 
 ```java
-package com.fengwenyi.codegenerator;
+package com.fengwenyi.code_generator;
 
 /**
  * @author Erwin Feng
