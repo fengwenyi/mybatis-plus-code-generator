@@ -10,13 +10,13 @@ public class Config {
     public static final String PACKAGE_NAME_CONTROLLER = "controller";
 
     /** 包名：service */
-    public static final String PACKAGE_NAME_SERVICE = "service";
+    public static final String PACKAGE_NAME_SERVICE = "repository";
 
     /** 包名：service.impl */
-    public static final String PACKAGE_NAME_SERVICE_IMPL = "service.impl";
+    public static final String PACKAGE_NAME_SERVICE_IMPL = "repository.impl";
 
     /** 包名：model */
-    public static final String PACKAGE_NAME_MODEL = "model";
+    public static final String PACKAGE_NAME_MODEL = "entry";
 
     /** 包名：dao */
     public static final String PACKAGE_NAME_DAO = "dao";
@@ -25,7 +25,7 @@ public class Config {
     public static final String PACKAGE_NAME_XML = "mapper";
 
     /** 文件名后缀：Model */
-    public static final String FILE_NAME_MODEL = "%sModel";
+    public static final String FILE_NAME_MODEL = "%sEntry";
 
     /** 文件名后缀：Dao */
     public static final String FILE_NAME_DAO = "%sDao";
@@ -34,10 +34,10 @@ public class Config {
     public static final String FILE_NAME_XML = "%sMapper";
 
     /** MP开头，Service结尾 */
-    public static final String FILE_NAME_SERVICE = "MP%sService";
+    public static final String FILE_NAME_SERVICE = "%sRepository";
 
     /** 文件名后缀：ServiceImpl */
-    public static final String FILE_NAME_SERVICE_IMPL = "%sServiceImpl";
+    public static final String FILE_NAME_SERVICE_IMPL = "%sRepositoryImpl";
 
     /** 文件名后缀：Controller */
     public static final String FILE_NAME_CONTROLLER = "%sController";
