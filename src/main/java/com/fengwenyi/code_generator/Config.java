@@ -58,4 +58,7 @@ public class Config {
     /** 模板引擎。velocity / freemarker / beetl */
     public static final String TEMPLATE_ENGINE = "velocity";
 
+    /** 是否支持Swagger，默认不支持 */
+    public static final Boolean SWAGGER_SUPPORT = false;
+
 }
