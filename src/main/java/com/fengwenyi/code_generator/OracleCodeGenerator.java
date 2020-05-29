@@ -13,8 +13,8 @@ public class OracleCodeGenerator {
     public static void main(String[] args) {
         DbType dbType = DbType.ORACLE;
         String dbUrl = "jdbc:oracle:thin:@localhost:1521:orcl";
-        String username = "username";
-        String password = "password";
+        String username = "dbUsername";
+        String password = "dbPassword";
         String driver = "oracle.jdbc.OracleDriver";
         // 表前缀，生成的实体类，不含前缀
         String [] tablePrefixes = {};

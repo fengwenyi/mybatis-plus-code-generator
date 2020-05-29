@@ -21,7 +21,9 @@
         <spring.version>5.0.8.RELEASE</spring.version>
         <oracle.version>11.2.0.3</oracle.version>
         <slf4j.version>1.7.26</slf4j.version>
-        <velocity.version>2.1</velocity.version>
+        <velocity.version>2.2</velocity.version>
+        <freemarker.version>2.3.30</freemarker.version>
+        <beetl.version>3.1.6.RELEASE</beetl.version>
     </properties>
 
     <dependencies>
@@ -53,28 +55,6 @@
             <version>${oracle.version}</version>
         </dependency>
 
-        <!-- mp 2.3.1 需要 -->
-        <!--<dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.8.0-beta2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.velocity</groupId>
-            <artifactId>velocity</artifactId>
-            <version>1.7</version>
-        </dependency>-->
-        <!--  mp 2.3.1 end  -->
-
-
-        <!-- test -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.3.0-RC1</version>
-            <!--<scope>test</scope>-->
-        </dependency>
-
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -99,7 +79,34 @@
             <version>${velocity.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>${freemarker.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ibeetl</groupId>
+            <artifactId>beetl</artifactId>
+            <version>${beetl.version}</version>
+        </dependency>
+
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <repositories>
         <repository>

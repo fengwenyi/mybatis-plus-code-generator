@@ -55,4 +55,7 @@ public class Config {
 //    public static final String outputDir = projectPath + "/src/main/java";
     public static final String outputDir = "/Users/code-generator";
 
+    /** 模板引擎。velocity / freemarker / beetl */
+    public static final String TEMPLATE_ENGINE = "velocity";
+
 }

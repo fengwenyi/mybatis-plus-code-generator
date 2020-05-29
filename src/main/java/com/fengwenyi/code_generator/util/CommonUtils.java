@@ -9,6 +9,10 @@ import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
+import com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine;
+import com.baomidou.mybatisplus.generator.engine.BeetlTemplateEngine;
+import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
+import com.baomidou.mybatisplus.generator.engine.VelocityTemplateEngine;
 import com.fengwenyi.code_generator.Config;
 import org.springframework.util.StringUtils;
 
@@ -129,6 +133,23 @@ public class CommonUtils {
     }
 
     /**
+     * 获取模板引擎
+     * @return 模板引擎 {@link AbstractTemplateEngine}
+     */
+    private static AbstractTemplateEngine getTemplateEngine() {
+        String templateEngine = Config.TEMPLATE_ENGINE;
+        switch (templateEngine) {
+            case "velocity":
+                return new VelocityTemplateEngine();
+            case "freemarker":
+                return new FreemarkerTemplateEngine();
+            case "beetl":
+                return new BeetlTemplateEngine();
+        }
+        return new VelocityTemplateEngine();
+    }
+
+    /**
      * 执行器
      * @param dbType
      * @param dbUrl
@@ -145,12 +166,14 @@ public class CommonUtils {
         DataSourceConfig dataSourceConfig = dataSourceConfig(dbType, dbUrl, username, password, driver);
         StrategyConfig strategyConfig = strategyConfig(tablePrefixes, tableNames, fieldPrefixes);
         PackageConfig packageConfig = packageConfig(packageName);
-        InjectionConfig injectionConfig = injectionConfig(packageConfig);
+//        InjectionConfig injectionConfig = injectionConfig(packageConfig);
+        AbstractTemplateEngine templateEngine = getTemplateEngine();
         new AutoGenerator()
                 .setGlobalConfig(globalConfig)
                 .setDataSource(dataSourceConfig)
                 .setStrategy(strategyConfig)
                 .setPackageInfo(packageConfig)
+                .setTemplateEngine(templateEngine)
                 //.setCfg(injectionConfig)
                 .execute();
     }
