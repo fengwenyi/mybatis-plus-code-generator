@@ -37,21 +37,22 @@
 ├── README.md
 ├── pom.xml
 └── src
-    └── main
-        ├── java
-        │   └── com
-        │       └── fengwenyi
-        │           └── code_generator
-        │               ├── Config.java                      // 自定义配置
-        │               ├── MySQL8CodeGenerator.java         // MySQL代码生成器
-        │               ├── OracleCodeGenerator.java         // Oracle代码生成器
-        │               └── util
-        │                   └── CommonUtils.java
-        └── test
-            └── com
-                └── fengwenyi
-                    └── code_generator
-                        └── CodeGeneratorTests                // 代码生成器测试
+    ├── main
+    │   └── java
+    │       └── com
+    │           └── fengwenyi
+    │               └── code_generator
+    │                   ├── Config.java                      // 自定义配置
+    │                   ├── MySQL8CodeGenerator.java         // MySQL代码生成器
+    │                   ├── OracleCodeGenerator.java         // Oracle代码生成器
+    │                   └── util
+    │                       └── CommonUtils.java
+    └── test
+        └── java
+            └── com
+                └── fengwenyi
+                    └── code_generator
+                        └── CodeGeneratorTests                // 代码生成器测试
 
 ```
 
