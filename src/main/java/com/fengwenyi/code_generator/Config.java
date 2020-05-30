@@ -16,7 +16,7 @@ public class Config {
     public static final String PACKAGE_NAME_SERVICE_IMPL = "repository.impl";
 
     /** 包名：model */
-    public static final String PACKAGE_NAME_MODEL = "entry";
+    public static final String PACKAGE_NAME_MODEL = "entity";
 
     /** 包名：dao */
     public static final String PACKAGE_NAME_DAO = "dao";
@@ -25,7 +25,7 @@ public class Config {
     public static final String PACKAGE_NAME_XML = "mapper";
 
     /** 文件名后缀：Model */
-    public static final String FILE_NAME_MODEL = "%sEntry";
+    public static final String FILE_NAME_MODEL = "%sEntity";
 
     /** 文件名后缀：Dao */
     public static final String FILE_NAME_DAO = "%sDao";
