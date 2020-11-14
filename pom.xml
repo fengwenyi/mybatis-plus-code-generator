@@ -24,6 +24,7 @@
         <velocity.version>2.2</velocity.version>
         <freemarker.version>2.3.30</freemarker.version>
         <beetl.version>3.1.6.RELEASE</beetl.version>
+        <junit.version>4.13.1</junit.version>
     </properties>
 
     <dependencies>
@@ -94,7 +95,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.13</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
 
