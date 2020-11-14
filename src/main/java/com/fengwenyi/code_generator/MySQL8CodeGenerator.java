@@ -13,8 +13,8 @@ public class MySQL8CodeGenerator {
     public static void main(String[] args) {
         DbType dbType = DbType.MYSQL;
         String dbUrl = "jdbc:mysql://localhost:3306/dbName";
-        String username = "dbUsername";
-        String password = "dbPassword";
+        String username = "username";
+        String password = "password";
         String driver = "com.mysql.cj.jdbc.Driver";
         // 表前缀，生成的实体类，不含前缀
         String [] tablePrefixes = {};

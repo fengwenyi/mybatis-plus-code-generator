@@ -4,18 +4,18 @@ import com.baomidou.mybatisplus.annotation.DbType;
 import com.fengwenyi.code_generator.util.CommonUtils;
 
 /**
- * Oracle 数据库代码生成类
- * @author Erwin Feng[xfsy_2015@163.com]
- * @since 2019-04-17 10:33
+ * SQL Server
+ * @author Erwin Feng
+ * @since 2020-11-14
  */
-public class OracleCodeGenerator {
+public class SqlServerCodeGenerator {
 
     public static void main(String[] args) {
-        DbType dbType = DbType.ORACLE;
-        String dbUrl = "jdbc:oracle:thin:@localhost:1521:orcl";
+        DbType dbType = DbType.SQL_SERVER;
+        String dbUrl = "jdbc:sqlserver://localhost:1433;DatabaseName=dbName";
         String username = "username";
         String password = "password";
-        String driver = "oracle.jdbc.OracleDriver";
+        String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
         // 表前缀，生成的实体类，不含前缀
         String [] tablePrefixes = {};
         // 表名，为空，生成所有的表
