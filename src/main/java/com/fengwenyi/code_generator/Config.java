@@ -19,22 +19,22 @@ public class Config {
     public static final String PACKAGE_NAME_MODEL = "entity";
 
     /** 包名：dao */
-    public static final String PACKAGE_NAME_DAO = "dao";
+    public static final String PACKAGE_NAME_DAO = "mapper";
 
     /** 包名：xml */
-    public static final String PACKAGE_NAME_XML = "mapper";
+    public static final String PACKAGE_NAME_XML = "xml";
 
     /** 文件名后缀：Model */
     public static final String FILE_NAME_MODEL = "%sEntity";
 
     /** 文件名后缀：Dao */
-    public static final String FILE_NAME_DAO = "%sDao";
+    public static final String FILE_NAME_DAO = "I%sMapper";
 
     /** 文件名后缀：Mapper */
     public static final String FILE_NAME_XML = "%sMapper";
 
     /** MP开头，Service结尾 */
-    public static final String FILE_NAME_SERVICE = "%sRepository";
+    public static final String FILE_NAME_SERVICE = "MP%sRepository";
 
     /** 文件名后缀：ServiceImpl */
     public static final String FILE_NAME_SERVICE_IMPL = "%sRepositoryImpl";
@@ -43,7 +43,7 @@ public class Config {
     public static final String FILE_NAME_CONTROLLER = "%sController";
 
     /** 逻辑删除字段 */
-    public static final String FIELD_LOGIC_DELETE_NAME = "delete_state";
+    public static final String FIELD_LOGIC_DELETE_NAME = "delete_status";
 
     /** 作者 */
     public static final String AUTHOR = "Erwin Feng";
