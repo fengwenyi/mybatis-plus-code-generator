@@ -86,8 +86,7 @@ public class CommonUtils {
                 .setChainModel(true) // 【实体】是否为构建者模型（默认 false）
                 .setEntityColumnConstant(false) // 【实体】是否生成字段常量（默认 false）// 可通过常量名获取数据库字段名 // 3.x支持lambda表达式
                 .setLogicDeleteFieldName(Config.FIELD_LOGIC_DELETE_NAME) // 逻辑删除属性名称
-                //.setEntityTableFieldAnnotationEnable
-                //.entityTableFieldAnnotationEnable(true)
+                .setEntityTableFieldAnnotationEnable(true) // 开启实体字段注解
                 ;
     }
 
