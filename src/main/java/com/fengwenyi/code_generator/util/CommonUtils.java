@@ -50,7 +50,7 @@ public class CommonUtils {
                 .setAuthor(Config.AUTHOR)
                 .setOutputDir(Config.outputDir)
                 .setFileOverride(true) // 是否覆盖已有文件
-                .setOpen(true) // 是否打开输出目录
+                //.setOpen(true) // 是否打开输出目录
                 .setDateType(DateType.TIME_PACK) // 时间采用java 8，（操作工具类：JavaLib => DateTimeUtils）
                 .setActiveRecord(true)// 不需要ActiveRecord特性的请改为false
                 .setEnableCache(false)// XML 二级缓存
@@ -86,6 +86,7 @@ public class CommonUtils {
                 .setChainModel(true) // 【实体】是否为构建者模型（默认 false）
                 .setEntityColumnConstant(false) // 【实体】是否生成字段常量（默认 false）// 可通过常量名获取数据库字段名 // 3.x支持lambda表达式
                 .setLogicDeleteFieldName(Config.FIELD_LOGIC_DELETE_NAME) // 逻辑删除属性名称
+                .setVersionFieldName(Config.FIELD_VERSION_NAME) // 乐观锁字段名
                 .setEntityTableFieldAnnotationEnable(true) // 开启实体字段注解
                 ;
     }

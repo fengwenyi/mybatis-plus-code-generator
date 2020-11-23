@@ -45,6 +45,10 @@ public class Config {
     /** 逻辑删除字段 */
     public static final String FIELD_LOGIC_DELETE_NAME = "delete_status";
 
+
+    /** 乐观锁字段名 */
+    public static final String FIELD_VERSION_NAME = "version";
+
     /** 作者 */
     public static final String AUTHOR = "Erwin Feng";
 
@@ -53,7 +57,7 @@ public class Config {
 
     /** 输出目录 */
 //    public static final String outputDir = projectPath + "/src/main/java";
-    public static final String outputDir = "/Users/code-generator";
+    public static final String outputDir = "/Users/wenyifeng/Temp/code-generator";
 
     /** 模板引擎。velocity / freemarker / beetl */
     public static final String TEMPLATE_ENGINE = "velocity";
