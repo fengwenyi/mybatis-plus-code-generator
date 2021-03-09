@@ -105,7 +105,7 @@ com.fengwenyi.code_generator.Config
 |   PACKAGE_NAME_SERVICE_IMPL    |  数据库服务接口实现类包名    |     repository.impl  |
 |   PACKAGE_NAME_MODEL    |  数据库实体类包名    |     entity  |
 |   PACKAGE_NAME_DAO    |  数据库操作接口包名    |     dao  |
-|   PACKAGE_NAME_XML    |  MyBatis XML文件夹名称    |     mapper  |
+|   DIR_NAME_XML    |  MyBatis XML文件夹名称    |     mapper  |
 |   FILE_NAME_MODEL    |  数据库实体类文件名后缀    |     %sEntity  |
 |   FILE_NAME_DAO    |  数据库操作接口文件名后缀    |     I%sDao  |
 |   FILE_NAME_XML    |  MyBatis XML文件名后缀    |     %sMapper  |
