@@ -19,16 +19,16 @@ public class Config {
     public static final String PACKAGE_NAME_MODEL = "entity";
 
     /** 包名：dao */
-    public static final String PACKAGE_NAME_DAO = "mapper";
+    public static final String PACKAGE_NAME_DAO = "dao";
 
-    /** 包名：xml */
-    public static final String PACKAGE_NAME_XML = "xml";
+    /** 目录名：xml */
+    public static final String DIR_NAME_XML = "mapper";
 
     /** 文件名后缀：Model */
     public static final String FILE_NAME_MODEL = "%sEntity";
 
     /** 文件名后缀：Dao */
-    public static final String FILE_NAME_DAO = "I%sMapper";
+    public static final String FILE_NAME_DAO = "I%sDao";
 
     /** 文件名后缀：Mapper */
     public static final String FILE_NAME_XML = "%sMapper";
@@ -53,11 +53,10 @@ public class Config {
     public static final String AUTHOR = "Erwin Feng";
 
     /** 生成文件的输出目录 */
-    public static String projectPath = System.getProperty("user.dir");
+    public static String PROJECT_PATH = System.getProperty("user.dir");
 
     /** 输出目录 */
-//    public static final String outputDir = projectPath + "/src/main/java";
-    public static final String outputDir = "/Users/wenyifeng/Temp/code-generator";
+    public static final String OUTPUT_DIR = PROJECT_PATH + "/temp/code-generator";
 
     /** 模板引擎。velocity / freemarker / beetl */
     public static final String TEMPLATE_ENGINE = "velocity";

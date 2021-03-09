@@ -2,7 +2,7 @@
 
 ## Current Version
 
-3.3.2
+3.4.1
 
 ## 概述
 
@@ -61,6 +61,8 @@
 * [x] MySQL
 
 * [x] Oracle
+  
+* [x] SQL Server
 
 ## 快速开始
 
@@ -81,81 +83,43 @@ git clone git@github.com:fengwenyi/mybatis-plus-code-generator.git
 
 ## 简单且必要的配置
 
-```
-String dbUrl = "jdbc:mysql://localhost:3306/dbName";
-String username = "dbUsername";
-String password = "dbPassword";
-String driver = "com.mysql.cj.jdbc.Driver";
-// 表前缀，生成的实体类，不含前缀
-String [] tablePrefixes = {};
-// 表名，为空，生成所有的表
-String [] tableNames = {};
-// 字段前缀
-String [] fieldPrefixes = {};
-// 基础包名
-String packageName = "com.example.module.db";
-```
+| 参数名 | 说明 | 示例值 |
+| ---   | ---  | ---   |
+| dbUrl   | 数据库连接URL  | jdbc:mysql://localhost:3306/dbName   |
+| username   | 数据库用户名  | dbUsername   |
+| password   | 数据库密码  | dbPassword   |
+| driver   | 数据库连接驱动  | com.mysql.cj.jdbc.Driver   |
+| tablePrefixes   | 表前缀，生成的实体类，不含前缀  | t   |
+| tableNames   | 表名，为空，生成所有的表  | t_user, t_goods, t_order   |
+| fieldPrefixes   | 字段前缀  | -   |
+| packageName   | 基础包名  | com.example.module.db   |
 
-## 更多配置
+## 更多配置项
 
-```java
-package com.fengwenyi.code_generator;
+com.fengwenyi.code_generator.Config
 
-/**
- * @author Erwin Feng
- * @since 2019-04-17 12:04
- */
-public class Config {
+| 参数名 | 说明 | 默认值 |
+| ---   | ---  | ---   |
+|   PACKAGE_NAME_CONTROLLER    |  数据库控制层包名    |     controller  |
+|   PACKAGE_NAME_SERVICE    |  数据库服务接口包名    |     repository  |
+|   PACKAGE_NAME_SERVICE_IMPL    |  数据库服务接口实现类包名    |     repository.impl  |
+|   PACKAGE_NAME_MODEL    |  数据库实体类包名    |     entity  |
+|   PACKAGE_NAME_DAO    |  数据库操作接口包名    |     dao  |
+|   PACKAGE_NAME_XML    |  MyBatis XML文件夹名称    |     mapper  |
+|   FILE_NAME_MODEL    |  数据库实体类文件名后缀    |     %sEntity  |
+|   FILE_NAME_DAO    |  数据库操作接口文件名后缀    |     I%sDao  |
+|   FILE_NAME_XML    |  MyBatis XML文件名后缀    |     %sMapper  |
+|   FILE_NAME_SERVICE    |  数据库服务接口文件名后缀    |     MP%sRepository  |
+|   FILE_NAME_SERVICE_IMPL    |  数据库服务接口实现类文件名后缀    |     %sRepositoryImpl  |
+|   FILE_NAME_CONTROLLER    |  数据库控制层文件名后缀    |     %sController  |
+|   FIELD_LOGIC_DELETE_NAME    |  逻辑删除字段名称    |     delete_status  |
+|   FIELD_VERSION_NAME    |  乐观锁字段名称    |     version  |
+|   AUTHOR    |  类注释作者    |     Erwin Feng  |
+|   PROJECT_PATH    |  工程路径    |     System.getProperty("user.dir")  |
+|   OUTPUT_DIR    |  生成的文件路径    |     PROJECT_PATH + "/temp/code-generator"  |
+|   TEMPLATE_ENGINE    |  模板引擎。velocity / freemarker / beetl    |     velocity  |
+|   SWAGGER_SUPPORT    |  生成的实体类是否支持Swagger    |     false  |
 
-    /** 包名：controller */
-    public static final String PACKAGE_NAME_CONTROLLER = "controller";
-
-    /** 包名：service */
-    public static final String PACKAGE_NAME_SERVICE = "service";
-
-    /** 包名：service.impl */
-    public static final String PACKAGE_NAME_SERVICE_IMPL = "service.impl";
-
-    /** 包名：model */
-    public static final String PACKAGE_NAME_MODEL = "model";
-
-    /** 包名：dao */
-    public static final String PACKAGE_NAME_DAO = "dao";
-
-    /** 包名：xml */
-    public static final String PACKAGE_NAME_XML = "mapper";
-
-    /** 文件名后缀：Model */
-    public static final String FILE_NAME_MODEL = "%sModel";
-
-    /** 文件名后缀：Dao */
-    public static final String FILE_NAME_DAO = "%sDao";
-
-    /** 文件名后缀：Mapper */
-    public static final String FILE_NAME_XML = "%sMapper";
-
-    /** MP开头，Service结尾 */
-    public static final String FILE_NAME_SERVICE = "MP%sService";
-
-    /** 文件名后缀：ServiceImpl */
-    public static final String FILE_NAME_SERVICE_IMPL = "%sServiceImpl";
-
-    /** 文件名后缀：Controller */
-    public static final String FILE_NAME_CONTROLLER = "%sController";
-
-
-    /** 作者 */
-    public static final String AUTHOR = "Erwin Feng";
-
-    /** 生成文件的输出目录 */
-    public static String projectPath = System.getProperty("user.dir");
-
-    /** 输出目录 */
-//    public static final String outputDir = projectPath + "/src/main/java";
-    public static final String outputDir = "/Users/code-generator";
-
-}
-```
 
 ## 注意事项
 

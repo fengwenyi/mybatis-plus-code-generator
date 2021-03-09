@@ -1,3 +1,4 @@
 /target/
 .idea
 /mybatis-plus-code-generator.iml
+*/temp/*

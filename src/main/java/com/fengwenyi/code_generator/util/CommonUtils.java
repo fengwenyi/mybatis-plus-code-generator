@@ -48,7 +48,7 @@ public class CommonUtils {
     private static GlobalConfig globalConfig() {
         return new GlobalConfig()
                 .setAuthor(Config.AUTHOR)
-                .setOutputDir(Config.outputDir)
+                .setOutputDir(Config.OUTPUT_DIR)
                 .setFileOverride(true) // 是否覆盖已有文件
                 //.setOpen(true) // 是否打开输出目录
                 .setDateType(DateType.TIME_PACK) // 时间采用java 8，（操作工具类：JavaLib => DateTimeUtils）
@@ -98,7 +98,7 @@ public class CommonUtils {
                 .setController(Config.PACKAGE_NAME_CONTROLLER)
                 .setEntity(Config.PACKAGE_NAME_MODEL)
                 .setMapper(Config.PACKAGE_NAME_DAO)
-                .setXml(Config.PACKAGE_NAME_XML)
+                .setXml(Config.DIR_NAME_XML)
                 .setService(Config.PACKAGE_NAME_SERVICE)
                 .setServiceImpl(Config.PACKAGE_NAME_SERVICE_IMPL)
                 ;
@@ -122,9 +122,9 @@ public class CommonUtils {
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输入文件名称
                 if (StringUtils.isEmpty(packageConfig.getModuleName())) {
-                    return Config.projectPath + "/src/main/resources/mapper/" + tableInfo.getXmlName() + StringPool.DOT_XML;
+                    return Config.PROJECT_PATH + "/src/main/resources/mapper/" + tableInfo.getXmlName() + StringPool.DOT_XML;
                 }else {
-                    return Config.projectPath + "/src/main/resources/mapper/" + packageConfig.getModuleName() + "/" + tableInfo.getXmlName() + StringPool.DOT_XML;
+                    return Config.PROJECT_PATH + "/src/main/resources/mapper/" + packageConfig.getModuleName() + "/" + tableInfo.getXmlName() + StringPool.DOT_XML;
                 }
             }
         });
