@@ -72,7 +72,7 @@ public class CommonUtils {
     }
 
 
-    private static StrategyConfig strategyConfig(String [] tablePrefixes, String [] tableNames, String [] fieldPrefixes) {
+    private static StrategyConfig strategyConfig(String [] tablePrefixes, String [] tableNames, String [] fieldPrefixes, String [] excludeTableNames) {
         return new StrategyConfig()
                 .setCapitalMode(true) // 全局大写命名 ORACLE 注意
                 .setSkipView(false) // 是否跳过视图
@@ -81,7 +81,7 @@ public class CommonUtils {
                 .setFieldPrefix(fieldPrefixes) // 字段前缀
                 .setNaming(NamingStrategy.underline_to_camel) // 表名生成策略
                 .setInclude(tableNames)//修改替换成你需要的表名，多个表名传数组
-                //.setExclude(new String[]{"test"}) // 排除生成的表
+                .setExclude(excludeTableNames) // 排除生成的表
                 .setEntityLombokModel(true) // lombok实体
                 .setChainModel(true) // 【实体】是否为构建者模型（默认 false）
                 .setEntityColumnConstant(false) // 【实体】是否生成字段常量（默认 false）// 可通过常量名获取数据库字段名 // 3.x支持lambda表达式
@@ -161,10 +161,10 @@ public class CommonUtils {
      * @param packageName
      */
     public static void execute(DbType dbType, String dbUrl, String username, String password, String driver,
-                               String [] tablePrefixes, String [] tableNames, String packageName, String [] fieldPrefixes) {
+                               String [] tablePrefixes, String [] tableNames, String packageName, String [] fieldPrefixes, String [] excludeTableNames) {
         GlobalConfig globalConfig = globalConfig();
         DataSourceConfig dataSourceConfig = dataSourceConfig(dbType, dbUrl, username, password, driver);
-        StrategyConfig strategyConfig = strategyConfig(tablePrefixes, tableNames, fieldPrefixes);
+        StrategyConfig strategyConfig = strategyConfig(tablePrefixes, tableNames, fieldPrefixes, excludeTableNames);
         PackageConfig packageConfig = packageConfig(packageName);
 //        InjectionConfig injectionConfig = injectionConfig(packageConfig);
         AbstractTemplateEngine templateEngine = getTemplateEngine();

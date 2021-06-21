@@ -23,9 +23,11 @@ public class CodeGeneratorTests {
         String [] tableNames = {};
         // 字段前缀
         String [] fieldPrefixes = {};
+        // 排除的表名
+        String [] excludeTableNames = {};
         // 基础包名
         String packageName = "com.fengwenyi.studyspringbootmybatisplus.db";
-        CommonUtils.execute(dbType, dbUrl, username, password, driver, tablePrefixes, tableNames, packageName, fieldPrefixes);
+        CommonUtils.execute(dbType, dbUrl, username, password, driver, tablePrefixes, tableNames, packageName, fieldPrefixes, excludeTableNames);
     }
 
 }
