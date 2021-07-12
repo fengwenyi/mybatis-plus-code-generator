@@ -1,22 +1,21 @@
-package com.fengwenyi.code_generator;
+package com.fengwenyi.codegenerator;
 
 import com.baomidou.mybatisplus.annotation.DbType;
-import com.fengwenyi.code_generator.util.CommonUtils;
-import org.junit.Test;
+import com.fengwenyi.codegenerator.util.CommonUtils;
 
 /**
+ * SQL Server
  * @author Erwin Feng
- * @since 2020/5/29
+ * @since 2020-11-14
  */
-public class CodeGeneratorTests {
+public class SqlServerCodeGenerator {
 
-    @Test
-    public void testMySQLCodeGenerator() {
-        DbType dbType = DbType.MYSQL;
-        String dbUrl = "jdbc:mysql://192.168.16.128:3306/study-spring-boot-mybatis-plus";
-        String username = "root";
-        String password = "123456";
-        String driver = "com.mysql.cj.jdbc.Driver";
+    public static void test() {
+        DbType dbType = DbType.SQL_SERVER;
+        String dbUrl = "jdbc:sqlserver://localhost:1433;DatabaseName=dbName";
+        String username = "username";
+        String password = "password";
+        String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
         // 表前缀，生成的实体类，不含前缀
         String [] tablePrefixes = {};
         // 表名，为空，生成所有的表
@@ -26,7 +25,7 @@ public class CodeGeneratorTests {
         // 排除的表名
         String [] excludeTableNames = {};
         // 基础包名
-        String packageName = "com.fengwenyi.studyspringbootmybatisplus.db";
+        String packageName = "com.example.module.db";
         CommonUtils.execute(dbType, dbUrl, username, password, driver, tablePrefixes, tableNames, packageName, fieldPrefixes, excludeTableNames);
     }
 

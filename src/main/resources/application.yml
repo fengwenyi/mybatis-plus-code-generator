@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: mybatis-plus-code-generator
+  thymeleaf:
+    enabled: true
+    prefix: classpath:/templates/
+    mode: HTML
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    suffix: .html
+    cache: false
+  resources:
+    chain:
+      strategy:
+        content:
+          enabled: true
+          paths: /**
+  mvc:
+    static-path-pattern: /static/**

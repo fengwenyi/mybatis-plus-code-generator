@@ -1,7 +1,7 @@
-package com.fengwenyi.code_generator;
+package com.fengwenyi.codegenerator;
 
 import com.baomidou.mybatisplus.annotation.DbType;
-import com.fengwenyi.code_generator.util.CommonUtils;
+import com.fengwenyi.codegenerator.util.CommonUtils;
 
 /**
  * Oracle 数据库代码生成类
@@ -10,7 +10,7 @@ import com.fengwenyi.code_generator.util.CommonUtils;
  */
 public class OracleCodeGenerator {
 
-    public static void main(String[] args) {
+    public static void test() {
         DbType dbType = DbType.ORACLE;
         String dbUrl = "jdbc:oracle:thin:@localhost:1521:orcl";
         String username = "username";

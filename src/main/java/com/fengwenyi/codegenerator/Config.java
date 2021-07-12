@@ -1,4 +1,4 @@
-package com.fengwenyi.code_generator;
+package com.fengwenyi.codegenerator;
 
 /**
  * @author Erwin Feng

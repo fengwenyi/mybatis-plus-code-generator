@@ -96,7 +96,7 @@ git clone git@github.com:fengwenyi/mybatis-plus-code-generator.git
 
 ## 更多配置项
 
-com.fengwenyi.code_generator.Config
+com.fengwenyi.codegenerator.Config
 
 | 参数名 | 说明 | 默认值 |
 | ---   | ---  | ---   |

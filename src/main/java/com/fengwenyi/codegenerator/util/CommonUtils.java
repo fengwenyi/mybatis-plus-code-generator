@@ -1,4 +1,4 @@
-package com.fengwenyi.code_generator.util;
+package com.fengwenyi.codegenerator.util;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -13,7 +13,7 @@ import com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine;
 import com.baomidou.mybatisplus.generator.engine.BeetlTemplateEngine;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 import com.baomidou.mybatisplus.generator.engine.VelocityTemplateEngine;
-import com.fengwenyi.code_generator.Config;
+import com.fengwenyi.codegenerator.Config;
 import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
