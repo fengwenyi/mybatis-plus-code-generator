@@ -4,7 +4,8 @@ layui.use(function(){
         ,laypage = layui.laypage
         ,element = layui.element
         ,laydate = layui.laydate
-        ,util = layui.util;
+        ,util = layui.util
+        ,jQuery = layui.jquery;
 
     //欢迎信息
     layer.msg('Hello World');
@@ -19,44 +20,39 @@ layui.use(function(){
         ,isInitValue: true
     });
 
-    //触发事件
-    util.event('test-active', {
-        'test-form': function(){
-            layer.open({
-                type: 1
-                ,resize: false
-                ,shadeClose: true
-                ,area: '350px'
-                ,title: 'layer + form'
-                ,content: ['<ul class="layui-form layui-form-pane" style="margin: 15px;">'
-                    ,'<li class="layui-form-item">'
-                    ,'<label class="layui-form-label">输入框</label>'
-                    ,'<div class="layui-input-block">'
-                    ,'<input class="layui-input" lay-verify="required" name="field1">'
-                    ,'</div>'
-                    ,'</li>'
-                    ,'<li class="layui-form-item">'
-                    ,'<label class="layui-form-label">选择框</label>'
-                    ,'<div class="layui-input-block">'
-                    ,'<select name="field2">'
-                    ,'<option value="A">A</option>'
-                    ,'<option value="B">B</option>'
-                    ,'<select>'
-                    ,'</div>'
-                    ,'</li>'
-                    ,'<li class="layui-form-item" style="text-align:center;">'
-                    ,'<button type="submit" lay-submit lay-filter="*" class="layui-btn">提交</button>'
-                    ,'</li>'
-                    ,'</ul>'].join('')
-                ,success: function(layero, index){
-                    layero.find('.layui-layer-content').css('overflow', 'visible');
 
-                    form.render().on('submit(*)', function(data){
-                        layer.msg(JSON.stringify(data.field), {icon: 1});
-                        //layer.close(index); //关闭层
+    //监听提交
+    form.on('submit(formDemo)', function(data){
+        // layer.msg(JSON.stringify(data.field));
+        console.log(JSON.stringify(data.field));
+
+        jQuery.ajax({
+            url: "/code-generator",
+            type:'post',
+            // 请求的媒体类型
+            contentType: "application/json",
+            data: JSON.stringify(data.field),
+            beforeSend:function () {
+                this.layerIndex = layer.alert(0, { shade: false });
+            },
+            success:function(response){
+                if(response.success){
+                    layer.msg(data.msg, {
+                        icon: 6,//成功的表情
+                        time: 5000 //1秒关闭（如果不配置，默认是3秒）
+                    }, function(){
+                        location.reload();
                     });
+                }else{
+                    layer.alert(response.msg,{icon: 5});//失败的表情
                 }
-            });
-        }
+            },
+            complete: function () {
+                layer.close(this.layerIndex);
+            },
+        });
+
+        return false;
     });
+
 });

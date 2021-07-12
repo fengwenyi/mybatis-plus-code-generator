@@ -33,24 +33,77 @@
 </head>
 <body>
 <div class="layui-container">
+
+    <h1>MyBatis-Plus代码生成器</h1>
+
     <div class="layui-progress" style="margin: 15px 0 30px;">
         <div class="layui-progress-bar" lay-percent="100%"></div>
     </div>
 
+    <form class="layui-form" action="">
 
-    <div class="layui-btn-container">
-        <button class="layui-btn" test-active="test-form">一个按钮</button>
-        <button class="layui-btn layui-btn-normal" id="test2">当前日期</button>
-    </div>
-
-    <blockquote class="layui-elem-quote" style="margin-top: 30px;">
-        <div class="layui-text">
-            <ul>
-                <li>你当前预览的是：<span>layui-v<span id="version"></span></span></li>
-                <li>layui 是一套开源的 Web UI（界面）组件库。这是一个极其简洁的演示页面</li>
-            </ul>
+        <div class="layui-form-item">
+            <label class="layui-form-label">数据库类型</label>
+            <div class="layui-input-block">
+                <select name="dbType" lay-verify="required">
+                    <option value="0">MySQL</option>
+                    <option value="1">Oracle</option>
+                    <option value="2">MS SQL</option>
+                </select>
+            </div>
         </div>
-    </blockquote>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">数据库地址</label>
+            <div class="layui-input-block">
+                <input type="text" name="host" required  lay-verify="required" placeholder="ip:port / url" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">数据库用户名</label>
+            <div class="layui-input-block">
+                <input type="text" name="username" required  lay-verify="required" placeholder="请输入数据库用户名" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">数据库密码</label>
+            <div class="layui-input-inline">
+                <input type="password" name="password" required lay-verify="required" placeholder="请输入数据库密码" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">数据库名称</label>
+            <div class="layui-input-block">
+                <input type="text" name="dbName" required  lay-verify="required" placeholder="请输入数据库名称" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">包名</label>
+            <div class="layui-input-block">
+                <input type="text" name="packageName" required  lay-verify="required" placeholder="请输入包名" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <!--<div class="layui-form-item">
+            <label class="layui-form-label">文件路径</label>
+            <div class="layui-input-block">
+                <input type="text" name="outDir" required  lay-verify="required" placeholder="请输入文件路径" autocomplete="off" class="layui-input">
+            </div>
+        </div>-->
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </form>
+
+    <footer>&copy; 2021 <a target="_blank" href="https://www.fengwenyi.com">Erwin Feng</a></footer>
 </div>
 </body>
 </html>
