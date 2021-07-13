@@ -8,17 +8,17 @@ layui.use(function(){
         ,jQuery = layui.jquery;
 
     //欢迎信息
-    layer.msg('Hello World');
+    // layer.msg('Hello World');
 
     //输出版本号
-    lay('#version').html(layui.v);
+    // lay('#version').html(layui.v);
 
     //日期
-    laydate.render({
-        elem: '#test2'
-        ,value: new Date()
-        ,isInitValue: true
-    });
+    // laydate.render({
+    //     elem: '#test2'
+    //     ,value: new Date()
+    //     ,isInitValue: true
+    // });
 
 
     //监听提交

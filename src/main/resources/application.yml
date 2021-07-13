@@ -10,11 +10,5 @@ spring:
       content-type: text/html
     suffix: .html
     cache: false
-  resources:
-    chain:
-      strategy:
-        content:
-          enabled: true
-          paths: /**
   mvc:
     static-path-pattern: /static/**
