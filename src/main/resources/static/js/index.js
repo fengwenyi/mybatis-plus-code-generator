@@ -1,4 +1,4 @@
-layui.use(function(){
+layui.use(function() {
     var layer = layui.layer
         ,form = layui.form
         ,laypage = layui.laypage
@@ -7,51 +7,31 @@ layui.use(function(){
         ,util = layui.util
         ,jQuery = layui.jquery;
 
-    //欢迎信息
-    // layer.msg('Hello World');
-
-    //输出版本号
-    // lay('#version').html(layui.v);
-
-    //日期
-    // laydate.render({
-    //     elem: '#test2'
-    //     ,value: new Date()
-    //     ,isInitValue: true
-    // });
-
 
     //监听提交
     form.on('submit(formDemo)', function(data){
-        // layer.msg(JSON.stringify(data.field));
-        console.log(JSON.stringify(data.field));
-
+        //console.log(JSON.stringify(data.field));
+        let layerIndex;
         jQuery.ajax({
             url: "/code-generator",
             type:'post',
             // 请求的媒体类型
-            contentType: "application/json",
+            contentType: "application/json;charset=UTF-8",
             data: JSON.stringify(data.field),
             beforeSend:function () {
-                this.layerIndex = layer.alert(0, { shade: false });
+                layerIndex = layer.load(0, { shade: 0.1 });
             },
             success:function(response){
                 if(response.success){
-                    layer.msg(data.msg, {
-                        icon: 6,//成功的表情
-                        time: 5000 //1秒关闭（如果不配置，默认是3秒）
-                    }, function(){
-                        location.reload();
-                    });
+                    layer.alert(response.msg, { icon: 6 });
                 }else{
-                    layer.alert(response.msg,{icon: 5});//失败的表情
+                    layer.alert(response.msg,{ icon: 5 });//失败的表情
                 }
             },
             complete: function () {
-                layer.close(this.layerIndex);
+                layer.close(layerIndex);
             },
         });
-
         return false;
     });
 
