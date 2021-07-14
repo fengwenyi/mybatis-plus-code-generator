@@ -38,6 +38,18 @@
 
 将项目git clone到本地，运行即可。
 
+#### 方案二
+
+下载jar：https://download.csdn.net/download/qq_28336351/20284086
+
+免费下载
+
+运行:
+
+```shell
+java -jar mybatis-plus-code-generator-3.4.1.jar
+```
+
 #### 访问
 
 > http://localhost:8080
