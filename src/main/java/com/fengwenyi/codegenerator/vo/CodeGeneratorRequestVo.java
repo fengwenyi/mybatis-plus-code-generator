@@ -1,6 +1,5 @@
 package com.fengwenyi.codegenerator.vo;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 /**
