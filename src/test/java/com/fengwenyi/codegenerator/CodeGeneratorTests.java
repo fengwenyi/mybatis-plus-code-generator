@@ -27,7 +27,7 @@ public class CodeGeneratorTests {
         String [] excludeTableNames = {};
         // 基础包名
         String packageName = "com.fengwenyi.studyspringbootmybatisplus.db";
-        CommonUtils.execute(dbType, dbUrl, username, password, driver, tablePrefixes, tableNames, packageName, fieldPrefixes, excludeTableNames);
+        //CommonUtils.execute(dbType, dbUrl, username, password, driver, tablePrefixes, tableNames, packageName, fieldPrefixes, excludeTableNames);
     }
 
 }

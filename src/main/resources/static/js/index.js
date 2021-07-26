@@ -1,3 +1,4 @@
+
 layui.use(function() {
     var layer = layui.layer
         ,form = layui.form
@@ -6,6 +7,9 @@ layui.use(function() {
         ,laydate = layui.laydate
         ,util = layui.util
         ,jQuery = layui.jquery;
+
+
+    jQuery("#inputAuthor").val('<a href="https://fengwenyi.com">Erwin Feng</a>')
 
 
     //监听提交

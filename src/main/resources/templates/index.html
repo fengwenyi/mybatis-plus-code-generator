@@ -43,10 +43,11 @@
         <div class="layui-progress-bar" lay-percent="100%"></div>
     </div>
 
+<form class="layui-form" action="">
 
     <div class="main-panel">
         <div class="main-left-panel">
-            <form class="layui-form" action="">
+
 
                 <blockquote class="layui-elem-quote"><span class="red-star">*</span>项目</blockquote>
 
@@ -63,9 +64,9 @@
                     <label class="layui-form-label"><span class="red-star">*</span>数据库类型</label>
                     <div class="layui-input-block">
                         <select name="dbType" lay-verify="required">
-                            <option value="1">MySQL</option>
-                            <option value="2">Oracle</option>
-                            <option value="3">MS SQL</option>
+                            <option value="mysql">MySQL</option>
+                            <option value="oracle">Oracle</option>
+                            <option value="sqlserver">SQL Server</option>
                         </select>
                     </div>
                 </div>
@@ -104,28 +105,28 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">表名</label>
                     <div class="layui-input-block">
-                        <textarea name="tableName" placeholder="请输入表名，以英文逗号隔开" class="layui-textarea"></textarea>
+                        <textarea name="tableNames" placeholder="请输入表名，以英文逗号隔开" class="layui-textarea"></textarea>
                     </div>
                 </div>
 
                 <div class="layui-form-item">
                     <label class="layui-form-label">表前缀</label>
                     <div class="layui-input-block">
-                        <input type="text" name="tablePrefix" placeholder="请输入表前缀，以英文逗号隔开" autocomplete="off" class="layui-input">
+                        <input type="text" name="tablePrefixes" placeholder="请输入表前缀，以英文逗号隔开" autocomplete="off" class="layui-input">
                     </div>
                 </div>
 
                 <div class="layui-form-item">
                     <label class="layui-form-label">字段前缀</label>
                     <div class="layui-input-block">
-                        <input type="text" name="fieldPrefix" placeholder="请输入字段前缀，以英文逗号隔开" autocomplete="off" class="layui-input">
+                        <input type="text" name="fieldPrefixes" placeholder="请输入字段前缀，以英文逗号隔开" autocomplete="off" class="layui-input">
                     </div>
                 </div>
 
                 <div class="layui-form-item">
                     <label class="layui-form-label">排除的表名</label>
                     <div class="layui-input-block">
-                        <textarea name="excludeTableName" placeholder="请输入表名，以英文逗号隔开" class="layui-textarea"></textarea>                    </div>
+                        <textarea name="excludeTableNames" placeholder="请输入表名，以英文逗号隔开" class="layui-textarea"></textarea>                    </div>
                 </div>
 
                 <div class="layui-form-item">
@@ -134,121 +135,154 @@
                         <button type="reset" class="layui-btn layui-btn-primary">重置</button>
                     </div>
                 </div>
-            </form>
+
         </div>
         <div class="main-right-panel">
             <div class="layui-collapse">
                 <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">更多配置</h2>
-                    <div class="layui-colla-content">
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">controller包名</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="username" placeholder="请输入表名" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">service包名</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="username" placeholder="请输入表名" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">service.impl包名</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="username" placeholder="请输入表名" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">实体类包名</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="username" placeholder="请输入表名" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">mapper接口包名</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="username" placeholder="请输入表名" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">mappper xml目录名</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="username" placeholder="请输入表名" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">实体文件名后缀</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="username" placeholder="请输入表名" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">Mapper XML文件名</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="username" placeholder="请输入表名" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">Mapper文件名</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="username" placeholder="请输入表名" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">Service文件名</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="username" placeholder="请输入表名" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">ServiceImpl文件名</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="username" placeholder="请输入表名" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">Controller文件名</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="username" placeholder="请输入表名" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">逻辑删除字段名</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="username" placeholder="请输入表名" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">乐观锁字段名</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="username" placeholder="请输入表名" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
+                    <h2 class="layui-colla-title">可选配置</h2>
+                    <div class="layui-colla-content layui-show">
                         <div class="layui-form-item">
                             <label class="layui-form-label">作者</label>
                             <div class="layui-input-block">
-                                <input type="text" name="username" placeholder="请输入表名" autocomplete="off" class="layui-input">
+                                <input id="inputAuthor" type="text" name="author" placeholder="请输入作者" autocomplete="off" class="layui-input">
                             </div>
                         </div>
                         <div class="layui-form-item">
-                            <label class="layui-form-label">是否支持Swagger</label>
+                            <label class="layui-form-label">输出目录</label>
                             <div class="layui-input-block">
-                                <input type="text" name="username" placeholder="请输入表名" autocomplete="off" class="layui-input">
+                                <input type="text" name="outDir" placeholder="输出目录" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">包名配置</h2>
+                    <div class="layui-colla-content">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">实体类</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="packageEntity" placeholder="请输入实体类包名" value="entity" autocomplete="off" class="layui-input">
                             </div>
                         </div>
                         <div class="layui-form-item">
-                            <label class="layui-form-label">时间JDK8还是6</label>
+                            <label class="layui-form-label">mapper</label>
                             <div class="layui-input-block">
-                                <input type="text" name="username" placeholder="请输入表名" autocomplete="off" class="layui-input">
+                                <input type="text" name="packageMapper" placeholder="请输入Mapper包名" value="mapper" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">mappper xml</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="packageMapperXml" placeholder="请输入Mapper XML文件目录名" value="mapper-xml" autocomplete="off" class="layui-input">
                             </div>
                         </div>
 
                         <div class="layui-form-item">
-                            <label class="layui-form-label">文件路径</label>
+                            <label class="layui-form-label">service</label>
                             <div class="layui-input-block">
-                                <input type="text" name="outDir" placeholder="请输入文件路径" autocomplete="off" class="layui-input">
+                                <input type="text" name="packageService" placeholder="请输入service包名" value="service" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">service.impl</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="packageServiceImpl" placeholder="请输入Service Impl包名" value="service.impl" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">controller</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="packageController" placeholder="请输入Controller包名" value="controller" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">文件名格式</h2>
+                    <div class="layui-colla-content">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">实体类</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="fileNamePatternEntity" placeholder="请输入实体类文件名格式" value="%sEntity" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">mapper</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="fileNamePatternMapper" placeholder="请输入Mapper文件名格式" value="I%sDao" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">mappper xml</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="fileNamePatternMapperXml" placeholder="请输入Mapper XML文件名格式" value="%sMapper" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">service</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="fileNamePatternService" placeholder="请输入service文件名格式" value="MP%sRepository" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">service.impl</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="fileNamePatternServiceImpl" placeholder="请输入Service Impl包名" value="%sRepositoryImpl" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">controller</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="fileNamePatternController" placeholder="请输入Controller包名" value="%sController" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">字段名配置</h2>
+                    <div class="layui-colla-content">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">逻辑删除</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="fieldLogicDelete" placeholder="请输入逻辑删除字段名" value="delete_status" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">乐观锁</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="fieldVersion" placeholder="请输入乐观锁字段名" value="version" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">其他配置</h2>
+                    <div class="layui-colla-content">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">模板引擎</label>
+                            <div class="layui-input-block">
+                                <input type="radio" name="templateEngine" value="velocity" title="velocity" checked>
+                                <input type="radio" name="templateEngine" value="freemarker" title="freemarker">
+                                <input type="radio" name="templateEngine" value="beetl" title="beetl">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">是否支持Swagger</label>
+                            <div class="layui-input-block">
+                                <input type="checkbox" name="swaggerSupport" lay-skin="switch" lay-text="开启|关闭" value="true">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">JDK版本</label>
+                            <div class="layui-input-block">
+                                <input type="radio" name="jdkVersion" value="8-" title="8以前">
+                                <input type="radio" name="jdkVersion" value="8" title="8" checked>
                             </div>
                         </div>
                     </div>
@@ -256,6 +290,8 @@
             </div>
         </div>
     </div>
+
+</form>
 
     <footer class="footer">&copy; 2021 <a target="_blank" href="https://www.fengwenyi.com">Erwin Feng</a></footer>
 </div>

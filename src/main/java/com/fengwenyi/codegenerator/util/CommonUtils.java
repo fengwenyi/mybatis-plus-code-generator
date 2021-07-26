@@ -14,6 +14,7 @@ import com.baomidou.mybatisplus.generator.engine.BeetlTemplateEngine;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 import com.baomidou.mybatisplus.generator.engine.VelocityTemplateEngine;
 import com.fengwenyi.codegenerator.Config;
+import com.fengwenyi.codegenerator.bo.CodeGeneratorBo;
 import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
@@ -34,73 +35,81 @@ public class CommonUtils {
      * @param driver 驱动
      * @return DataSourceConfig
      */
-    private static DataSourceConfig dataSourceConfig(DbType dbType, String dbUrl, String username, String password, String driver) {
+    private static DataSourceConfig dataSourceConfig(CodeGeneratorBo bo) {
         return new DataSourceConfig()
-                .setDbType(dbType)
-                .setUrl(dbUrl)
-                .setUsername(username)
-                .setPassword(password)
-                .setDriverName(driver)
+                .setDbType(bo.getDbType())
+                .setUrl(bo.getDbUrl())
+                .setUsername(bo.getUsername())
+                .setPassword(bo.getPassword())
+                .setDriverName(bo.getDriver())
                 ;
     }
 
     // 配置
-    private static GlobalConfig globalConfig() {
+    private static GlobalConfig globalConfig(CodeGeneratorBo bo) {
+        String outDir = bo.getOutDir();
+        if (!StringUtils.hasText(outDir)) {
+            outDir = Config.OUTPUT_DIR;
+        }
+        DateType dateType = DateType.TIME_PACK;
+        if (!"8".equalsIgnoreCase(bo.getJdkVersion())) {
+            dateType = DateType.ONLY_DATE;
+        }
         return new GlobalConfig()
-                .setAuthor(Config.AUTHOR)
-                .setOutputDir(Config.OUTPUT_DIR)
+                .setAuthor(bo.getAuthor())
+                .setOutputDir(outDir)
                 .setFileOverride(true) // 是否覆盖已有文件
                 //.setOpen(true) // 是否打开输出目录
-                .setDateType(DateType.TIME_PACK) // 时间采用java 8，（操作工具类：JavaLib => DateTimeUtils）
+                .setDateType(dateType) // 时间采用java 8，（操作工具类：JavaLib => DateTimeUtils）
                 .setActiveRecord(true)// 不需要ActiveRecord特性的请改为false
                 .setEnableCache(false)// XML 二级缓存
                 .setBaseResultMap(false)// XML ResultMap
                 .setBaseColumnList(false)// XML columList
                 .setKotlin(false) //是否生成 kotlin 代码
                 // 自定义文件命名，注意 %s 会自动填充表实体属性！
-                .setEntityName(Config.FILE_NAME_MODEL)
-                .setMapperName(Config.FILE_NAME_DAO)
-                .setXmlName(Config.FILE_NAME_XML)
-                .setServiceName(Config.FILE_NAME_SERVICE)
-                .setServiceImplName(Config.FILE_NAME_SERVICE_IMPL)
-                .setControllerName(Config.FILE_NAME_CONTROLLER)
+                .setEntityName(bo.getFileNamePatternEntity())
+                .setMapperName(bo.getFileNamePatternMapper())
+                .setXmlName(bo.getFileNamePatternMapperXml())
+                .setServiceName(bo.getFileNamePatternService())
+                .setServiceImplName(bo.getFileNamePatternServiceImpl())
+                .setControllerName(bo.getFileNamePatternController())
                 .setIdType(IdType.ASSIGN_ID) // 主键类型
-                .setSwagger2(Config.SWAGGER_SUPPORT) // model swagger2
+                .setSwagger2(bo.getSwaggerSupport()) // model swagger2
                 ;
 //                if (!serviceNameStartWithI)
 //                    config.setServiceName("%sService");
     }
 
 
-    private static StrategyConfig strategyConfig(String [] tablePrefixes, String [] tableNames, String [] fieldPrefixes, String [] excludeTableNames) {
+    private static StrategyConfig strategyConfig(CodeGeneratorBo bo) {
         return new StrategyConfig()
                 .setCapitalMode(true) // 全局大写命名 ORACLE 注意
                 .setSkipView(false) // 是否跳过视图
                 //.setDbColumnUnderline(true)
-                .setTablePrefix(tablePrefixes)// 此处可以修改为您的表前缀(数组)
-                .setFieldPrefix(fieldPrefixes) // 字段前缀
+                .setTablePrefix(bo.getTablePrefixes())// 此处可以修改为您的表前缀(数组)
+                .setFieldPrefix(bo.getFieldPrefixes()) // 字段前缀
                 .setNaming(NamingStrategy.underline_to_camel) // 表名生成策略
-                .setInclude(tableNames)//修改替换成你需要的表名，多个表名传数组
-                .setExclude(excludeTableNames) // 排除生成的表
+                .setInclude(bo.getTableNames())//修改替换成你需要的表名，多个表名传数组
+                .setExclude(bo.getExcludeTableNames()) // 排除生成的表
                 .setEntityLombokModel(true) // lombok实体
                 .setChainModel(true) // 【实体】是否为构建者模型（默认 false）
                 .setEntityColumnConstant(false) // 【实体】是否生成字段常量（默认 false）// 可通过常量名获取数据库字段名 // 3.x支持lambda表达式
-                .setLogicDeleteFieldName(Config.FIELD_LOGIC_DELETE_NAME) // 逻辑删除属性名称
-                .setVersionFieldName(Config.FIELD_VERSION_NAME) // 乐观锁字段名
+                .setLogicDeleteFieldName(bo.getFieldLogicDelete()) // 逻辑删除属性名称
+                .setVersionFieldName(bo.getFieldVersion()) // 乐观锁字段名
                 .setEntityTableFieldAnnotationEnable(true) // 开启实体字段注解
                 ;
     }
 
     // 包信息配置
-    private static PackageConfig packageConfig(String packageName) {
+    private static PackageConfig packageConfig(CodeGeneratorBo bo) {
         return new PackageConfig()
-                .setParent(packageName)
-                .setController(Config.PACKAGE_NAME_CONTROLLER)
-                .setEntity(Config.PACKAGE_NAME_MODEL)
-                .setMapper(Config.PACKAGE_NAME_DAO)
-                .setXml(Config.DIR_NAME_XML)
-                .setService(Config.PACKAGE_NAME_SERVICE)
-                .setServiceImpl(Config.PACKAGE_NAME_SERVICE_IMPL)
+                .setParent(bo.getPackageName())
+                .setController(bo.getPackageController())
+                .setEntity(bo.getPackageEntity())
+                .setMapper(bo.getPackageMapper())
+                .setXml(bo.getPackageMapperXml())
+                .setService(bo.getPackageService())
+                .setServiceImpl(bo.getPackageServiceImpl())
                 ;
     }
 
@@ -136,8 +145,8 @@ public class CommonUtils {
      * 获取模板引擎
      * @return 模板引擎 {@link AbstractTemplateEngine}
      */
-    private static AbstractTemplateEngine getTemplateEngine() {
-        String templateEngine = Config.TEMPLATE_ENGINE;
+    private static AbstractTemplateEngine getTemplateEngine(CodeGeneratorBo bo) {
+        String templateEngine = bo.getTemplateEngine();
         switch (templateEngine) {
             case "velocity":
                 return new VelocityTemplateEngine();
@@ -149,25 +158,14 @@ public class CommonUtils {
         return new VelocityTemplateEngine();
     }
 
-    /**
-     * 执行器
-     * @param dbType
-     * @param dbUrl
-     * @param username
-     * @param password
-     * @param driver
-     * @param tablePrefixes
-     * @param tableNames
-     * @param packageName
-     */
-    public static void execute(DbType dbType, String dbUrl, String username, String password, String driver,
-                               String [] tablePrefixes, String [] tableNames, String packageName, String [] fieldPrefixes, String [] excludeTableNames) {
-        GlobalConfig globalConfig = globalConfig();
-        DataSourceConfig dataSourceConfig = dataSourceConfig(dbType, dbUrl, username, password, driver);
-        StrategyConfig strategyConfig = strategyConfig(tablePrefixes, tableNames, fieldPrefixes, excludeTableNames);
-        PackageConfig packageConfig = packageConfig(packageName);
+    public static void execute(CodeGeneratorBo bo) {
+        GlobalConfig globalConfig = globalConfig(bo);
+        //DataSourceConfig dataSourceConfig = dataSourceConfig(dbType, dbUrl, username, password, driver);
+        DataSourceConfig dataSourceConfig = dataSourceConfig(bo);
+        StrategyConfig strategyConfig = strategyConfig(bo);
+        PackageConfig packageConfig = packageConfig(bo);
 //        InjectionConfig injectionConfig = injectionConfig(packageConfig);
-        AbstractTemplateEngine templateEngine = getTemplateEngine();
+        AbstractTemplateEngine templateEngine = getTemplateEngine(bo);
         new AutoGenerator()
                 .setGlobalConfig(globalConfig)
                 .setDataSource(dataSourceConfig)
