@@ -54,7 +54,7 @@ java -jar mybatis-plus-code-generator-3.4.1.jar
 
 > http://localhost:8080
 
-![](./images/1.png)
+![](./images/home-20210726.png)
 
 ### 生成代码
 
