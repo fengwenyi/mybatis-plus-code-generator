@@ -8,6 +8,7 @@ import com.fengwenyi.codegenerator.service.IIndexService;
 import com.fengwenyi.codegenerator.util.CommonUtils;
 import com.fengwenyi.codegenerator.vo.CodeGeneratorRequestVo;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -40,8 +41,9 @@ public class IndexServiceImpl implements IIndexService {
         try {
             CommonUtils.execute(bo);
             return ResultTemplate.success();
-        } catch (Exception ignored) {
-
+        } catch (Exception e) {
+            String errMsg = ExceptionUtils.getStackTrace(e);
+            log.error(errMsg);
         }
         return ResultTemplate.fail();
     }
@@ -75,34 +77,25 @@ public class IndexServiceImpl implements IIndexService {
 
     // 处理表
     private void handleTable(CodeGeneratorRequestVo requestVo, CodeGeneratorBo bo) {
-        if (StringUtils.hasText(requestVo.getTableNames())) {
-            bo.setTableNames(split(requestVo.getTableNames()));
-        }
-        if (StringUtils.hasText(requestVo.getTablePrefixes())) {
-            bo.setTablePrefixes(split(requestVo.getTablePrefixes()));
-        }
-        if (StringUtils.hasText(requestVo.getFieldPrefixes())) {
-            bo.setFieldPrefixes(split(requestVo.getFieldPrefixes()));
-        }
-        if (StringUtils.hasText(requestVo.getExcludeTableNames())) {
-            bo.setExcludeTableNames(split(requestVo.getExcludeTableNames()));
-        }
+        bo
+                .setTableNames(split(requestVo.getTableNames()))
+                .setTablePrefixes(split(requestVo.getTablePrefixes()))
+                .setFieldPrefixes(split(requestVo.getFieldPrefixes()))
+                .setExcludeTableNames(split(requestVo.getExcludeTableNames()))
+        ;
     }
 
     private String[] split(String value) {
         if (!StringUtils.hasText(value)) {
-            return null;
+            return new String[]{};
         }
         List<String> valueList = new ArrayList<>();
         String[] values;
         if (value.contains(",")) {
-            log.info("逗号分割");
             values = value.split(",");
         } else if (value.contains("\n")) {
-            log.info("回车分割");
             values = value.split("\n");
         } else {
-            log.info("默认空格分割");
             values = value.split(" ");
         }
         for (String str : values) {

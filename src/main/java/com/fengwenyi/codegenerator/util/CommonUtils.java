@@ -74,7 +74,7 @@ public class CommonUtils {
                 .setServiceImplName(bo.getFileNamePatternServiceImpl())
                 .setControllerName(bo.getFileNamePatternController())
                 .setIdType(IdType.ASSIGN_ID) // 主键类型
-                .setSwagger2(bo.getSwaggerSupport()) // model swagger2
+                .setSwagger2(bo.getSwaggerSupport() != null && bo.getSwaggerSupport()) // model swagger2
                 ;
 //                if (!serviceNameStartWithI)
 //                    config.setServiceName("%sService");
