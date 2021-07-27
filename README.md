@@ -47,7 +47,7 @@
 运行:
 
 ```shell
-java -jar mybatis-plus-code-generator-3.4.1.jar
+java -jar mybatis-plus-code-generator-3.4.1-2.jar
 ```
 
 #### 访问
