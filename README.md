@@ -2,7 +2,7 @@
 
 ## Current Version
 
-3.4.1
+3.4.1-2
 
 ## 概述
 
@@ -54,16 +54,26 @@ java -jar mybatis-plus-code-generator-3.4.1-2.jar
 
 > http://localhost:8080
 
+访问上面地址，你就会看的如下高端、大气、上档次的界面了。
+
 ![](./images/home-20210726.png)
 
 ### 生成代码
 
 #### 填写表单信息
 
-![](./images/2.png)
+必填的主要有两部分，包名和数据库连接信息配置。
+
+这里的包名，指的是，生成的数据库相关的类，要放在哪个包下面。
+
+![](./images/example-2021072701.jpg)
 
 #### 生成代码
 
-![](./images/3.png)
+会生成如下文件：
 
+![](./images/example-2021072702.jpg)
 
+数据库表如下：
+
+![](./images/example-2021072703.jpg)
