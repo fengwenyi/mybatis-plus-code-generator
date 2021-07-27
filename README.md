@@ -77,3 +77,9 @@ java -jar mybatis-plus-code-generator-3.4.1-2.jar
 数据库表如下：
 
 ![](./images/example-2021072703.jpg)
+
+
+
+## 其他
+
+[更新日志](./LOG.md)
