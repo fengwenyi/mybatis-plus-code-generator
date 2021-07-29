@@ -77,4 +77,9 @@ public class CodeGeneratorRequestVo {
     // JDK版本
     private String jdkVersion;
 
+    // 是否开启Lombok
+    private Boolean lombokModel;
+    // 是否使用构建者模型
+    private Boolean lombokChainModel;
+
 }

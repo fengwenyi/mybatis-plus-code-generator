@@ -1,6 +1,5 @@
 package com.fengwenyi.codegenerator.util;
 
-import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
@@ -27,12 +26,8 @@ import java.util.List;
 public class CommonUtils {
 
     /**
-     * 数据连接信息
-     * @param dbType 数据库类型
-     * @param dbUrl 连接地址
-     * @param username 用户名
-     * @param password 密码
-     * @param driver 驱动
+     * 数据库连接信息
+     * @param bo {@link CodeGeneratorBo}
      * @return DataSourceConfig
      */
     private static DataSourceConfig dataSourceConfig(CodeGeneratorBo bo) {
@@ -91,8 +86,8 @@ public class CommonUtils {
                 .setNaming(NamingStrategy.underline_to_camel) // 表名生成策略
                 .setInclude(bo.getTableNames())//修改替换成你需要的表名，多个表名传数组
                 .setExclude(bo.getExcludeTableNames()) // 排除生成的表
-                .setEntityLombokModel(true) // lombok实体
-                .setChainModel(true) // 【实体】是否为构建者模型（默认 false）
+                .setEntityLombokModel(bo.getLombokModel() != null && bo.getLombokModel()) // lombok实体
+                .setChainModel(bo.getLombokChainModel() != null && bo.getLombokChainModel()) // 【实体】是否为构建者模型（默认 false）
                 .setEntityColumnConstant(false) // 【实体】是否生成字段常量（默认 false）// 可通过常量名获取数据库字段名 // 3.x支持lambda表达式
                 .setLogicDeleteFieldName(bo.getFieldLogicDelete()) // 逻辑删除属性名称
                 .setVersionFieldName(bo.getFieldVersion()) // 乐观锁字段名
