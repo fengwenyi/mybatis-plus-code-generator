@@ -88,10 +88,10 @@ public class CommonUtils {
                 .setExclude(bo.getExcludeTableNames()) // 排除生成的表
                 .setEntityLombokModel(bo.getLombokModel() != null && bo.getLombokModel()) // lombok实体
                 .setChainModel(bo.getLombokChainModel() != null && bo.getLombokChainModel()) // 【实体】是否为构建者模型（默认 false）
-                .setEntityColumnConstant(false) // 【实体】是否生成字段常量（默认 false）// 可通过常量名获取数据库字段名 // 3.x支持lambda表达式
+                .setEntityColumnConstant(bo.getColumnConstant() != null && bo.getColumnConstant()) // 【实体】是否生成字段常量（默认 false）// 可通过常量名获取数据库字段名 // 3.x支持lambda表达式
                 .setLogicDeleteFieldName(bo.getFieldLogicDelete()) // 逻辑删除属性名称
                 .setVersionFieldName(bo.getFieldVersion()) // 乐观锁字段名
-                .setEntityTableFieldAnnotationEnable(true) // 开启实体字段注解
+                .setEntityTableFieldAnnotationEnable(bo.getFieldAnnotation() != null && bo.getFieldAnnotation()) // 开启实体字段注解
                 ;
     }
 

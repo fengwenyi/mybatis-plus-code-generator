@@ -83,4 +83,10 @@ public class CodeGeneratorBo {
     // 是否使用构建者模型
     private Boolean lombokChainModel;
 
+    // 字段注解
+    private Boolean fieldAnnotation;
+
+    // 列常量
+    private Boolean columnConstant;
+
 }

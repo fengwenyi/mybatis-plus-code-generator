@@ -260,18 +260,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">其他配置</h2>
-                    <div class="layui-colla-content">
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">模板引擎</label>
-                            <div class="layui-input-block">
-                                <input type="radio" name="templateEngine" value="velocity" title="velocity" checked>
-                                <input type="radio" name="templateEngine" value="freemarker" title="freemarker">
-                                <input type="radio" name="templateEngine" value="beetl" title="beetl">
-                            </div>
-                        </div>
 
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">实体类配置</h2>
+                    <div class="layui-colla-content">
                         <div class="layui-form-item">
                             <label class="layui-form-label">是否支持Swagger</label>
                             <div class="layui-input-block">
@@ -298,6 +290,34 @@
                             <label class="layui-form-label">是否开启链式</label>
                             <div class="layui-input-block">
                                 <input type="checkbox" name="lombokChainModel" lay-skin="switch" lay-text="开启|关闭" value="true" checked>
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">字段注解</label>
+                            <div class="layui-input-block">
+                                <input type="checkbox" name="fieldAnnotation" lay-skin="switch" lay-text="开启|关闭" value="true" checked>
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">列常量</label>
+                            <div class="layui-input-block">
+                                <input type="checkbox" name="columnConstant" lay-skin="switch" lay-text="开启|关闭" value="true">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">其他配置</h2>
+                    <div class="layui-colla-content">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">模板引擎</label>
+                            <div class="layui-input-block">
+                                <input type="radio" name="templateEngine" value="velocity" title="velocity" checked>
+                                <input type="radio" name="templateEngine" value="freemarker" title="freemarker">
+                                <input type="radio" name="templateEngine" value="beetl" title="beetl">
                             </div>
                         </div>
                     </div>
