@@ -57,9 +57,9 @@ public class CommonUtils {
                 //.setOpen(true) // 是否打开输出目录
                 .setDateType(dateType) // 时间采用java 8，（操作工具类：JavaLib => DateTimeUtils）
                 .setActiveRecord(true)// 不需要ActiveRecord特性的请改为false
-                .setEnableCache(false)// XML 二级缓存
-                .setBaseResultMap(false)// XML ResultMap
-                .setBaseColumnList(false)// XML columList
+                .setEnableCache(handleBoolean(bo.getEnableCache()))// XML 二级缓存
+                .setBaseResultMap(handleBoolean(bo.getBaseResultMap()))// XML ResultMap
+                .setBaseColumnList(handleBoolean(bo.getBaseColumnList()))// XML columList
                 .setKotlin(false) //是否生成 kotlin 代码
                 // 自定义文件命名，注意 %s 会自动填充表实体属性！
                 .setEntityName(bo.getFileNamePatternEntity())
@@ -169,6 +169,10 @@ public class CommonUtils {
                 .setTemplateEngine(templateEngine)
                 //.setCfg(injectionConfig)
                 .execute();
+    }
+
+    private static boolean handleBoolean(Boolean b) {
+        return b != null && b;
     }
 
 }

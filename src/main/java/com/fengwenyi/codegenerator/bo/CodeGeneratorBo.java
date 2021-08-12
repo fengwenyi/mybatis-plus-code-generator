@@ -89,4 +89,13 @@ public class CodeGeneratorBo {
     // 列常量
     private Boolean columnConstant;
 
+    // 二级缓存
+    private Boolean enableCache;
+
+    // 基础结果Map
+    private Boolean baseResultMap;
+
+    // 基础列名List
+    private Boolean baseColumnList;
+
 }
