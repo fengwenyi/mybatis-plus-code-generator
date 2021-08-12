@@ -2,7 +2,7 @@
 
 ## Current Version
 
-3.4.1-2
+3.4.1-3
 
 ## 概述
 
@@ -47,7 +47,7 @@
 运行:
 
 ```shell
-java -jar mybatis-plus-code-generator-3.4.1-2.jar
+java -jar mybatis-plus-code-generator-3.4.1-3.jar
 ```
 
 #### 访问
