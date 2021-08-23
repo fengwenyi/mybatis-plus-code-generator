@@ -1,6 +1,6 @@
 package com.fengwenyi.codegenerator;
 
-import com.baomidou.mybatisplus.annotation.DbType;
+import com.fengwenyi.codegenerator.enums.DbType;
 import com.fengwenyi.codegenerator.util.CommonUtils;
 import org.junit.jupiter.api.Test;
 

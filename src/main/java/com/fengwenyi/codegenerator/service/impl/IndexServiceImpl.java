@@ -1,11 +1,11 @@
 package com.fengwenyi.codegenerator.service.impl;
 
-import com.baomidou.mybatisplus.annotation.DbType;
 import com.fengwenyi.api.result.ResultTemplate;
+import com.fengwenyi.apistarter.utils.Asserts;
 import com.fengwenyi.codegenerator.bo.CodeGeneratorBo;
-import com.fengwenyi.codegenerator.exception.BizException;
+import com.fengwenyi.codegenerator.enums.DbType;
+import com.fengwenyi.codegenerator.generator.MyAutoGenerator;
 import com.fengwenyi.codegenerator.service.IIndexService;
-import com.fengwenyi.codegenerator.util.CommonUtils;
 import com.fengwenyi.codegenerator.vo.CodeGeneratorRequestVo;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.exception.ExceptionUtils;
@@ -39,7 +39,8 @@ public class IndexServiceImpl implements IIndexService {
 
     private ResultTemplate<Void> execute(CodeGeneratorBo bo) {
         try {
-            CommonUtils.execute(bo);
+            //CommonUtils.execute(bo);
+            new MyAutoGenerator(bo).execute();
             return ResultTemplate.success();
         } catch (Exception e) {
             String errMsg = ExceptionUtils.getStackTrace(e);
@@ -52,10 +53,10 @@ public class IndexServiceImpl implements IIndexService {
     // 处理数据库
     private void handleDb(CodeGeneratorRequestVo requestVo, CodeGeneratorBo bo) {
         DbType dbType;
-        String dbUrl;
+        String dbUrl = "";
         String username = requestVo.getUsername();
         String password = requestVo.getPassword();
-        String driver;
+        String driver = "";
         if (!StringUtils.hasText(requestVo.getDbTypeName()) || DbType.getDbType(requestVo.getDbTypeName()) == DbType.MYSQL) {
             // mysql
             dbType = DbType.MYSQL;
@@ -70,9 +71,9 @@ public class IndexServiceImpl implements IIndexService {
             dbUrl = "jdbc:sqlserver://" + requestVo.getHost() + ";DatabaseName=" + requestVo.getDbName();
             driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
         } else {
-            throw new BizException("暂不支持的数据库类型");
+            Asserts.fail("暂不支持的数据库类型");
         }
-        bo.setDbType(dbType).setDbUrl(dbUrl).setDriver(driver).setUsername(username).setPassword(password);
+        bo.setDbUrl(dbUrl).setDriver(driver).setUsername(username).setPassword(password);
     }
 
     // 处理表

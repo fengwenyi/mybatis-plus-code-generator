@@ -1,6 +1,5 @@
 package com.fengwenyi.codegenerator.bo;
 
-import com.baomidou.mybatisplus.annotation.DbType;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -16,7 +15,7 @@ public class CodeGeneratorBo {
     private String packageName;
 
     // 数据库类型
-    private DbType dbType;
+    private String dbType;
     // 数据库连接地址
     private String dbUrl;
     // 数据库名称

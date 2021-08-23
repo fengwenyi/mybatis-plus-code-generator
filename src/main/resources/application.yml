@@ -12,3 +12,9 @@ spring:
     cache: false
   mvc:
     static-path-pattern: /static/**
+
+logging:
+  level:
+#    root: debug
+    com.fengwenyi: debug
+    com.baomidou: debug

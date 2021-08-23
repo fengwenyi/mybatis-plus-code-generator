@@ -23,7 +23,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <mybatis-plus.version>3.5.0</mybatis-plus.version>
+        <mybatis-plus-generator.version>3.5.0</mybatis-plus-generator.version>
+        <mybatis-plus.version>3.4.3</mybatis-plus.version>
         <mysql5.version>5.1.47</mysql5.version>
         <mysql8.version>8.0.16</mysql8.version>
         <spring.version>5.0.11.RELEASE</spring.version>
@@ -34,8 +35,7 @@
         <freemarker.version>2.3.30</freemarker.version>
         <beetl.version>3.1.6.RELEASE</beetl.version>
         <junit.version>4.13.1</junit.version>
-        <api-result.version>2.4.0</api-result.version>
-        <JavaLib.version>2.1.2</JavaLib.version>
+        <api-starter.version>1.0.0</api-starter.version>
     </properties>
 
     <dependencies>
@@ -43,6 +43,12 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-generator</artifactId>
+            <version>${mybatis-plus-generator.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus</artifactId>
             <version>${mybatis-plus.version}</version>
         </dependency>
 
@@ -109,20 +115,14 @@
         </dependency>
 
         <dependency>
-            <groupId>com.fengwenyi</groupId>
-            <artifactId>api-result</artifactId>
-            <version>${api-result.version}</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
 
         <dependency>
             <groupId>com.fengwenyi</groupId>
-            <artifactId>JavaLib</artifactId>
-            <version>${JavaLib.version}</version>
+            <artifactId>api-spring-boot-starter</artifactId>
+            <version>${api-starter.version}</version>
         </dependency>
     </dependencies>
 
