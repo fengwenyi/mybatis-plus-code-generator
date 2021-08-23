@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
+import com.baomidou.mybatisplus.generator.config.builder.ConfigBuilder;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
@@ -31,13 +32,16 @@ public class CommonUtils {
      * @return DataSourceConfig
      */
     private static DataSourceConfig dataSourceConfig(CodeGeneratorBo bo) {
-        return new DataSourceConfig()
+        /*return new DataSourceConfig()
                 .setDbType(bo.getDbType())
                 .setUrl(bo.getDbUrl())
                 .setUsername(bo.getUsername())
                 .setPassword(bo.getPassword())
                 .setDriverName(bo.getDriver())
-                ;
+                ;*/
+        return new DataSourceConfig
+                .Builder(bo.getDbUrl(), bo.getUsername(), bo.getPassword())
+                .build();
     }
 
     // 配置
@@ -73,6 +77,12 @@ public class CommonUtils {
                 ;
 //                if (!serviceNameStartWithI)
 //                    config.setServiceName("%sService");
+
+
+        return new GlobalConfig.Builder()
+                .author(bo.getAuthor())
+                .build();
+
     }
 
 
@@ -169,6 +179,30 @@ public class CommonUtils {
                 .setTemplateEngine(templateEngine)
                 //.setCfg(injectionConfig)
                 .execute();
+        new AutoGenerator(dataSourceConfig)
+                .global(globalConfig)
+                .strategy(strategyConfig)
+                .packageInfo(packageConfig)
+                .template(templateEngine)
+//                .config()
+//                .injection()
+                .execute();
+        ConfigBuilder configBuilder = null;
+        new AutoGenerator(dataSourceConfig).config(configBuilder).execute(templateEngine);
+    }
+
+    private ConfigBuilder configBuilder(PackageConfig packageConfig, DataSourceConfig dataSourceConfig, StrategyConfig strategyConfig, TemplateConfig templateConfig, GlobalConfig globalConfig, InjectionConfig injectionConfig) {
+        return new ConfigBuilder(packageConfig, dataSourceConfig, strategyConfig, templateConfig, globalConfig, injectionConfig);
+    }
+
+    private ConfigBuilder configBuilder(CodeGeneratorBo bo) {
+        PackageConfig packageConfig;
+        DataSourceConfig dataSourceConfig = dataSourceConfig(bo);
+        StrategyConfig strategyConfig;
+        TemplateConfig templateConfig;
+        GlobalConfig globalConfig;
+        InjectionConfig injectionConfig;
+        return new ConfigBuilder(packageConfig, dataSourceConfig, strategyConfig, templateConfig, globalConfig, injectionConfig)
     }
 
     private static boolean handleBoolean(Boolean b) {
