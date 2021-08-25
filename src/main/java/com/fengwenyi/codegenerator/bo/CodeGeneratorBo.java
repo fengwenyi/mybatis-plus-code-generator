@@ -97,4 +97,8 @@ public class CodeGeneratorBo {
     // 基础列名List
     private Boolean baseColumnList;
 
+    // 基础类的全类名
+    private String baseClassName;
+
+
 }
