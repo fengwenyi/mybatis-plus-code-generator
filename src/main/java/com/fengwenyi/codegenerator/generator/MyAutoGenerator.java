@@ -3,16 +3,22 @@ package com.fengwenyi.codegenerator.generator;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.generator.SimpleAutoGenerator;
 import com.baomidou.mybatisplus.generator.config.*;
+import com.baomidou.mybatisplus.generator.config.builder.Entity;
+import com.baomidou.mybatisplus.generator.config.builder.Mapper;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.fengwenyi.codegenerator.Config;
 import com.fengwenyi.codegenerator.bo.CodeGeneratorBo;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StringUtils;
+
+import java.util.Objects;
 
 /**
  * @author <a href="https://www.fengwenyi.com">Erwin Feng</a>
  * @since 2021-08-23
  */
+@Slf4j
 public class MyAutoGenerator extends SimpleAutoGenerator {
 
     private final CodeGeneratorBo bo;
@@ -30,13 +36,7 @@ public class MyAutoGenerator extends SimpleAutoGenerator {
     @Override
     public IConfigBuilder<GlobalConfig> globalConfigBuilder() {
         GlobalConfig.Builder builder = new GlobalConfig.Builder();
-        builder
-                .fileOverride()
-                .enableSwagger()
-                .outputDir(bo.getOutDir())
-                .author(bo.getAuthor())
-                //.dateType(DateType.TIME_PACK)
-        ;
+        builder.fileOverride().author(bo.getAuthor());
 
         String outDir = bo.getOutDir();
         if (!StringUtils.hasText(outDir)) {
@@ -49,6 +49,10 @@ public class MyAutoGenerator extends SimpleAutoGenerator {
             dateType = DateType.ONLY_DATE;
         }
         builder.dateType(dateType);
+
+        if (handleBoolean(bo.getSwaggerSupport())) {
+            builder.enableSwagger();
+        }
 
         return builder;
     }
@@ -69,18 +73,20 @@ public class MyAutoGenerator extends SimpleAutoGenerator {
     @Override
     public IConfigBuilder<StrategyConfig> strategyConfigBuilder() {
         StrategyConfig.Builder builder = new StrategyConfig.Builder();
-
-
         builder.addInclude(bo.getTableNames())
+                .addFieldPrefix(bo.getFieldPrefixes())
+                .addTablePrefix(bo.getTablePrefixes())
+                .addExclude(bo.getExcludeTableNames())
                 .entityBuilder()
                     .naming(NamingStrategy.underline_to_camel)
-                    .enableChainModel()
-                    .enableLombok()
+                    //.enableChainModel()
+                    //.enableLombok()
                     //.enableActiveRecord()
                     .formatFileName(bo.getFileNamePatternEntity())
                     .idType(IdType.ASSIGN_ID)
                     .logicDeleteColumnName(bo.getFieldLogicDelete())
-                    .superClass(bo.getBaseClassName())
+                    .versionColumnName(bo.getFieldVersion())
+                    .superClass(bo.getSuperClassName())
                 .mapperBuilder()
                     .formatMapperFileName(bo.getFileNamePatternMapper())
                     .formatXmlFileName(bo.getFileNamePatternMapperXml())
@@ -91,6 +97,34 @@ public class MyAutoGenerator extends SimpleAutoGenerator {
                     .enableRestStyle()
                     .enableHyphenStyle();
 
+        Entity.Builder entityBuilder = builder.entityBuilder();
+        if (handleBoolean(bo.getLombokChainModel())) {
+            entityBuilder.enableChainModel();
+        }
+        if (handleBoolean(bo.getLombokModel())) {
+            entityBuilder.enableChainModel();
+        }
+        if (handleBoolean(bo.getColumnConstant())) {
+            entityBuilder.enableColumnConstant();
+        }
+
+        Mapper.Builder mapperBuilder = builder.mapperBuilder();
+        if (handleBoolean(bo.getBaseResultMap())) {
+            mapperBuilder.enableBaseResultMap();
+        }
+        if (handleBoolean(bo.getBaseColumnList())) {
+            mapperBuilder.enableBaseColumnList();
+        }
+
         return builder;
+    }
+
+    /**
+     * 处理 Boolean，为空时返回false
+     * @param bool Boolean
+     * @return Boolean
+     */
+    private boolean handleBoolean(Boolean bool) {
+        return Objects.nonNull(bool) && bool;
     }
 }

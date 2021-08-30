@@ -97,4 +97,7 @@ public class CodeGeneratorRequestVo {
     // 基础列名List
     private Boolean baseColumnList;
 
+    // 实体父类的全类名
+    private String superClassName;
+
 }
