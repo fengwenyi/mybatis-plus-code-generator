@@ -42,14 +42,14 @@
 
 #### 方案二
 
-下载jar：https://download.csdn.net/download/qq_28336351/20284086
+下载jar：https://download.csdn.net/download/qq_28336351/21818420
 
 免费下载
 
 运行:
 
 ```shell
-java -jar mybatis-plus-code-generator-3.4.1-3.jar
+java -jar mybatis-plus-code-generator-3.5.0.1.jar
 ```
 
 #### 访问
