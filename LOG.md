@@ -3,8 +3,8 @@
 ## v3.5.0.2
 
 - 【新增】新增忽略字段，继承父类的字段不再生成
-- 【修复】修复开启swagger支持报错问题(#9)
-- 【修复】修复开启lombok却不生效的问题(#10)
+- 【修复】修复开启swagger支持报错问题([#9](https://github.com/fengwenyi/mybatis-plus-code-generator/issues/9))
+- 【修复】修复开启lombok却不生效的问题([#10](https://github.com/fengwenyi/mybatis-plus-code-generator/issues/10))
 
 ## v3.5.0.1
 
