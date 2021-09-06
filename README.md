@@ -2,7 +2,7 @@
 
 ## Current Version
 
-3.5.0.1
+3.5.0.2
 
 说明： 除最后一位，前面的为mybatis-plus-generator的版本号，最后一位为该版本迭代次数。
 
@@ -49,7 +49,7 @@
 运行:
 
 ```shell
-java -jar mybatis-plus-code-generator-3.5.0.1.jar
+java -jar mybatis-plus-code-generator-3.5.0.2.jar
 ```
 
 #### 访问
