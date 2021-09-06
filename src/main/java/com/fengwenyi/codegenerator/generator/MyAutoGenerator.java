@@ -87,6 +87,7 @@ public class MyAutoGenerator extends SimpleAutoGenerator {
                     .logicDeleteColumnName(bo.getFieldLogicDelete())
                     .versionColumnName(bo.getFieldVersion())
                     .superClass(bo.getSuperClassName())
+                    .addIgnoreColumns(bo.getIgnoreColumns())
                 .mapperBuilder()
                     .formatMapperFileName(bo.getFileNamePatternMapper())
                     .formatXmlFileName(bo.getFileNamePatternMapperXml())

@@ -83,6 +83,7 @@ public class IndexServiceImpl implements IIndexService {
                 .setTablePrefixes(split(requestVo.getTablePrefixes()))
                 .setFieldPrefixes(split(requestVo.getFieldPrefixes()))
                 .setExcludeTableNames(split(requestVo.getExcludeTableNames()))
+                .setIgnoreColumns(split(requestVo.getIgnoreColumns()))
         ;
     }
 

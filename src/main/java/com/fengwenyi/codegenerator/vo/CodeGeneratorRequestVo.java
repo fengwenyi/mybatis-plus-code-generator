@@ -33,6 +33,8 @@ public class CodeGeneratorRequestVo {
     private String fieldPrefixes;
     // 排出表的表名
     private String excludeTableNames;
+    // 忽略的字段
+    private String ignoreColumns;
 
     // 作者
     private String author;
