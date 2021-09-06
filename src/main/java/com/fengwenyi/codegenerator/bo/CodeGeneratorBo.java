@@ -79,6 +79,7 @@ public class CodeGeneratorBo {
 
     // 是否开启Lombok
     private Boolean lombokModel;
+
     // 是否使用构建者模型
     private Boolean lombokChainModel;
 

@@ -102,7 +102,7 @@ public class MyAutoGenerator extends SimpleAutoGenerator {
             entityBuilder.enableChainModel();
         }
         if (handleBoolean(bo.getLombokModel())) {
-            entityBuilder.enableChainModel();
+            entityBuilder.enableLombok();
         }
         if (handleBoolean(bo.getColumnConstant())) {
             entityBuilder.enableColumnConstant();
