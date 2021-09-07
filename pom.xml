@@ -40,10 +40,17 @@
 
     <dependencies>
         <!-- mybatis-plus(mybatis) -->
-        <dependency>
+        <!--<dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-generator</artifactId>
             <version>${mybatis-plus-generator.version}</version>
+        </dependency>-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-generator</artifactId>
+            <version>3.5.1-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/mybatis-plus-generator-3.5.1-SNAPSHOT.jar</systemPath>
         </dependency>
 
         <dependency>

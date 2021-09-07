@@ -34,7 +34,7 @@ public class MyAutoGenerator extends SimpleAutoGenerator {
     }
 
     @Override
-    public IConfigBuilder<GlobalConfig> globalConfigBuilder() {
+    public GlobalConfig.Builder globalConfigBuilder() {
         GlobalConfig.Builder builder = new GlobalConfig.Builder();
         builder.fileOverride().author(bo.getAuthor());
 
@@ -57,8 +57,32 @@ public class MyAutoGenerator extends SimpleAutoGenerator {
         return builder;
     }
 
+    /*@Override
+    public IConfigBuilder<GlobalConfig> globalConfigBuilder() {
+        GlobalConfig.Builder builder = new GlobalConfig.Builder();
+        builder.fileOverride().author(bo.getAuthor());
+
+        String outDir = bo.getOutDir();
+        if (!StringUtils.hasText(outDir)) {
+            outDir = Config.OUTPUT_DIR;
+        }
+        builder.outputDir(outDir);
+
+        DateType dateType = DateType.TIME_PACK;
+        if (!"8".equalsIgnoreCase(bo.getJdkVersion())) {
+            dateType = DateType.ONLY_DATE;
+        }
+        builder.dateType(dateType);
+
+        if (handleBoolean(bo.getSwaggerSupport())) {
+            builder.enableSwagger();
+        }
+
+        return builder;
+    }*/
+
     @Override
-    public IConfigBuilder<PackageConfig> packageConfigBuilder() {
+    public PackageConfig.Builder packageConfigBuilder() {
         return new PackageConfig.Builder()
                 .parent(bo.getPackageName())
                 // builder.moduleName("");
@@ -69,6 +93,19 @@ public class MyAutoGenerator extends SimpleAutoGenerator {
                 .service(bo.getPackageService())
                 .serviceImpl(bo.getPackageServiceImpl());
     }
+
+    /*@Override
+    public IConfigBuilder<PackageConfig> packageConfigBuilder() {
+        return new PackageConfig.Builder()
+                .parent(bo.getPackageName())
+                // builder.moduleName("");
+                .controller(bo.getPackageController())
+                .entity(bo.getPackageEntity())
+                .mapper(bo.getPackageMapper())
+                .xml(bo.getPackageMapperXml())
+                .service(bo.getPackageService())
+                .serviceImpl(bo.getPackageServiceImpl());
+    }*/
 
     @Override
     public IConfigBuilder<StrategyConfig> strategyConfigBuilder() {
