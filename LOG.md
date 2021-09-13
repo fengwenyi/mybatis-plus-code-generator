@@ -1,5 +1,10 @@
 # 更新日志
 
+## v3.5.0.3
+
+- 【修复】修复关闭字段注解无效的问题。([#13](https://github.com/fengwenyi/mybatis-plus-code-generator/issues/13))
+- 【新增】服务docker化。([#12](https://github.com/fengwenyi/mybatis-plus-code-generator/issues/12))
+
 ## v3.5.0.2
 
 - 【新增】新增忽略字段，继承父类的字段不再生成
