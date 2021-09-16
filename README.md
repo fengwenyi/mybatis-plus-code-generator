@@ -43,18 +43,17 @@
 ```shell
 # 拉取镜像
 docker pull fengwenyi/mybatis-plus-code-generator:3.5.0.3
+# 启动服务
 docker run -d -p 8080:8080 --name mybatis-plus-code-generator fengwenyi/mybatis-plus-code-generator:3.5.0.3
 ```
 
-#### 方案一
+#### 方案2
 
 将项目git clone到本地，运行即可。
 
-#### 方案二
+#### 方案3
 
-下载jar：https://download.csdn.net/download/qq_28336351/21818420
-
-免费下载
+[免费下载jar](https://download.csdn.net/download/qq_28336351/21818420)
 
 运行:
 
