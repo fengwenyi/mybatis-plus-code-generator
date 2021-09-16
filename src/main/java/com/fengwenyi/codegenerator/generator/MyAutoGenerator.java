@@ -108,6 +108,10 @@ public class MyAutoGenerator extends SimpleAutoGenerator {
         if (handleBoolean(bo.getColumnConstant())) {
             entityBuilder.enableColumnConstant();
         }
+        // 字段注解
+        if (handleBoolean(bo.getFieldAnnotation())) {
+            entityBuilder.enableTableFieldAnnotation();
+        }
 
         Mapper.Builder mapperBuilder = builder.mapperBuilder();
         if (handleBoolean(bo.getBaseResultMap())) {
