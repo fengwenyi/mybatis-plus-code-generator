@@ -8,13 +8,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.5.3</version>
+        <version>2.5.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>com.fengwenyi</groupId>
     <artifactId>mybatis-plus-code-generator</artifactId>
-    <version>3.5.0.3-SNAPSHOT</version>
+    <version>3.5.0.3</version>
     <packaging>jar</packaging>
     <name>mybatis-plus-code-generator</name>
     <description>MyBatis-Plus Code Generator</description>
@@ -35,7 +35,7 @@
         <freemarker.version>2.3.30</freemarker.version>
         <beetl.version>3.1.6.RELEASE</beetl.version>
         <junit.version>4.13.1</junit.version>
-        <api-starter.version>1.0.0</api-starter.version>
+        <api-starter.version>1.0.1</api-starter.version>
     </properties>
 
     <dependencies>

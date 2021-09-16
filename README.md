@@ -2,7 +2,7 @@
 
 ## Current Version
 
-3.5.0.2
+3.5.0.3
 
 说明： 除最后一位，前面的为mybatis-plus-generator的版本号，最后一位为该版本迭代次数。
 
@@ -36,6 +36,16 @@
 
 ### 启动项目
 
+#### 方案1（推荐）
+
+使用docker启动
+
+```shell
+# 拉取镜像
+docker pull fengwenyi/mybatis-plus-code-generator:3.5.0.3
+docker run -d -p 8080:8080 --name mybatis-plus-code-generator fengwenyi/mybatis-plus-code-generator:3.5.0.3
+```
+
 #### 方案一
 
 将项目git clone到本地，运行即可。
@@ -49,7 +59,7 @@
 运行:
 
 ```shell
-java -jar mybatis-plus-code-generator-3.5.0.2.jar
+java -jar mybatis-plus-code-generator-3.5.0.3.jar
 ```
 
 #### 访问
