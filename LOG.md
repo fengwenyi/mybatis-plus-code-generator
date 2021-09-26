@@ -1,5 +1,20 @@
 # 更新日志
 
+## v3.5.1.1
+
+2021-09-26
+
+- 【修复】修复上个版本，xml文件无法自定义目录的问题
+- 【变动】实体类，开启lombok注解，@Data变更为@Getter和@Setter
+- 【优化】重写MyAutoGenerator，与之前版本不兼容
+- 【优化】优化boolean处理
+- 【升级】mysql-plus-generator -> 3.5.1
+- 【升级】mysql-plus -> 3.4.3.4
+- 【升级】mysql8 -> 8.0.26
+- 【升级】mysql5 -> 5.1.49
+- 【升级】spring-boot -> 2.5.5
+
+
 ## v3.5.0.3
 
 - 【修复】修复关闭字段注解无效的问题。([#13](https://github.com/fengwenyi/mybatis-plus-code-generator/issues/13))

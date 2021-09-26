@@ -1,7 +1,7 @@
 package com.fengwenyi.codegenerator.generator;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.generator.SimpleAutoGenerator;
+import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.builder.Entity;
 import com.baomidou.mybatisplus.generator.config.builder.Mapper;
@@ -9,17 +9,14 @@ import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.fengwenyi.codegenerator.Config;
 import com.fengwenyi.codegenerator.bo.CodeGeneratorBo;
-import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.BooleanUtils;
 import org.springframework.util.StringUtils;
-
-import java.util.Objects;
 
 /**
  * @author <a href="https://www.fengwenyi.com">Erwin Feng</a>
- * @since 2021-08-23
+ * @since 2021-09-26
  */
-@Slf4j
-public class MyAutoGenerator extends SimpleAutoGenerator {
+public class MyAutoGenerator {
 
     private final CodeGeneratorBo bo;
 
@@ -27,15 +24,20 @@ public class MyAutoGenerator extends SimpleAutoGenerator {
         this.bo = bo;
     }
 
-    @Override
-    public IConfigBuilder<DataSourceConfig> dataSourceConfigBuilder() {
-        return new DataSourceConfig
-                .Builder(bo.getDbUrl(), bo.getUsername(), bo.getPassword());
+    public void execute() {
+        FastAutoGenerator.create(dataSourceBuilder())
+                .globalConfig(this::globalConfigBuilder)
+                .packageConfig(this::packageConfigBuilder)
+                .strategyConfig(this::strategyConfigBuilder)
+                .execute();
     }
 
-    @Override
-    public IConfigBuilder<GlobalConfig> globalConfigBuilder() {
-        GlobalConfig.Builder builder = new GlobalConfig.Builder();
+    public DataSourceConfig.Builder dataSourceBuilder() {
+        return new DataSourceConfig.Builder(bo.getDbUrl(), bo.getUsername(), bo.getPassword());
+    }
+
+    public void globalConfigBuilder(GlobalConfig.Builder builder) {
+
         builder.fileOverride().author(bo.getAuthor());
 
         String outDir = bo.getOutDir();
@@ -50,16 +52,14 @@ public class MyAutoGenerator extends SimpleAutoGenerator {
         }
         builder.dateType(dateType);
 
-        if (handleBoolean(bo.getSwaggerSupport())) {
+        if (BooleanUtils.isTrue(bo.getSwaggerSupport())) {
             builder.enableSwagger();
         }
 
-        return builder;
     }
 
-    @Override
-    public IConfigBuilder<PackageConfig> packageConfigBuilder() {
-        return new PackageConfig.Builder()
+    public void packageConfigBuilder(PackageConfig.Builder builder) {
+        builder
                 .parent(bo.getPackageName())
                 // builder.moduleName("");
                 .controller(bo.getPackageController())
@@ -70,66 +70,54 @@ public class MyAutoGenerator extends SimpleAutoGenerator {
                 .serviceImpl(bo.getPackageServiceImpl());
     }
 
-    @Override
-    public IConfigBuilder<StrategyConfig> strategyConfigBuilder() {
-        StrategyConfig.Builder builder = new StrategyConfig.Builder();
+    public void strategyConfigBuilder(StrategyConfig.Builder builder) {
         builder.addInclude(bo.getTableNames())
                 .addFieldPrefix(bo.getFieldPrefixes())
                 .addTablePrefix(bo.getTablePrefixes())
                 .addExclude(bo.getExcludeTableNames())
                 .entityBuilder()
-                    .naming(NamingStrategy.underline_to_camel)
-                    //.enableChainModel()
-                    //.enableLombok()
-                    //.enableActiveRecord()
-                    .formatFileName(bo.getFileNamePatternEntity())
-                    .idType(IdType.ASSIGN_ID)
-                    .logicDeleteColumnName(bo.getFieldLogicDelete())
-                    .versionColumnName(bo.getFieldVersion())
-                    .superClass(bo.getSuperClassName())
-                    .addIgnoreColumns(bo.getIgnoreColumns())
+                .naming(NamingStrategy.underline_to_camel)
+                //.enableChainModel()
+                //.enableLombok()
+                //.enableActiveRecord()
+                .formatFileName(bo.getFileNamePatternEntity())
+                .idType(IdType.ASSIGN_ID)
+                .logicDeleteColumnName(bo.getFieldLogicDelete())
+                .versionColumnName(bo.getFieldVersion())
+                .superClass(bo.getSuperClassName())
+                .addIgnoreColumns(bo.getIgnoreColumns())
                 .mapperBuilder()
-                    .formatMapperFileName(bo.getFileNamePatternMapper())
-                    .formatXmlFileName(bo.getFileNamePatternMapperXml())
+                .formatMapperFileName(bo.getFileNamePatternMapper())
+                .formatXmlFileName(bo.getFileNamePatternMapperXml())
                 .serviceBuilder()
-                    .formatServiceFileName(bo.getFileNamePatternService())
-                    .formatServiceImplFileName(bo.getFileNamePatternServiceImpl())
+                .formatServiceFileName(bo.getFileNamePatternService())
+                .formatServiceImplFileName(bo.getFileNamePatternServiceImpl())
                 .controllerBuilder()
-                    .enableRestStyle()
-                    .enableHyphenStyle();
+                .enableRestStyle()
+                .enableHyphenStyle();
 
         Entity.Builder entityBuilder = builder.entityBuilder();
-        if (handleBoolean(bo.getLombokChainModel())) {
+        if (BooleanUtils.isTrue(bo.getLombokChainModel())) {
             entityBuilder.enableChainModel();
         }
-        if (handleBoolean(bo.getLombokModel())) {
+        if (BooleanUtils.isTrue(bo.getLombokModel())) {
             entityBuilder.enableLombok();
         }
-        if (handleBoolean(bo.getColumnConstant())) {
+        if (BooleanUtils.isTrue(bo.getColumnConstant())) {
             entityBuilder.enableColumnConstant();
         }
         // 字段注解
-        if (handleBoolean(bo.getFieldAnnotation())) {
+        if (BooleanUtils.isTrue(bo.getFieldAnnotation())) {
             entityBuilder.enableTableFieldAnnotation();
         }
 
         Mapper.Builder mapperBuilder = builder.mapperBuilder();
-        if (handleBoolean(bo.getBaseResultMap())) {
+        if (BooleanUtils.isTrue(bo.getBaseResultMap())) {
             mapperBuilder.enableBaseResultMap();
         }
-        if (handleBoolean(bo.getBaseColumnList())) {
+        if (BooleanUtils.isTrue(bo.getBaseColumnList())) {
             mapperBuilder.enableBaseColumnList();
         }
-
-        return builder;
     }
 
-    /**
-     * 处理 Boolean，为空时返回false
-     * @param bool Boolean
-     * @return Boolean
-     */
-    private boolean handleBoolean(Boolean bool) {
-        return Objects.nonNull(bool) && bool;
-    }
 }
