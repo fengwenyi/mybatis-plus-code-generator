@@ -14,7 +14,7 @@
 
     <groupId>com.fengwenyi</groupId>
     <artifactId>mybatis-plus-code-generator</artifactId>
-    <version>3.5.1.1</version>
+    <version>3.5.1.2-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>mybatis-plus-code-generator</name>
     <description>MyBatis-Plus Code Generator</description>
@@ -27,7 +27,6 @@
         <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
         <mysql5.version>5.1.49</mysql5.version>
         <mysql8.version>8.0.26</mysql8.version>
-<!--        <spring.version>5.0.11.RELEASE</spring.version>-->
         <oracle.version>11.2.0.3</oracle.version>
         <sql-server.version>6.2.2.jre8</sql-server.version>
         <slf4j.version>1.7.26</slf4j.version>
@@ -145,18 +144,12 @@
             <name>Nexus aliyun</name>
             <url>https://maven.aliyun.com/repository/public</url>
         </repository>
+
         <repository>
             <id>nexus-aliyun-central</id>
             <name>Nexus aliyun Central</name>
             <url>https://maven.aliyun.com/repository/central</url>
         </repository>
-        <!--
-        <repository>
-            <id>nexus-aliyun-old</id>
-            <name>Nexus aliyun Old</name>
-            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
-        </repository>
-        -->
     </repositories>
 
 </project>

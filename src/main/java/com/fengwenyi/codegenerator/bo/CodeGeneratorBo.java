@@ -103,5 +103,8 @@ public class CodeGeneratorBo {
     // 实体父类的全类名
     private String superClassName;
 
+    // mapper注解
+    private Boolean mapperAnnotation;
+
 
 }

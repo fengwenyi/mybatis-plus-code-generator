@@ -1,5 +1,13 @@
 # 更新日志
 
+## v3.5.1.2
+
+2021-10-14
+
+- 【新增】新增支持是否开启@Mapper配置([#5](https://github.com/fengwenyi/mybatis-plus-code-generator/issues/5))
+- 【新增】页面增加源码链接
+- 【清理】pom.xml
+
 ## v3.5.1.1
 
 2021-09-26

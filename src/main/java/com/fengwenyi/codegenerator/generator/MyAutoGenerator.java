@@ -118,6 +118,11 @@ public class MyAutoGenerator {
         if (BooleanUtils.isTrue(bo.getBaseColumnList())) {
             mapperBuilder.enableBaseColumnList();
         }
+
+        // 开启mapper注解
+        if (BooleanUtils.isTrue(bo.getMapperAnnotation())) {
+            mapperBuilder.enableMapperAnnotation();
+        }
     }
 
 }

@@ -1,5 +1,6 @@
 body {
     background-image: url('/static/images/bg.jpg');
+    /*background-image: url('https://api.dujin.org/bing/1366.php');*/
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -26,10 +27,6 @@ body {
     width: 500px;
     border-right: 1px solid #eee;
     padding-right: 100px;
-}
-.footer {
-    margin-top: 100px;
-    margin-bottom: 50px;
 }
 .layui-form-label {
     width: 120px;
@@ -62,4 +59,11 @@ body {
     border-left: 1px solid #ccc;
     margin-left: 80px;
     padding-left: 50px;
+}
+
+.footer {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
 }
