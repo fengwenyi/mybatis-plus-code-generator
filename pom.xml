@@ -14,7 +14,7 @@
 
     <groupId>com.fengwenyi</groupId>
     <artifactId>mybatis-plus-code-generator</artifactId>
-    <version>3.5.1.2-SNAPSHOT</version>
+    <version>3.5.1.2</version>
     <packaging>jar</packaging>
     <name>mybatis-plus-code-generator</name>
     <description>MyBatis-Plus Code Generator</description>
@@ -28,11 +28,11 @@
         <mysql5.version>5.1.49</mysql5.version>
         <mysql8.version>8.0.26</mysql8.version>
         <oracle.version>11.2.0.3</oracle.version>
-        <sql-server.version>6.2.2.jre8</sql-server.version>
+        <sql-server.version>9.4.0.jre16</sql-server.version>
         <slf4j.version>1.7.26</slf4j.version>
-        <velocity.version>2.2</velocity.version>
-        <freemarker.version>2.3.30</freemarker.version>
-        <beetl.version>3.1.6.RELEASE</beetl.version>
+        <velocity.version>2.3</velocity.version>
+        <freemarker.version>2.3.31</freemarker.version>
+        <beetl.version>3.7.0.RELEASE</beetl.version>
         <junit.version>4.13.1</junit.version>
         <api-starter.version>1.0.1</api-starter.version>
     </properties>

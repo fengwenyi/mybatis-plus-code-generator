@@ -1,12 +1,29 @@
-body {
+/*body {
     background-image: url('/static/images/bg.jpg');
-    /*background-image: url('https://api.dujin.org/bing/1366.php');*/
+    !*background-image: url('https://api.dujin.org/bing/1366.php');*!
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     background-position: 50% 50%;
+}*/
+
+.home-bg {
+    width: 100%;
+    height: 100vh;
+    /*background-image: url('/static/images/bg.jpg');*/
+    background-image: url('https://api.dujin.org/bing/1366.php');
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: 50% 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
 .header {
@@ -21,6 +38,7 @@ body {
 }
 .header .title {
     margin-left: 20px;
+    color: #fff;
 }
 .form-container {
     margin-top: 30px;
@@ -46,8 +64,9 @@ body {
     background-color: #fff;
     padding: 50px;
     border-radius: 5px;
-    opacity: .9;
+    opacity: .95;
     box-shadow: 0 0 10px #333;
+    margin-top: 30px;
 }
 .main-panel .main-left-panel {
     width: 470px;
@@ -64,6 +83,21 @@ body {
 .footer {
     margin-top: 100px;
     margin-bottom: 50px;
-    display: flex;
-    justify-content: space-between;
+    font-size: 14px;
+}
+.footer .box-links a {
+    color: #06c;
+}
+.footer .box-links a:hover {
+    text-decoration:underline;
+}
+.footer .box-copyright {
+    color: #999;
+    font-weight: lighter;
+}
+
+.footer .box-copyright a {
+    color: #999;
+    font-weight: lighter;
+    text-decoration:underline;
 }

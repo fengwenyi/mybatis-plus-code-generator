@@ -4,9 +4,16 @@
 
 2021-10-14
 
-- 【新增】新增支持是否开启@Mapper配置([#5](https://github.com/fengwenyi/mybatis-plus-code-generator/issues/5))
+- 【新增】新增支持是否开启 `@Mapper` 配置([#5](https://github.com/fengwenyi/mybatis-plus-code-generator/issues/5))
 - 【新增】页面增加源码链接
+- 【新增】缓存数据库连接信息([#15](https://github.com/fengwenyi/mybatis-plus-code-generator/issues/15))
+- 【优化】界面优化
+- 【优化】使用必应图片作为背景，每日自动更换
 - 【清理】pom.xml
+- 【升级】mssql-jdbc -> 9.4.0.jre16
+- 【升级】velocity-engine-core -> 2.3
+- 【升级】freemarker -> 2.3.31
+- 【升级】beetl -> 3.7.0.RELEASE
 
 ## v3.5.1.1
 

@@ -29,9 +29,17 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
 
     <script src="/static/lib/layui/layui.js"></script>
+
+    <script src="/static/util/Utils.js"></script>
+    <script src="/static/util/Variable.js"></script>
+    <script src="/static/util/LayerUtils.js"></script>
+    <script src="/static/util/AjaxUtils.js"></script>
+    <script src="/static/util/CacheUtils.js"></script>
+
     <script src="/static/js/index.js"></script>
 </head>
 <body>
+<section class="home-bg"></section>
 <div class="layui-container">
 
     <div class="header">
@@ -39,9 +47,9 @@
         <h1 class="title">MyBatis-Plus代码生成器</h1>
     </div>
 
-    <div class="layui-progress" style="margin: 15px 0 30px;">
+    <!--<div class="layui-progress" style="margin: 15px 0 30px;">
         <div class="layui-progress-bar" lay-percent="100%"></div>
-    </div>
+    </div>-->
 
     <form class="layui-form" action="">
 
@@ -83,7 +91,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label"><span class="red-star">*</span>数据库地址</label>
                     <div class="layui-input-block">
-                        <input type="text" name="host" required lay-verify="required" placeholder="ip:port / url"
+                        <input type="text" name="host" id="dbAddress" required lay-verify="required" placeholder="ip:port / url"
                                autocomplete="off" class="layui-input">
                     </div>
                 </div>
@@ -99,7 +107,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label"><span class="red-star">*</span>数据库用户名</label>
                     <div class="layui-input-block">
-                        <input type="text" name="username" required lay-verify="required" placeholder="请输入数据库用户名"
+                        <input type="text" name="username" id="dbUsername" required lay-verify="required" placeholder="请输入数据库用户名"
                                autocomplete="off" class="layui-input">
                     </div>
                 </div>
@@ -107,7 +115,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">数据库密码</label>
                     <div class="layui-input-block">
-                        <input type="text" name="password" placeholder="请输入数据库密码" autocomplete="off"
+                        <input type="text" name="password" id="dbPassword" placeholder="请输入数据库密码" autocomplete="off"
                                class="layui-input">
                     </div>
                 </div>
@@ -154,7 +162,7 @@
 
                 <div class="layui-form-item">
                     <div class="layui-input-block">
-                        <button class="layui-btn" lay-submit lay-filter="formDemo">立即生成</button>
+                        <button class="layui-btn" lay-submit lay-filter="formCodeGenerator">立即生成</button>
                         <button type="reset" class="layui-btn layui-btn-primary">重置</button>
                     </div>
                 </div>
@@ -168,14 +176,14 @@
                             <div class="layui-form-item">
                                 <label class="layui-form-label">作者</label>
                                 <div class="layui-input-block">
-                                    <input id="inputAuthor" type="text" name="author" placeholder="请输入作者"
+                                    <input type="text" name="author" id="author" placeholder="请输入作者"
                                            autocomplete="off" class="layui-input">
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">输出目录</label>
                                 <div class="layui-input-block">
-                                    <input type="text" name="outDir" placeholder="输出目录" autocomplete="off"
+                                    <input type="text" name="outDir" id="outputDir" placeholder="输出目录" autocomplete="off"
                                            class="layui-input">
                                 </div>
                             </div>
@@ -411,12 +419,14 @@
     </form>
 
     <footer class="footer">
-        <div class="box-left">
+        <div class="box-links">
             <a target="_blank" href="https://github.com/fengwenyi/mybatis-plus-code-generator">源码</a>
         </div>
-        <div class="box-right">
-            &copy; 2021 <a target="_blank" href="https://www.fengwenyi.com">Erwin Feng</a></footer>
+        <hr />
+        <div class="box-copyright">
+            Copyright &copy; 2021 <a target="_blank" href="https://www.fengwenyi.com">Erwin Feng</a>
         </div>
+    </footer>
 </div>
 </body>
 </html>
