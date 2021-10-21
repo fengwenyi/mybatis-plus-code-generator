@@ -1,5 +1,11 @@
 # 更新日志
 
+## v3.5.1.3
+
+2021-10-21
+
+- 【修复】修复数据库类型前后端参数不一致，导致无法选择数据库类型的问题([#16](https://github.com/fengwenyi/mybatis-plus-code-generator/issues/16))
+
 ## v3.5.1.2
 
 2021-10-14

@@ -14,7 +14,7 @@
 
     <groupId>com.fengwenyi</groupId>
     <artifactId>mybatis-plus-code-generator</artifactId>
-    <version>3.5.1.2</version>
+    <version>3.5.1.3-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>mybatis-plus-code-generator</name>
     <description>MyBatis-Plus Code Generator</description>
