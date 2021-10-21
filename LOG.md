@@ -5,6 +5,8 @@
 2021-10-21
 
 - 【修复】修复数据库类型前后端参数不一致，导致无法选择数据库类型的问题([#16](https://github.com/fengwenyi/mybatis-plus-code-generator/issues/16))
+- 【优化】代码优化，去除没有用到或者多余的代码
+- 【移除】删除自定义DbType，改用 `com.baomidou.mybatisplus.annotation.DbType`
 
 ## v3.5.1.2
 

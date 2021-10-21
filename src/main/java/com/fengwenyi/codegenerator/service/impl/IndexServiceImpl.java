@@ -1,9 +1,9 @@
 package com.fengwenyi.codegenerator.service.impl;
 
+import com.baomidou.mybatisplus.annotation.DbType;
 import com.fengwenyi.api.result.ResultTemplate;
 import com.fengwenyi.apistarter.utils.Asserts;
 import com.fengwenyi.codegenerator.bo.CodeGeneratorBo;
-import com.fengwenyi.codegenerator.enums.DbType;
 import com.fengwenyi.codegenerator.generator.MyAutoGenerator;
 import com.fengwenyi.codegenerator.service.IIndexService;
 import com.fengwenyi.codegenerator.vo.CodeGeneratorRequestVo;
@@ -39,7 +39,6 @@ public class IndexServiceImpl implements IIndexService {
 
     private ResultTemplate<Void> execute(CodeGeneratorBo bo) {
         try {
-            //CommonUtils.execute(bo);
             new MyAutoGenerator(bo).execute();
             return ResultTemplate.success();
         } catch (Exception e) {
@@ -52,22 +51,19 @@ public class IndexServiceImpl implements IIndexService {
 
     // 处理数据库
     private void handleDb(CodeGeneratorRequestVo requestVo, CodeGeneratorBo bo) {
-        DbType dbType;
         String dbUrl = "";
         String username = requestVo.getUsername();
         String password = requestVo.getPassword();
         String driver = "";
-        if (!StringUtils.hasText(requestVo.getDbTypeName()) || DbType.getDbType(requestVo.getDbTypeName()) == DbType.MYSQL) {
+        if (!StringUtils.hasText(requestVo.getDbTypeName())
+                || DbType.getDbType(requestVo.getDbTypeName()) == DbType.MYSQL) {
             // mysql
-            dbType = DbType.MYSQL;
             dbUrl = "jdbc:mysql://" + requestVo.getHost() + "/" + requestVo.getDbName();
             driver = "com.mysql.cj.jdbc.Driver";
         } else if (DbType.getDbType(requestVo.getDbTypeName()) == DbType.ORACLE) {
-            dbType = DbType.ORACLE;
             dbUrl = "jdbc:oracle:thin:@" + requestVo.getHost() + ":" + requestVo.getDbName();
             driver = "oracle.jdbc.OracleDriver";
         } else if (DbType.getDbType(requestVo.getDbTypeName()) == DbType.SQL_SERVER){
-            dbType = DbType.SQL_SERVER;
             dbUrl = "jdbc:sqlserver://" + requestVo.getHost() + ";DatabaseName=" + requestVo.getDbName();
             driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
         } else {
