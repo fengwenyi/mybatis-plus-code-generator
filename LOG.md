@@ -6,7 +6,9 @@
 
 - 【修复】修复数据库类型前后端参数不一致，导致无法选择数据库类型的问题([#16](https://github.com/fengwenyi/mybatis-plus-code-generator/issues/16))
 - 【优化】代码优化，去除没有用到或者多余的代码
+- 【变更】逻辑删除字段，delete_status -> delete_state。
 - 【移除】删除自定义DbType，改用 `com.baomidou.mybatisplus.annotation.DbType`
+- 【升级】spring boot -> 2.5.6。
 
 ## v3.5.1.2
 
