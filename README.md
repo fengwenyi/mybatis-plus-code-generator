@@ -44,7 +44,7 @@
 # 拉取镜像
 docker pull fengwenyi/mybatis-plus-code-generator:3.5.1.3
 # 启动服务
-docker run -d -p 8080:8080 --name mybatis-plus-code-generator fengwenyi/mybatis-plus-code-generator:3.5.1.3
+docker run -d -p 8080:8080 --name code-generator -v ~/temp:/temp fengwenyi/mybatis-plus-code-generator:3.5.1.3
 ```
 
 #### 方案2

@@ -1,6 +1,6 @@
 package com.fengwenyi.codegenerator.service;
 
-import com.fengwenyi.api.result.ResultTemplate;
+import com.fengwenyi.api.result.ResponseTemplate;
 import com.fengwenyi.codegenerator.vo.CodeGeneratorRequestVo;
 
 /**
@@ -14,6 +14,6 @@ public interface IIndexService {
      * @param requestVo
      * @return
      */
-    ResultTemplate<Void> codeGenerator(CodeGeneratorRequestVo requestVo);
+    ResponseTemplate<Void> codeGenerator(CodeGeneratorRequestVo requestVo);
 
 }

@@ -1,0 +1,9 @@
+{
+  "groups": [
+    {
+      "sourceType": "com.fengwenyi.codegenerator.config.ErwinProperties",
+      "name": "erwin",
+      "type": "com.fengwenyi.codegenerator.config.ErwinProperties"
+    }
+  ]
+}

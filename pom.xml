@@ -34,7 +34,7 @@
         <freemarker.version>2.3.31</freemarker.version>
         <beetl.version>3.7.0.RELEASE</beetl.version>
         <junit.version>4.13.1</junit.version>
-        <api-starter.version>1.0.1</api-starter.version>
+        <api-starter.version>1.1.0</api-starter.version>
     </properties>
 
     <dependencies>
@@ -122,6 +122,13 @@
             <groupId>com.fengwenyi</groupId>
             <artifactId>api-spring-boot-starter</artifactId>
             <version>${api-starter.version}</version>
+        </dependency>
+
+        <!-- spring boot config -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 

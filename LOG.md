@@ -9,6 +9,7 @@
 - 【变更】逻辑删除字段，delete_status -> delete_state。
 - 【移除】删除自定义DbType，改用 `com.baomidou.mybatisplus.annotation.DbType`
 - 【升级】spring boot -> 2.5.6。
+- 【升级】api-spring-boot-starter -> 1.1.0。
 
 ## v3.5.1.2
 

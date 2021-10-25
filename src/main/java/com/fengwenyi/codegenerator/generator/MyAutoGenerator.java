@@ -9,19 +9,23 @@ import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.fengwenyi.codegenerator.Config;
 import com.fengwenyi.codegenerator.bo.CodeGeneratorBo;
+import com.fengwenyi.codegenerator.config.ErwinProperties;
 import org.apache.commons.lang3.BooleanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 /**
  * @author <a href="https://www.fengwenyi.com">Erwin Feng</a>
  * @since 2021-09-26
  */
+@Component
 public class MyAutoGenerator {
 
-    private final CodeGeneratorBo bo;
+    private CodeGeneratorBo bo;
+    private ErwinProperties erwinProperties;
 
-    public MyAutoGenerator(CodeGeneratorBo bo) {
-        this.bo = bo;
+    public MyAutoGenerator() {
     }
 
     public void execute() {
@@ -40,9 +44,9 @@ public class MyAutoGenerator {
 
         builder.fileOverride().author(bo.getAuthor());
 
-        String outDir = bo.getOutDir();
-        if (!StringUtils.hasText(outDir)) {
-            outDir = Config.OUTPUT_DIR;
+        String outDir = Config.OUTPUT_DIR;
+        if ("jar".equalsIgnoreCase(erwinProperties.getStartMethod()) && StringUtils.hasText(outDir)) {
+            outDir = bo.getOutDir();
         }
         builder.outputDir(outDir);
 
@@ -125,4 +129,12 @@ public class MyAutoGenerator {
         }
     }
 
+    public void setBo(CodeGeneratorBo bo) {
+        this.bo = bo;
+    }
+
+    @Autowired
+    public void setErwinProperties(ErwinProperties erwinProperties) {
+        this.erwinProperties = erwinProperties;
+    }
 }

@@ -1,7 +1,7 @@
 package com.fengwenyi.codegenerator.service.impl;
 
 import com.baomidou.mybatisplus.annotation.DbType;
-import com.fengwenyi.api.result.ResultTemplate;
+import com.fengwenyi.api.result.ResponseTemplate;
 import com.fengwenyi.apistarter.utils.Asserts;
 import com.fengwenyi.codegenerator.bo.CodeGeneratorBo;
 import com.fengwenyi.codegenerator.generator.MyAutoGenerator;
@@ -10,6 +10,7 @@ import com.fengwenyi.codegenerator.vo.CodeGeneratorRequestVo;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -23,8 +24,11 @@ import java.util.List;
 @Service
 @Slf4j
 public class IndexServiceImpl implements IIndexService {
+
+    private MyAutoGenerator myAutoGenerator;
+
     @Override
-    public ResultTemplate<Void> codeGenerator(CodeGeneratorRequestVo requestVo) {
+    public ResponseTemplate<Void> codeGenerator(CodeGeneratorRequestVo requestVo) {
 
         CodeGeneratorBo bo = new CodeGeneratorBo();
 
@@ -37,15 +41,16 @@ public class IndexServiceImpl implements IIndexService {
 
     }
 
-    private ResultTemplate<Void> execute(CodeGeneratorBo bo) {
+    private ResponseTemplate<Void> execute(CodeGeneratorBo bo) {
+        myAutoGenerator.setBo(bo);
         try {
-            new MyAutoGenerator(bo).execute();
-            return ResultTemplate.success();
+            myAutoGenerator.execute();
+            return ResponseTemplate.success();
         } catch (Exception e) {
             String errMsg = ExceptionUtils.getStackTrace(e);
             log.error(errMsg);
         }
-        return ResultTemplate.fail();
+        return ResponseTemplate.fail();
     }
 
 
@@ -104,5 +109,10 @@ public class IndexServiceImpl implements IIndexService {
         }
         String[] result = new String[valueList.size()];
         return  valueList.toArray(result);
+    }
+
+    @Autowired
+    public void setMyAutoGenerator(MyAutoGenerator myAutoGenerator) {
+        this.myAutoGenerator = myAutoGenerator;
     }
 }
