@@ -36,22 +36,7 @@
 
 ### 启动项目
 
-#### 方案1（推荐）
-
-使用docker启动
-
-```shell
-# 拉取镜像
-docker pull fengwenyi/mybatis-plus-code-generator:3.5.1.3
-# 启动服务
-docker run -d -p 8080:8080 --name code-generator -v ~/temp:/temp fengwenyi/mybatis-plus-code-generator:3.5.1.3
-```
-
-#### 方案2
-
-将项目git clone到本地，运行即可。
-
-#### 方案3
+#### 方案1
 
 [免费下载jar](https://download.csdn.net/download/qq_28336351/21818420)
 
@@ -60,6 +45,11 @@ docker run -d -p 8080:8080 --name code-generator -v ~/temp:/temp fengwenyi/mybat
 ```shell
 java -jar mybatis-plus-code-generator-3.5.1.3.jar
 ```
+
+#### 方案2
+
+将项目git clone到本地，运行即可。
+
 
 #### 访问
 

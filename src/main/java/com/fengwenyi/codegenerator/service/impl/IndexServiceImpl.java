@@ -10,7 +10,6 @@ import com.fengwenyi.codegenerator.vo.CodeGeneratorRequestVo;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -24,8 +23,6 @@ import java.util.List;
 @Service
 @Slf4j
 public class IndexServiceImpl implements IIndexService {
-
-    private MyAutoGenerator myAutoGenerator;
 
     @Override
     public ResponseTemplate<Void> codeGenerator(CodeGeneratorRequestVo requestVo) {
@@ -42,9 +39,8 @@ public class IndexServiceImpl implements IIndexService {
     }
 
     private ResponseTemplate<Void> execute(CodeGeneratorBo bo) {
-        myAutoGenerator.setBo(bo);
         try {
-            myAutoGenerator.execute();
+            new MyAutoGenerator(bo).execute();
             return ResponseTemplate.success();
         } catch (Exception e) {
             String errMsg = ExceptionUtils.getStackTrace(e);
@@ -111,8 +107,4 @@ public class IndexServiceImpl implements IIndexService {
         return  valueList.toArray(result);
     }
 
-    @Autowired
-    public void setMyAutoGenerator(MyAutoGenerator myAutoGenerator) {
-        this.myAutoGenerator = myAutoGenerator;
-    }
 }

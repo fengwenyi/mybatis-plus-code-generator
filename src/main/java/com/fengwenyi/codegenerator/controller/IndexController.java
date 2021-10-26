@@ -1,12 +1,10 @@
 package com.fengwenyi.codegenerator.controller;
 
 import com.fengwenyi.api.result.ResponseTemplate;
-import com.fengwenyi.codegenerator.config.ErwinProperties;
 import com.fengwenyi.codegenerator.service.IIndexService;
 import com.fengwenyi.codegenerator.vo.CodeGeneratorRequestVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,11 +19,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class IndexController {
 
     private IIndexService indexService;
-    private ErwinProperties erwinProperties;
 
     @RequestMapping("/")
-    public String index(Model model) {
-        model.addAttribute("startMethod", erwinProperties.getStartMethod());
+    public String index() {
         return "index";
     }
 
@@ -40,8 +36,4 @@ public class IndexController {
         this.indexService = indexService;
     }
 
-    @Autowired
-    public void setErwinProperties(ErwinProperties erwinProperties) {
-        this.erwinProperties = erwinProperties;
-    }
 }

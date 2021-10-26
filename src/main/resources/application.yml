@@ -18,7 +18,3 @@ logging:
 #    root: debug
     com.fengwenyi: debug
     com.baomidou: debug
-
-erwin:
-  # 启动方式：jar / docker
-  start-method: jar
