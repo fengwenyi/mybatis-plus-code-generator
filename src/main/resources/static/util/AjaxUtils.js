@@ -12,7 +12,11 @@ function ajaxPost(jQuery, layer, url, data,  funcSuc) {
         success: funcSuc,
         error: function (response) {
             let responseJSON = response.responseJSON;
-            alertFail(layer, responseJSON.msg);
+            let errMsg = response.statusText;
+            if (isNotEmpty(responseJSON)) {
+                errMsg = responseJSON.message;
+            }
+            alertFail(layer, errMsg);
         },
         complete: function () {
             layer.close(layerIndex);

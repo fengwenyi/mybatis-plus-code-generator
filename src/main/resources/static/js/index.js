@@ -16,7 +16,7 @@ layui.use(function() {
     let outputDir = getOutputDir();
 
     if (isEmpty(author)) {
-        author = '<a href="https://fengwenyi.com">Erwin Feng</a>';
+        author = '<a href="https://www.fengwenyi.com">Erwin Feng</a>';
     }
 
     jQuery("#author").val(author);
@@ -39,10 +39,10 @@ layui.use(function() {
         ajaxPost(jQuery, layer, url, param, function (response) {
             if (response.success) {
                 handleCache(data.field);
-                alertSuccess(layer, response.msg);
+                alertSuccess(layer, response.message);
             } else {
                 layer.alert(response.msg,{ icon: 5 });//失败的表情
-                alertFail(layer, response.msg);
+                alertFail(layer, response.message);
             }
         });
     }
