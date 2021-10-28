@@ -84,3 +84,17 @@ java -jar mybatis-plus-code-generator-3.5.1.3.jar
 ## 其他
 
 [更新日志](LOG.md)
+
+忽略的字段：
+
+```
+id
+create_date_time
+create_user_id
+create_user_name
+update_date_time
+update_user_id
+update_user_name
+enabled_state
+delete_state
+```
