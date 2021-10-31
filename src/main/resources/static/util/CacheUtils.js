@@ -34,6 +34,10 @@ function getAuthor() {
     return localStorage.getItem(KEY_AUTHOR)
 }
 
+function removeAuthor() {
+    return localStorage.removeItem(KEY_AUTHOR)
+}
+
 // 输出目录
 function setOutputDir(outputDir) {
     localStorage.setItem(KEY_OUTPUT_DIR, outputDir)

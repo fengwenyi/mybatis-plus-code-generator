@@ -9,6 +9,9 @@ layui.use(function() {
         ,jQuery = layui.jquery;
 
 
+    let ERWIN_FENG = '<a href="https://www.fengwenyi.com">Erwin Feng</a>';
+    let ERWIN_FENG_OLD = '<a href="https://fengwenyi.com">Erwin Feng</a>';
+
     let author = getAuthor();
     let dbAddress = getDbAddress();
     let dbUsername = getDbUsername();
@@ -16,7 +19,13 @@ layui.use(function() {
     let outputDir = getOutputDir();
 
     if (isEmpty(author)) {
-        author = '<a href="https://www.fengwenyi.com">Erwin Feng</a>';
+        author = ERWIN_FENG;
+    } else {
+        // 修复链接地址不正确的问题
+        if (author === ERWIN_FENG_OLD) {
+            author = ERWIN_FENG;
+            removeAuthor();
+        }
     }
 
     jQuery("#author").val(author);
