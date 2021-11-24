@@ -5,6 +5,7 @@
 2021-10.27
 
 - 【变更】jdk 1.8 -> 17。
+- 【变更】端口调整 8080 -> 8899。
 - 【新增】恢复支持docker部署。
 - 【修复】修复前端页面解析接口响应提示信息字段不正确([#19](https://github.com/fengwenyi/mybatis-plus-code-generator/issues/19)) 。
 - 【修复】修复作者个人网站链接地址不对的问题。
