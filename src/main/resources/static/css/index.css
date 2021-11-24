@@ -7,17 +7,31 @@ html {
     width: 100%;
     height: 100vh;
     /*background-image: url('/static/images/bg.jpg');*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.home-bg:after {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    bottom: -20px;
+    left: -20px;
+    content: '';
+    z-index: -1;
     background-image: url('https://api.dujin.org/bing/1366.php');
+    /*background-image: url('/static/images/bg.jpg');*/
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     background-position: 50% 50%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
 }
 
 .header {
@@ -26,26 +40,32 @@ html {
     display: flex;
     align-items: center;
 }
+
 .header .logo {
     height: 60px;
     border-radius: 10px;
 }
+
 .header .title {
     margin-left: 20px;
     color: #fff;
 }
+
 .form-container {
     margin-top: 30px;
     width: 500px;
     border-right: 1px solid #eee;
     padding-right: 100px;
 }
+
 .layui-form-label {
     width: 120px;
 }
+
 .layui-input-block {
     margin-left: 150px;
 }
+
 .red-star {
     color: #FF5722;
     margin-right: 5px;
@@ -59,11 +79,15 @@ html {
     padding: 50px;
     border-radius: 5px;
     box-shadow: 0 0 10px #333;
+    opacity: .95;
 }
+
 .main-panel .main-left-panel {
     width: 470px;
     min-height: 100px;
+    position: relative;
 }
+
 .main-panel .main-right-panel {
     width: calc(100% - 600px);
     min-height: 100px;
@@ -73,27 +97,35 @@ html {
 }
 
 .panel-submit-btn {
-    margin-top: 6rem;
+    /*margin-top: 6rem;*/
+    position: absolute;
+    bottom: 1rem;
 }
 
 .footer {
     margin-top: 100px;
     margin-bottom: 50px;
-    font-size: 14px;
+    font-size: 1.4rem;
+    color: #777;
 }
+
+.footer .box-links {
+    margin-top: 1rem;
+}
+
 .footer .box-links a {
     color: #06c;
 }
+
 .footer .box-links a:hover {
-    text-decoration:underline;
+    text-decoration: underline;
 }
+
 .footer .box-copyright {
-    color: #999;
-    font-weight: lighter;
+
 }
 
 .footer .box-copyright a {
-    color: #999;
-    font-weight: lighter;
-    text-decoration:underline;
+    color: #777;
+    text-decoration: underline;
 }

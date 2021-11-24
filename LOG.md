@@ -4,10 +4,14 @@
 
 2021-10.27
 
+- 【变更】jdk 1.8 -> 17。
+- 【新增】恢复支持docker部署。
 - 【修复】修复前端页面解析接口响应提示信息字段不正确([#19](https://github.com/fengwenyi/mybatis-plus-code-generator/issues/19)) 。
 - 【修复】修复作者个人网站链接地址不对的问题。
 - 【调整】`可选配置` 和 `表配置` 交换。
 - 【优化】界面优化。
+- 【升级】spring-boot -> 2.6.0。
+- 【升级】beetl -> 3.8.1.RELEASE。
 
 
 ## v3.5.1.3

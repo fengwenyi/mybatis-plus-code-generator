@@ -1,3 +1,6 @@
+server:
+  port: 8899
+
 spring:
   application:
     name: mybatis-plus-code-generator
@@ -15,6 +18,5 @@ spring:
 
 logging:
   level:
-#    root: debug
     com.fengwenyi: debug
     com.baomidou: debug
