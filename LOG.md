@@ -2,16 +2,18 @@
 
 ## v3.5.1.4
 
-2021-10.27
+2021.11.28
 
 - 【变更】jdk 1.8 -> 17。
 - 【变更】端口调整 8080 -> 8899。
-- 【新增】恢复支持docker部署。
+- 【新增】恢复支持docker部署。[#21](https://github.com/fengwenyi/mybatis-plus-code-generator/issues/21)
 - 【新增】banner显示版本。
 - 【修复】修复前端页面解析接口响应提示信息字段不正确([#19](https://github.com/fengwenyi/mybatis-plus-code-generator/issues/19)) 。
 - 【修复】修复作者个人网站链接地址不对的问题。
+- 【修复】docker形式部署，输出目录指向的是服务器。[#18](https://github.com/fengwenyi/mybatis-plus-code-generator/issues/18)
 - 【调整】`可选配置` 和 `表配置` 交换。
 - 【优化】界面优化。
+- 【优化】优化shell脚本。[#20](https://github.com/fengwenyi/mybatis-plus-code-generator/issues/20)
 - 【升级】spring-boot -> 2.6.0。
 - 【升级】beetl -> 3.8.1.RELEASE。
 
