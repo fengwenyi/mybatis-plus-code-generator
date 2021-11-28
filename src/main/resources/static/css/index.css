@@ -6,7 +6,6 @@ html {
 .home-bg {
     width: 100%;
     height: 100vh;
-    /*background-image: url('/static/images/bg.jpg');*/
     position: absolute;
     top: 0;
     left: 0;
@@ -22,16 +21,16 @@ html {
     left: -20px;
     content: '';
     z-index: -1;
-    background-image: url('https://api.dujin.org/bing/1366.php');
-    /*background-image: url('/static/images/bg.jpg');*/
+    /*background-image: url('https://api.dujin.org/bing/1366.php');*/
+    background-image: url('/static/images/bg.jpg');
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     background-position: 50% 50%;
-    -webkit-filter: blur(10px);
-    filter: blur(10px);
+    /*-webkit-filter: blur(10px);*/
+    /*filter: blur(10px);*/
 }
 
 .header {
@@ -48,7 +47,7 @@ html {
 
 .header .title {
     margin-left: 20px;
-    color: #fff;
+    color: #333;
 }
 
 .form-container {

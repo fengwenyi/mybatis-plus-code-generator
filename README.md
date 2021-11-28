@@ -2,7 +2,7 @@
 
 ## Current Version
 
-3.5.1.3
+3.5.1.4
 
 说明： 除最后一位，前面的为mybatis-plus-generator的版本号，最后一位为该版本迭代次数。
 
@@ -36,24 +36,54 @@
 
 ### 启动项目
 
-#### 方案1
+#### 方案1: jar
 
 [免费下载jar](https://download.csdn.net/download/qq_28336351/21818420)
 
 运行:
 
 ```shell
-java -jar mybatis-plus-code-generator-3.5.1.3.jar
+java -jar mybatis-plus-code-generator-3.5.1.4.jar
 ```
 
-#### 方案2
+::: warning
+jdk 17
+:::
+
+#### 方案2: docker
+
+```shell
+# 拉取镜像
+docker pull fengwenyi/mybatis-plus-code-generator:3.5.1.4
+
+# 启动服务
+docker run -d -p 8899:8899 --name code-generator -v ~/temp:/temp fengwenyi/mybatis-plus-code-generator:3.5.1.4
+
+# 查看日志
+docker logs -f code-generator
+
+# 进入容器
+docker exec -it code-generator sh
+# or
+docker attach code-generator
+```
+
+挂在目录说明：
+
+> ~/temp:/temp
+
+冒号前面为挂在的目录，你这个自定义，比如：e:/temp。
+
+冒号后面为docker容器目录。
+
+#### 方案3: git clone
 
 将项目git clone到本地，运行即可。
 
 
 #### 访问
 
-> http://localhost:8080
+> http://localhost:8899
 
 访问上面地址，你就会看的如下高端、大气、上档次的界面了。
 
@@ -84,6 +114,7 @@ java -jar mybatis-plus-code-generator-3.5.1.3.jar
 ## 其他
 
 [更新日志](LOG.md)
+
 
 忽略的字段：
 

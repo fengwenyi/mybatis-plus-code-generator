@@ -20,3 +20,8 @@ logging:
   level:
     com.fengwenyi: debug
     com.baomidou: debug
+
+erwin:
+  app:
+    name: @project.artifactId@
+    version: @project.version@
