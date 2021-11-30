@@ -1,5 +1,17 @@
 # 更新日志
 
+## v3.5.1.5
+
+2021.11.30
+
+### 优化
+
+- docker容器中jar名称改为 `mybatis-plus-code-generator.jar`
+
+### 升级
+
+- spring boot 2.6.1
+
 ## v3.5.1.4
 
 2021.11.28

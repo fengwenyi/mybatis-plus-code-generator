@@ -2,7 +2,7 @@
 
 ## Current Version
 
-3.5.1.4
+3.5.1.5
 
 说明： 除最后一位，前面的为mybatis-plus-generator的版本号，最后一位为该版本迭代次数。
 
