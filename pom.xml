@@ -29,11 +29,11 @@
         <mysql5.version>5.1.49</mysql5.version>
         <mysql8.version>8.0.26</mysql8.version>
         <oracle.version>11.2.0.3</oracle.version>
-        <sql-server.version>9.4.0.jre16</sql-server.version>
+        <sql-server.version>9.4.1.jre16</sql-server.version>
         <slf4j.version>1.7.26</slf4j.version>
         <velocity.version>2.3</velocity.version>
         <freemarker.version>2.3.31</freemarker.version>
-        <beetl.version>3.8.1.RELEASE</beetl.version>
+        <beetl.version>3.9.0.RELEASE</beetl.version>
         <junit.version>4.13.2</junit.version>
         <api-starter.version>1.1.0</api-starter.version>
     </properties>

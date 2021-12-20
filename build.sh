@@ -1,5 +1,6 @@
 #!/bin/bash
-version=3.5.1.4
+version=`awk '/<version>[^<]+<\/version>/{gsub(/<version>|<\/version>/,"",$1);print $1;exit;}' pom.xml`
+echo $version
 mvn clean package -DskipTests
 docker build -t fengwenyi/mybatis-plus-code-generator:$version .
 docker tag fengwenyi/mybatis-plus-code-generator:$version fengwenyi/mybatis-plus-code-generator:$version

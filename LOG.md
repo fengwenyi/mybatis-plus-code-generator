@@ -7,10 +7,13 @@
 ### 优化
 
 - docker容器中jar名称改为 `mybatis-plus-code-generator.jar`
+- 打包发布命令自动获取版本
 
 ### 升级
 
 - spring boot 2.6.1
+- beetl 3.9.0.RELEASE
+- SQL Server 9.4.1.jre16
 
 ## v3.5.1.4
 
