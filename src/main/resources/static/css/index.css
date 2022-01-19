@@ -101,6 +101,15 @@ html {
     bottom: 1rem;
 }
 
+
+.box-database-config {
+    padding: 30px;
+    width: 500px;
+    display: none;
+}
+
+
+
 .footer {
     margin-top: 100px;
     margin-bottom: 50px;

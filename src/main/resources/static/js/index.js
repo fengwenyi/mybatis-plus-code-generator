@@ -27,6 +27,27 @@ layui.use(function() {
     jQuery("#dbPassword").val(dbPassword);
     jQuery("#outputDir").val(outputDir);
 
+    let layerIndex;
+
+
+    // 监听点击修改昵按钮
+    jQuery('#btnEditDatabaseConfig').on('click', function () {
+        /*let nickname = getNickname();
+        if (isNotEmpty(nickname)) {
+            jQuery('input[name=nickname]').val(nickname);
+        }*/
+        layerIndex = layer.open({
+            type: 1,
+            title: '数据库配置',
+            closeBtn: 1, //不显示关闭按钮
+            anim: 5,
+            shade: [0.5],
+            area: ['', ''],
+            shadeClose: true, //开启遮罩关闭
+            content: jQuery('.box-database-config')
+        });
+    });
+
 
     //监听提交
     form.on('submit(formCodeGenerator)', function(data){

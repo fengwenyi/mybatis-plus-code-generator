@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <!-- icon favicon -->
-    <link href="/static/images/favicon.ico?v=3.5.1.5-SNAPSHOT" rel="shortcut icon">
+    <link href="/static/images/favicon.ico?v=' + ${version}" rel="shortcut icon">
 
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -21,22 +21,22 @@
     <![endif]-->
 
 
-    <link rel="stylesheet" href="/static/lib/layui/css/layui.css?v=3.5.1.5-SNAPSHOT">
-    <link rel="stylesheet" href="/static/lib/css/normalize.css?v=3.5.1.5-SNAPSHOT">
+    <link rel="stylesheet" href="/static/lib/layui/css/layui.css">
+    <link rel="stylesheet" href="/static/lib/css/normalize.css">
 
-    <link rel="stylesheet" href="/static/css/index.css?v=3.5.1.5-SNAPSHOT">
+    <link rel="stylesheet" th:href="'/static/css/index.css?v=' + ${version}">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
 
-    <script src="/static/lib/layui/layui.js?v=3.5.1.5-SNAPSHOT"></script>
+    <script th:src="'/static/lib/layui/layui.js?v=' + ${version}"></script>
 
-    <script src="/static/util/Utils.js?v=3.5.1.5-SNAPSHOT"></script>
-    <script src="/static/util/Variable.js?v=3.5.1.5-SNAPSHOT"></script>
-    <script src="/static/util/LayerUtils.js?v=3.5.1.5-SNAPSHOT"></script>
-    <script src="/static/util/AjaxUtils.js?v=3.5.1.5-SNAPSHOT"></script>
-    <script src="/static/util/CacheUtils.js?v=3.5.1.5-SNAPSHOT"></script>
+    <script th:src="'/static/util/Utils.js?v=' + ${version}"></script>
+    <script th:src="'/static/util/Variable.js?v=' + ${version}"></script>
+    <script th:src="'/static/util/LayerUtils.js?v=' + ${version}"></script>
+    <script th:src="'/static/util/AjaxUtils.js?v=' + ${version}"></script>
+    <script th:src="'/static/util/CacheUtils.js?v=' + ${version}"></script>
 
-    <script src="/static/js/index.js?v=3.5.1.5-SNAPSHOT"></script>
+    <script th:src="'/static/js/index.js?v=' + ${version}"></script>
 </head>
 <body>
 <section class="home-bg"></section>
@@ -79,7 +79,7 @@
 
                 <blockquote class="layui-elem-quote"><span class="red-star">*</span>数据库配置</blockquote>
 
-                <div class="layui-form-item">
+                <div class="layui-form-item" hidden>
                     <label class="layui-form-label"><span class="red-star">*</span>数据库类型</label>
                     <div class="layui-input-block">
                         <select name="dbTypeName" lay-verify="required">
@@ -90,7 +90,7 @@
                     </div>
                 </div>
 
-                <div class="layui-form-item">
+                <div class="layui-form-item" hidden>
                     <label class="layui-form-label"><span class="red-star">*</span>数据库地址</label>
                     <div class="layui-input-block">
                         <input type="text" name="host" id="dbAddress" required lay-verify="required" placeholder="ip:port / url"
@@ -98,7 +98,7 @@
                     </div>
                 </div>
 
-                <div class="layui-form-item">
+                <div class="layui-form-item" hidden>
                     <label class="layui-form-label"><span class="red-star">*</span>数据库名称</label>
                     <div class="layui-input-block">
                         <input type="text" name="dbName" required lay-verify="required" placeholder="请输入数据库名称"
@@ -106,7 +106,7 @@
                     </div>
                 </div>
 
-                <div class="layui-form-item">
+                <div class="layui-form-item" hidden>
                     <label class="layui-form-label"><span class="red-star">*</span>数据库用户名</label>
                     <div class="layui-input-block">
                         <input type="text" name="username" id="dbUsername" required lay-verify="required" placeholder="请输入数据库用户名"
@@ -114,11 +114,32 @@
                     </div>
                 </div>
 
-                <div class="layui-form-item">
+                <div class="layui-form-item" hidden>
                     <label class="layui-form-label">数据库密码</label>
                     <div class="layui-input-block">
                         <input type="text" name="password" id="dbPassword" placeholder="请输入数据库密码" autocomplete="off"
                                class="layui-input">
+                    </div>
+                </div>
+
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span class="red-star">*</span>数据库</label>
+                    <div class="layui-input-inline">
+                        <select name="dbTypeName" lay-verify="required">
+                            <option value="">请选择</option>
+                        </select>
+                    </div>
+                    <button id="btnEditDatabaseConfig" type="button" class="layui-btn layui-btn-primary layui-border-green">
+                        <i class="layui-icon layui-icon-edit"></i>
+                    </button>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span class="red-star">*</span>数据库名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="dbName" required lay-verify="required" placeholder="请输入数据库名称"
+                               autocomplete="off" class="layui-input">
                     </div>
                 </div>
 
@@ -420,6 +441,53 @@
 
     </form>
 
+    <div class="layer-box">
+        <div class="box-database-config">
+            <form class="layui-form" action="">
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span class="red-star">*</span>数据库类型</label>
+                    <div class="layui-input-block">
+                        <select name="dbTypeName" lay-verify="required">
+                            <option value="mysql">MySQL</option>
+                            <option value="oracle">Oracle</option>
+                            <option value="sqlserver">SQL Server</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span class="red-star">*</span>数据库地址</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="host" required lay-verify="required" placeholder="ip:port / url"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span class="red-star">*</span>数据库用户名</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="username" required lay-verify="required" placeholder="请输入数据库用户名"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">数据库密码</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="password" placeholder="请输入数据库密码" autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="formDatabaseConfig">保存</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <footer class="footer">
         <div class="version">v<span th:text="${ version }"></span></div>
         <div class="box-links">
@@ -427,7 +495,7 @@
         </div>
         <hr />
         <div class="box-copyright">
-            Copyright &copy;2021 <a target="_blank" href="https://www.fengwenyi.com?mybatis-plus-code-generator">Erwin Feng</a>
+            Copyright &copy;2022 <a target="_blank" href="https://www.fengwenyi.com?mybatis-plus-code-generator">Erwin Feng</a>
         </div>
     </footer>
 </div>
