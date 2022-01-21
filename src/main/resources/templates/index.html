@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <!-- icon favicon -->
-    <link href="/static/images/favicon.ico?v=' + ${version}" rel="shortcut icon">
+    <link href="/static/images/favicon.ico" rel="shortcut icon">
 
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -35,6 +35,7 @@
     <script th:src="'/static/util/LayerUtils.js?v=' + ${version}"></script>
     <script th:src="'/static/util/AjaxUtils.js?v=' + ${version}"></script>
     <script th:src="'/static/util/CacheUtils.js?v=' + ${version}"></script>
+    <script th:src="'/static/data/DatabaseConfig.js?v=' + ${version}"></script>
 
     <script th:src="'/static/js/index.js?v=' + ${version}"></script>
 </head>
@@ -444,8 +445,32 @@
     <div class="layer-box">
         <div class="box-database-config">
             <form class="layui-form" action="">
+
                 <div class="layui-form-item">
-                    <label class="layui-form-label"><span class="red-star">*</span>数据库类型</label>
+                    <div class="layui-input-inline">
+                        <select name="dbTypeName">
+                            <option value="">添加新的配置</option>
+                        </select>
+                    </div>
+                    <button class="layui-btn" lay-submit lay-filter="formDatabaseConfig">保存</button>
+                    <button class="layui-btn layui-btn-primary" lay-submit lay-filter="formDatabaseConfig">
+                        <i class="layui-icon layui-icon-addition"></i>
+                    </button>
+                    <button class="layui-btn layui-btn-danger" lay-submit lay-filter="formDatabaseConfig">
+                        <i class="layui-icon layui-icon-delete"></i>
+                    </button>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span class="red-star">*</span>连接名</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="host" required lay-verify="required" placeholder="添加新的配置"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span class="red-star">*</span>类型</label>
                     <div class="layui-input-block">
                         <select name="dbTypeName" lay-verify="required">
                             <option value="mysql">MySQL</option>
@@ -456,15 +481,15 @@
                 </div>
 
                 <div class="layui-form-item">
-                    <label class="layui-form-label"><span class="red-star">*</span>数据库地址</label>
+                    <label class="layui-form-label"><span class="red-star">*</span>地址</label>
                     <div class="layui-input-block">
-                        <input type="text" name="host" required lay-verify="required" placeholder="ip:port / url"
+                        <input type="text" name="host" required lay-verify="required" placeholder="主机名或IP地址"
                                autocomplete="off" class="layui-input">
                     </div>
                 </div>
 
                 <div class="layui-form-item">
-                    <label class="layui-form-label"><span class="red-star">*</span>数据库用户名</label>
+                    <label class="layui-form-label"><span class="red-star">*</span>用户名</label>
                     <div class="layui-input-block">
                         <input type="text" name="username" required lay-verify="required" placeholder="请输入数据库用户名"
                                autocomplete="off" class="layui-input">
@@ -472,18 +497,13 @@
                 </div>
 
                 <div class="layui-form-item">
-                    <label class="layui-form-label">数据库密码</label>
+                    <label class="layui-form-label">密码</label>
                     <div class="layui-input-block">
                         <input type="text" name="password" placeholder="请输入数据库密码" autocomplete="off"
                                class="layui-input">
                     </div>
                 </div>
 
-                <div class="layui-form-item">
-                    <div class="layui-input-block">
-                        <button class="layui-btn" lay-submit lay-filter="formDatabaseConfig">保存</button>
-                    </div>
-                </div>
             </form>
         </div>
     </div>
