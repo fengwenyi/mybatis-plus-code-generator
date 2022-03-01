@@ -129,3 +129,7 @@ update_user_name
 enabled_state
 delete_state
 ```
+
+## 问题
+
+- docker本机部署，数据库也在本地，数据库连接地址不能是localhost或者127.0.0.1，要填本机IP
