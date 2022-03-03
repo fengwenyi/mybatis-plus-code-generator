@@ -14,7 +14,7 @@ function add(key, data) {
 
 function update(key, data) {
     for (let i = 0; i < list.length; i++) {
-        let map = list[i]
+        let map = list[i];
         if (map.k === key) {
             map.v = data;
             list[i] = map;
@@ -28,18 +28,10 @@ function queryList() {
     return list;
 }
 
-let k1 = '01';
-let d1 = {
-    name: 'zhangsan',
-    age: 16
+function queryByKey(key) {
+    for (let i = 0; i < list.length; i++) {
+        if (list[i].k === key) {
+            return list[i];
+        }
+    }
 }
-add(k1, d1)
-let l = queryList()
-console.log(JSON.stringify(l))
-let d1_1 = {
-    name: 'zhangsan',
-    age: 18
-}
-update(k1, d1_1)
-l = queryList()
-console.log(JSON.stringify(l))

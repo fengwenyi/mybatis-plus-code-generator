@@ -14,7 +14,7 @@
 
     <groupId>com.fengwenyi</groupId>
     <artifactId>mybatis-plus-code-generator</artifactId>
-    <version>3.5.1.5-SNAPSHOT</version>
+    <version>3.5.2.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>mybatis-plus-code-generator</name>
     <description>MyBatis-Plus Code Generator</description>
@@ -24,8 +24,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>17</java.version>
         <spring-boot.version>2.6.3</spring-boot.version>
-        <mybatis-plus-generator.version>3.5.1</mybatis-plus-generator.version>
-        <mybatis-plus.version>3.5.0</mybatis-plus.version>
+        <mybatis-plus-generator.version>3.5.2</mybatis-plus-generator.version>
+        <mybatis-plus.version>3.5.1</mybatis-plus.version>
         <mysql5.version>5.1.49</mysql5.version>
         <mysql8.version>8.0.26</mysql8.version>
         <oracle.version>11.2.0.3</oracle.version>

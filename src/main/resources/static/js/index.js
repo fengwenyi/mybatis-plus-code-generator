@@ -8,6 +8,8 @@ layui.use(function() {
         ,util = layui.util
         ,jQuery = layui.jquery;
 
+    let $ = jQuery;
+
 
     let ERWIN_FENG = '<a href="https://www.fengwenyi.com?code">Erwin Feng</a>';
 
@@ -29,13 +31,26 @@ layui.use(function() {
 
     let layerIndex;
 
+    showDbConfigSelect();
+
+    function showDbConfigSelect() {
+        let dbConfigList = queryList()
+        $.each(dbConfigList, function(i, item) {
+            showDbConfigSelectHtml(item)
+        });
+    }
+
+    function showDbConfigSelectHtml(item) {
+        let k = item.k;
+        let name = item.v.name
+        let html = '<option value="' + k + '">' + name + '</option>';
+        $('#dbConfigSelect').append(html);
+        $('#boxDbConfigSelect').append(html);
+        form.render('select');
+    }
 
     // 监听点击修改昵按钮
     jQuery('#btnEditDatabaseConfig').on('click', function () {
-        /*let nickname = getNickname();
-        if (isNotEmpty(nickname)) {
-            jQuery('input[name=nickname]').val(nickname);
-        }*/
         layerIndex = layer.open({
             type: 1,
             title: '数据库配置',
@@ -46,6 +61,26 @@ layui.use(function() {
             shadeClose: true, //开启遮罩关闭
             content: jQuery('.box-database-config')
         });
+    });
+
+    form.on('submit(formDatabaseConfigAdd)', function (data) {
+        console.log(JSON.stringify(data.field))
+        let key = data.field.key;
+        console.log(key)
+        if (isEmpty(key)) {
+            key = guid()
+            add(key, data.field);
+            data.field.key = key;
+            let o = data.field;
+            form.val('boxFormDbConfig', o);
+            let obj = queryByKey(key);
+            if (nonNull(obj)) {
+                showDbConfigSelectHtml(obj);
+            } // 有问题
+        } else {
+            update(key, data.field)
+        }
+        return false;
     });
 
 
@@ -78,5 +113,16 @@ layui.use(function() {
         setAuthor(formData.author)
         setOutputDir(formData.outDir)
     }
+
+    form.on('select(boxFormDbConfigSelect)', function(data){
+        let key = data.value;
+        if (nonNull(key)) {
+            let dbConfigObj = queryByKey(key)
+            if (nonNull(dbConfigObj)) {
+                let formVal = dbConfigObj.v
+                form.val('boxFormDbConfig', formVal)
+            }
+        }
+    });
 
 });

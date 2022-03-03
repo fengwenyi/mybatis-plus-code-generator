@@ -127,7 +127,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label"><span class="red-star">*</span>数据库</label>
                     <div class="layui-input-inline">
-                        <select name="dbTypeName" lay-verify="required">
+                        <select name="dbConfigName" lay-verify="required" id="dbConfigSelect">
                             <option value="">请选择</option>
                         </select>
                     </div>
@@ -444,15 +444,15 @@
 
     <div class="layer-box">
         <div class="box-database-config">
-            <form class="layui-form" action="">
+            <form class="layui-form" action="" lay-filter="boxFormDbConfig">
 
                 <div class="layui-form-item">
                     <div class="layui-input-inline">
-                        <select name="dbTypeName">
+                        <select id="boxDbConfigSelect" lay-filter="boxFormDbConfigSelect">
                             <option value="">添加新的配置</option>
                         </select>
                     </div>
-                    <button class="layui-btn" lay-submit lay-filter="formDatabaseConfig">保存</button>
+                    <button class="layui-btn" lay-submit lay-filter="formDatabaseConfigAdd">保存</button>
                     <button class="layui-btn layui-btn-primary" lay-submit lay-filter="formDatabaseConfig">
                         <i class="layui-icon layui-icon-addition"></i>
                     </button>
@@ -461,10 +461,12 @@
                     </button>
                 </div>
 
+                <input type="hidden" name="key">
+
                 <div class="layui-form-item">
                     <label class="layui-form-label"><span class="red-star">*</span>连接名</label>
                     <div class="layui-input-block">
-                        <input type="text" name="host" required lay-verify="required" placeholder="添加新的配置"
+                        <input type="text" name="name" required lay-verify="required" placeholder="添加新的配置"
                                autocomplete="off" class="layui-input">
                     </div>
                 </div>
