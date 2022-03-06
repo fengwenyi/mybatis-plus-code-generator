@@ -444,7 +444,7 @@
 
     <div class="layer-box">
         <div class="box-database-config">
-            <form class="layui-form" action="" lay-filter="boxFormDbConfig">
+            <form class="layui-form" action="" lay-filter="boxFormDbConfig" id="boxFormDbConfig">
 
                 <div class="layui-form-item">
                     <div class="layui-input-inline">
@@ -452,16 +452,20 @@
                             <option value="">添加新的配置</option>
                         </select>
                     </div>
-                    <button class="layui-btn" lay-submit lay-filter="formDatabaseConfigAdd">保存</button>
-                    <button class="layui-btn layui-btn-primary" lay-submit lay-filter="formDatabaseConfig">
+                    <button class="layui-btn" lay-submit lay-filter="formDatabaseConfigSave">保存</button>
+                    <button class="layui-btn layui-btn-primary" lay-submit lay-filter="boxBtnDbConfigAdd">
                         <i class="layui-icon layui-icon-addition"></i>
                     </button>
-                    <button class="layui-btn layui-btn-danger" lay-submit lay-filter="formDatabaseConfig">
+                    <button class="layui-btn layui-btn-danger" lay-submit lay-filter="boxBtnDbConfigDelete">
                         <i class="layui-icon layui-icon-delete"></i>
                     </button>
                 </div>
 
-                <input type="hidden" name="key">
+                <div class="layui-form-item" hidden>
+                    <div class="layui-input-block">
+                        <input type="text" name="key" required autocomplete="off" class="layui-input">
+                    </div>
+                </div>
 
                 <div class="layui-form-item">
                     <label class="layui-form-label"><span class="red-star">*</span>连接名</label>

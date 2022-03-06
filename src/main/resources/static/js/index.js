@@ -1,6 +1,6 @@
 
 layui.use(function() {
-    var layer = layui.layer
+    let layer = layui.layer
         ,form = layui.form
         ,laypage = layui.laypage
         ,element = layui.element
@@ -12,6 +12,8 @@ layui.use(function() {
 
 
     let ERWIN_FENG = '<a href="https://www.fengwenyi.com?code">Erwin Feng</a>';
+    let htmlInitOptionSelect = '<option value="">请选择</option>';
+    let htmlInitOptionAdd = '<option value="">添加新的配置</option>';
 
     let author = getAuthor();
     let dbAddress = getDbAddress();
@@ -44,6 +46,7 @@ layui.use(function() {
         let k = item.k;
         let name = item.v.name
         let html = '<option value="' + k + '">' + name + '</option>';
+        // let html = new Option(name, k);
         $('#dbConfigSelect').append(html);
         $('#boxDbConfigSelect').append(html);
         form.render('select');
@@ -63,12 +66,10 @@ layui.use(function() {
         });
     });
 
-    form.on('submit(formDatabaseConfigAdd)', function (data) {
-        console.log(JSON.stringify(data.field))
+    form.on('submit(formDatabaseConfigSave)', function (data) {
         let key = data.field.key;
-        console.log(key)
         if (isEmpty(key)) {
-            key = guid()
+            key = guid();
             add(key, data.field);
             data.field.key = key;
             let o = data.field;
@@ -78,8 +79,40 @@ layui.use(function() {
                 showDbConfigSelectHtml(obj);
             } // 有问题
         } else {
-            update(key, data.field)
+            update(key, data.field);
+            $("#dbConfigSelect").empty();
+            $("#boxDbConfigSelect").empty();
+            $("#dbConfigSelect").append(htmlInitOptionSelect);
+            $("#boxDbConfigSelect").append(htmlInitOptionAdd);
+            showDbConfigSelect();
         }
+        return false;
+    });
+
+    // 添加
+    form.on('submit(boxBtnDbConfigAdd)', function (data) {
+        let count = dataDbConfigCount();
+        console.log(count)
+        if (count > 4) {
+            alertFail(layer, "数量限制不能再添加")
+            return false;
+        }
+        $("#boxFormDbConfig")[0].reset();
+        layui.form.render();
+        return false;
+    });
+
+    // 删除
+    form.on('submit(boxBtnDbConfigDelete)', function (data) {
+        $("#boxFormDbConfig")[0].reset();
+        layui.form.render();
+        dataDbConfigDelete(data.field.key);
+        $("#dbConfigSelect").empty();
+        $("#boxDbConfigSelect").empty();
+        $("#dbConfigSelect").append(htmlInitOptionSelect);
+        $("#boxDbConfigSelect").append(htmlInitOptionAdd);
+        showDbConfigSelect();
+        form.render('select');
         return false;
     });
 

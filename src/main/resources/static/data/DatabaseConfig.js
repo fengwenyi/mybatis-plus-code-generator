@@ -35,3 +35,18 @@ function queryByKey(key) {
         }
     }
 }
+
+function dataDbConfigCount() {
+    return list.length;
+}
+
+function dataDbConfigDelete(key) {
+    for (let i = 0; i < list.length; i++) {
+        let map = list[i];
+        if (map.k === key) {
+            list.splice(i, 1);
+            return true;
+        }
+    }
+    return true;
+}
