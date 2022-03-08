@@ -36,7 +36,7 @@ layui.use(function() {
     showDbConfigSelect();
 
     function showDbConfigSelect() {
-        let dbConfigList = queryList()
+        let dbConfigList = dataDbConfigQueryList()
         $.each(dbConfigList, function(i, item) {
             showDbConfigSelectHtml(item)
         });
@@ -70,16 +70,16 @@ layui.use(function() {
         let key = data.field.key;
         if (isEmpty(key)) {
             key = guid();
-            add(key, data.field);
+            dataDbConfigAdd(key, data.field);
             data.field.key = key;
             let o = data.field;
             form.val('boxFormDbConfig', o);
-            let obj = queryByKey(key);
+            let obj = dataDbConfigQueryByKey(key);
             if (nonNull(obj)) {
                 showDbConfigSelectHtml(obj);
             } // 有问题
         } else {
-            update(key, data.field);
+            dataDbConfigUpdate(key, data.field);
             $("#dbConfigSelect").empty();
             $("#boxDbConfigSelect").empty();
             $("#dbConfigSelect").append(htmlInitOptionSelect);
@@ -90,7 +90,7 @@ layui.use(function() {
     });
 
     // 添加
-    form.on('submit(boxBtnDbConfigAdd)', function (data) {
+    form.on('submit(boxBtnDbConfigAdd)', function () {
         let count = dataDbConfigCount();
         console.log(count)
         if (count > 4) {
@@ -150,10 +150,22 @@ layui.use(function() {
     form.on('select(boxFormDbConfigSelect)', function(data){
         let key = data.value;
         if (nonNull(key)) {
-            let dbConfigObj = queryByKey(key)
+            let dbConfigObj = dataDbConfigQueryByKey(key)
             if (nonNull(dbConfigObj)) {
                 let formVal = dbConfigObj.v
                 form.val('boxFormDbConfig', formVal)
+            }
+        }
+    });
+
+    // 选择数据库
+    form.on('select(selectDbConfig)', function(data){
+        let key = data.value;
+        if (nonNull(key)) {
+            let dbConfigObj = dataDbConfigQueryByKey(key)
+            if (nonNull(dbConfigObj)) {
+                let formVal = dbConfigObj.v
+                form.val('formFull', formVal)
             }
         }
     });

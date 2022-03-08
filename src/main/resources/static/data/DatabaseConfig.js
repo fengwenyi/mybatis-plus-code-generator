@@ -1,50 +1,50 @@
-let list = []
+let dbConfigList = []
 
-function add(key, data) {
-    if (list.length > 4) {
+function dataDbConfigAdd(key, data) {
+    if (dbConfigList.length > 4) {
         return false;
     }
     let map = {
         k: key,
         v: data
     }
-    list.push(map)
+    dbConfigList.push(map)
     return true;
 }
 
-function update(key, data) {
-    for (let i = 0; i < list.length; i++) {
-        let map = list[i];
+function dataDbConfigUpdate(key, data) {
+    for (let i = 0; i < dbConfigList.length; i++) {
+        let map = dbConfigList[i];
         if (map.k === key) {
             map.v = data;
-            list[i] = map;
+            dbConfigList[i] = map;
             return true;
         }
     }
     return false;
 }
 
-function queryList() {
-    return list;
+function dataDbConfigQueryList() {
+    return dbConfigList;
 }
 
-function queryByKey(key) {
-    for (let i = 0; i < list.length; i++) {
-        if (list[i].k === key) {
-            return list[i];
+function dataDbConfigQueryByKey(key) {
+    for (let i = 0; i < dbConfigList.length; i++) {
+        if (dbConfigList[i].k === key) {
+            return dbConfigList[i];
         }
     }
 }
 
 function dataDbConfigCount() {
-    return list.length;
+    return dbConfigList.length;
 }
 
 function dataDbConfigDelete(key) {
-    for (let i = 0; i < list.length; i++) {
-        let map = list[i];
+    for (let i = 0; i < dbConfigList.length; i++) {
+        let map = dbConfigList[i];
         if (map.k === key) {
-            list.splice(i, 1);
+            dbConfigList.splice(i, 1);
             return true;
         }
     }

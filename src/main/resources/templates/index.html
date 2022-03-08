@@ -54,7 +54,7 @@
         <div class="layui-progress-bar" lay-percent="100%"></div>
     </div>-->
 
-    <form class="layui-form" action="">
+    <form class="layui-form" action="" lay-filter="formFull">
 
         <div class="main-panel">
             <div class="main-left-panel">
@@ -100,14 +100,6 @@
                 </div>
 
                 <div class="layui-form-item" hidden>
-                    <label class="layui-form-label"><span class="red-star">*</span>数据库名称</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="dbName" required lay-verify="required" placeholder="请输入数据库名称"
-                               autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-
-                <div class="layui-form-item" hidden>
                     <label class="layui-form-label"><span class="red-star">*</span>数据库用户名</label>
                     <div class="layui-input-block">
                         <input type="text" name="username" id="dbUsername" required lay-verify="required" placeholder="请输入数据库用户名"
@@ -127,7 +119,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label"><span class="red-star">*</span>数据库</label>
                     <div class="layui-input-inline">
-                        <select name="dbConfigName" lay-verify="required" id="dbConfigSelect">
+                        <select name="dbConfigName" lay-verify="required" id="dbConfigSelect" lay-filter="selectDbConfig">
                             <option value="">请选择</option>
                         </select>
                     </div>
