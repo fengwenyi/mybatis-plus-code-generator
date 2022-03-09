@@ -38,7 +38,7 @@
 
 #### 方案1: jar
 
-[免费下载jar](https://download.csdn.net/download/qq_28336351/21818420)
+[免费下载jar](https://download.csdn.net/download/qq_28336351/84042963)
 
 运行:
 
