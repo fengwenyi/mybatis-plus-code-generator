@@ -70,8 +70,8 @@ layui.use(function() {
         let key = data.field.key;
         if (isEmpty(key)) {
             key = guid();
-            dataDbConfigAdd(key, data.field);
             data.field.key = key;
+            dataDbConfigAdd(key, data.field);
             let o = data.field;
             form.val('boxFormDbConfig', o);
             let obj = dataDbConfigQueryByKey(key);
@@ -92,7 +92,7 @@ layui.use(function() {
     // 添加
     form.on('submit(boxBtnDbConfigAdd)', function () {
         let count = dataDbConfigCount();
-        console.log(count)
+        // console.log(count)
         if (count > 4) {
             alertFail(layer, "数量限制不能再添加")
             return false;

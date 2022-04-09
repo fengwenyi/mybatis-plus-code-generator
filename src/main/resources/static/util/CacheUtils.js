@@ -46,3 +46,18 @@ function setOutputDir(outputDir) {
 function getOutputDir() {
     return localStorage.getItem(KEY_OUTPUT_DIR)
 }
+
+// 列表-数据库
+function setListDb(list) {
+    let val = JSON.stringify(list)
+    localStorage.setItem(KEY_LIST_DB, val)
+}
+
+function getListDb() {
+    let val = localStorage.getItem(KEY_LIST_DB)
+    return JSON.parse(val)
+}
+
+function removeListDb() {
+    return localStorage.removeItem(KEY_LIST_DB)
+}
