@@ -214,7 +214,6 @@ layui.use(function() {
                     let data = response.body
                     if (data.upgrade) {
                         let latestVersion = data.latestVersion
-                        let content = data.content
                         let releaseUrl = data.releaseUrl
                         //边缘弹出
                         layer.open({
@@ -232,8 +231,6 @@ layui.use(function() {
                                 }
                             }
                         });
-                    } else {
-                        alertSuccess(layer, '已经是最新版本');
                     }
                 }
             }
