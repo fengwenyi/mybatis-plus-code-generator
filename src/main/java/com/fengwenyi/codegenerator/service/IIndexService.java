@@ -16,4 +16,9 @@ public interface IIndexService {
      */
     ResponseTemplate<Void> codeGenerator(CodeGeneratorRequestVo requestVo);
 
+    /**
+     * 升级检查
+     * */
+    String upgrade(String version);
+
 }

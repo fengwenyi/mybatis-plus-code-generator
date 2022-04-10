@@ -117,6 +117,10 @@ html {
     color: #777;
 }
 
+.footer .btn-upgrade {
+    margin-left: 10px;
+}
+
 .footer .box-links {
     margin-top: 1rem;
 }

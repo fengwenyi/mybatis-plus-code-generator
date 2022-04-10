@@ -132,7 +132,6 @@ layui.use(function() {
                 handleCache(data.field);
                 alertSuccess(layer, response.message);
             } else {
-                layer.alert(response.msg,{ icon: 5 });//失败的表情
                 alertFail(layer, response.message);
             }
         });
@@ -169,5 +168,76 @@ layui.use(function() {
             }
         }
     });
+
+    // 监听点击检查更新按钮
+    jQuery('#btnUpgrade').on('click', function () {
+        let url = '/upgrade'
+        ajaxGet(jQuery, layer, url, '', function (response) {
+            response = JSON.parse(response)
+            if (isNull(response)) {
+                alertFail(layer, '检查失败');
+            } else {
+                if (response.success) {
+                    let data = response.body
+                    if (data.upgrade) {
+                        let latestVersion = data.latestVersion
+                        let content = data.content
+                        let releaseUrl = data.releaseUrl
+                        let msg = '<div>最新版本：' + latestVersion
+                            + '<br />更新内容：' + content + '。 </div>'
+                        layer.confirm(msg, {
+                            btn: ['详情'] //按钮
+                        }, function(){
+                            if (isNotEmpty(releaseUrl)) {
+                                window.open(releaseUrl)
+                            }
+                        });
+                    } else {
+                        alertSuccess(layer, '已经是最新版本');
+                    }
+                } else {
+                    alertFail(layer, response.message);
+                }
+            }
+        });
+    });
+
+    // 检查版本更新
+    checkUpgrade()
+
+    function checkUpgrade() {
+        let url = '/upgrade'
+        ajaxGet(jQuery, layer, url, '', function (response) {
+            response = JSON.parse(response)
+            if (nonNull(response)) {
+                if (response.success) {
+                    let data = response.body
+                    if (data.upgrade) {
+                        let latestVersion = data.latestVersion
+                        let content = data.content
+                        let releaseUrl = data.releaseUrl
+                        //边缘弹出
+                        layer.open({
+                            type: 1
+                            , title: '版本更新'
+                            , area: ['260px', '200px']
+                            ,offset: 'rt' //具体配置参考：offset参数项
+                            ,content: '<div style="padding: 20px;">' + latestVersion + ' 已经发布</div>'
+                            ,btn: '详情'
+                            ,btnAlign: 'c' //按钮居中
+                            ,shade: 0 //不显示遮罩
+                            ,yes: function(){
+                                if (isNotEmpty(releaseUrl)) {
+                                    window.open(releaseUrl)
+                                }
+                            }
+                        });
+                    } else {
+                        alertSuccess(layer, '已经是最新版本');
+                    }
+                }
+            }
+        });
+    }
 
 });
