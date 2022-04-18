@@ -207,34 +207,43 @@ layui.use(function() {
 
     function checkUpgrade() {
         let url = '/upgrade'
-        ajaxGet(jQuery, layer, url, '', function (response) {
-            response = JSON.parse(response)
-            if (nonNull(response)) {
-                if (response.success) {
-                    let data = response.body
-                    if (data.upgrade) {
-                        let latestVersion = data.latestVersion
-                        let releaseUrl = data.releaseUrl
-                        //边缘弹出
-                        layer.open({
-                            type: 1
-                            , title: '版本更新'
-                            , area: ['260px', '200px']
-                            ,offset: 'rt' //具体配置参考：offset参数项
-                            ,content: '<div style="padding: 20px;">' + latestVersion + ' 已经发布</div>'
-                            ,btn: '详情'
-                            ,btnAlign: 'c' //按钮居中
-                            ,shade: 0 //不显示遮罩
-                            ,yes: function(){
-                                if (isNotEmpty(releaseUrl)) {
-                                    window.open(releaseUrl)
+        let data = ''
+
+        jQuery.ajax({
+            url: url,
+            type: HTTP_GET,
+            data: data,
+            success: function (response) {
+                response = JSON.parse(response)
+                if (nonNull(response)) {
+                    if (response.success) {
+                        let data = response.body
+                        if (data.upgrade) {
+                            let latestVersion = data.latestVersion
+                            let releaseUrl = data.releaseUrl
+                            //边缘弹出
+                            layer.open({
+                                type: 1
+                                , title: '版本更新'
+                                , area: ['260px', '200px']
+                                ,offset: 'rt' //具体配置参考：offset参数项
+                                ,content: '<div style="padding: 20px;">' + latestVersion + ' 已经发布</div>'
+                                ,btn: '详情'
+                                ,btnAlign: 'c' //按钮居中
+                                ,shade: 0 //不显示遮罩
+                                ,yes: function(){
+                                    if (isNotEmpty(releaseUrl)) {
+                                        window.open(releaseUrl)
+                                    }
                                 }
-                            }
-                        });
+                            });
+                        }
                     }
                 }
             }
         });
+        return false;
+
     }
 
 });
