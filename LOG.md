@@ -2,9 +2,9 @@
 
 ## v3.5.2.4
 
-2022.04.10 ~ 
+2022.04.10 ~ 2022.04.20
 
-- 【修复】修复每次版本升级校验时，最新版不出现弹窗
+- 【修复】修复每次版本升级校验时，最新版不出现弹窗 [#28](https://github.com/fengwenyi/mybatis-plus-code-generator/issues/28)
 - 【优化】优化版本检查接口，让用户无感知
 - 【升级】api-spring-boot-starter -> 1.2.0
 
