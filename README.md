@@ -6,6 +6,8 @@
 
 说明： 除最后一位，前面的为mybatis-plus-generator的版本号，最后一位为该版本迭代次数。
 
+
+
 ## 概述
 
 代码生成器，又被叫做逆向工程，MyBatis官方为了推广，自己也写了一个，我之前也使用这个，功能也是非常强大，强大以为支持自定义配置，那么问题来了，我该怎么配置才合理呢，所以，有人把所有的配置项都弄成中文的，还有人开发了生成插件，这些在我以往的博文中都看看到。MyBatis-Plus的代码生成器到底怎么样，这我就不评判了，我就这样说，用用看吧。
@@ -54,10 +56,10 @@ jdk 17
 
 ```shell
 # 拉取镜像
-docker pull fengwenyi/mybatis-plus-code-generator:3.5.2.4
+docker pull fengwenyi/mybatis-plus-code-generator:3.5.2.4.2
 
 # 启动服务
-docker run -d -p 8899:8899 --name code-generator -v ~/temp:/temp fengwenyi/mybatis-plus-code-generator:3.5.2.4
+docker run -d -p 8899:8899 --name code-generator -v ~/temp:/temp fengwenyi/mybatis-plus-code-generator:3.5.2.4.2
 
 # 查看日志
 docker logs -f code-generator
