@@ -7,7 +7,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 
 /**
@@ -31,7 +31,7 @@ public class HttpUtils {
         try {
             response = client.send(
                     request,
-                    HttpResponse.BodyHandlers.ofString(Charset.defaultCharset()));
+                    HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }

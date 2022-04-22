@@ -1,5 +1,12 @@
 # 更新日志
 
+## v3.5.2.5
+
+2022.04.22 ~ 
+
+- 【fix】修复版本更新内容可能乱码的问题 [#29](https://github.com/fengwenyi/mybatis-plus-code-generator/issues/29)
+
+
 ## v3.5.2.4
 
 2022.04.10 ~ 2022.04.20
