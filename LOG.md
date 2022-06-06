@@ -5,6 +5,11 @@
 2022.04.22 ~ 
 
 - 【fix】修复版本更新内容可能乱码的问题 [#29](https://github.com/fengwenyi/mybatis-plus-code-generator/issues/29)
+- 【Upgrade】Upgrade to Spring Boot 2.7.0
+- 【Upgrade】Upgrade to MyBatis Plus 3.5.2
+- 【Upgrade】Upgrade to api-spring-boot-starter 1.3.0
+- 【Upgrade】Upgrade to mysql8 8.0.29
+- 【Upgrade】Upgrade to SQL Server 10.2.1.jre17
 
 
 ## v3.5.2.4
