@@ -7,7 +7,7 @@
 
     <groupId>com.fengwenyi</groupId>
     <artifactId>mybatis-plus-code-generator</artifactId>
-    <version>3.5.2.5-SNAPSHOT</version>
+    <version>3.5.2.5</version>
     <packaging>jar</packaging>
     <name>mybatis-plus-code-generator</name>
     <description>MyBatis-Plus Code Generator</description>
@@ -36,6 +36,7 @@
         <beetl.version>3.10.0.RELEASE</beetl.version>
         <junit.version>4.13.2</junit.version>
         <api-starter.version>1.3.0</api-starter.version>
+        <JavaLib.version>2.1.6</JavaLib.version>
     </properties>
 
     <dependencies>
@@ -123,6 +124,12 @@
             <groupId>com.fengwenyi</groupId>
             <artifactId>api-spring-boot-starter</artifactId>
             <version>${api-starter.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fengwenyi</groupId>
+            <artifactId>JavaLib</artifactId>
+            <version>${JavaLib.version}</version>
         </dependency>
 
         <!-- spring boot config -->

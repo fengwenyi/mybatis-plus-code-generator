@@ -10,6 +10,7 @@
 - 【Upgrade】Upgrade to api-spring-boot-starter 1.3.0
 - 【Upgrade】Upgrade to mysql8 8.0.29
 - 【Upgrade】Upgrade to SQL Server 10.2.1.jre17
+- 【Dependency】dependency JavaLib 2.1.6
 
 
 ## v3.5.2.4
