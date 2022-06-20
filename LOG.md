@@ -1,5 +1,21 @@
 # 更新日志
 
+## v3.5.2.6
+
+2022.06.20 ~ 
+
+:star: New Features
+
+- 配置支持缓存 ([#22](https://github.com/fengwenyi/mybatis-plus-code-generator/issues/22))
+- 优化 Dao 文件名，去掉前缀 `I`
+- 优化 Repository 文件名，去掉前缀 `MP`
+
+:arrow_up: Dependency Upgrades
+
+- Upgrade to api-spring-boot-starter 1.3.2
+
+
+
 ## v3.5.2.5
 
 2022.04.22 ~ 2022.06.07

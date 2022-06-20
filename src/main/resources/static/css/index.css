@@ -101,6 +101,10 @@ html {
     bottom: 1rem;
 }
 
+.bottom-panel {
+    margin-top: 2rem;
+}
+
 
 .box-database-config {
     padding: 30px;

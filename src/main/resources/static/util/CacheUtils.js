@@ -61,3 +61,18 @@ function getListDb() {
 function removeListDb() {
     return localStorage.removeItem(KEY_LIST_DB)
 }
+
+// 数据配置
+function setDataConfig(obj) {
+    let val = JSON.stringify(obj)
+    localStorage.setItem(KEY_DATA_CONFIG, val)
+}
+
+function getDataConfig() {
+    let val = localStorage.getItem(KEY_DATA_CONFIG)
+    return JSON.parse(val)
+}
+
+function removeDataConfig() {
+    return localStorage.removeItem(KEY_DATA_CONFIG)
+}

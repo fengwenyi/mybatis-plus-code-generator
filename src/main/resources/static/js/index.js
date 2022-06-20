@@ -2,16 +2,11 @@
 layui.use(function() {
     let layer = layui.layer
         ,form = layui.form
-        ,laypage = layui.laypage
-        ,element = layui.element
-        ,laydate = layui.laydate
-        ,util = layui.util
         ,jQuery = layui.jquery;
 
     let $ = jQuery;
 
-
-    let ERWIN_FENG = '<a href="https://www.fengwenyi.com?code">Erwin Feng</a>';
+    let ERWIN_FENG = '<a href="https://fengwenyi.com?fs=code">Erwin Feng</a>';
     let htmlInitOptionSelect = '<option value="">请选择</option>';
     let htmlInitOptionAdd = '<option value="">添加新的配置</option>';
 
@@ -30,6 +25,8 @@ layui.use(function() {
     jQuery("#dbUsername").val(dbUsername);
     jQuery("#dbPassword").val(dbPassword);
     jQuery("#outputDir").val(outputDir);
+
+    formSetVal()
 
     let layerIndex;
 
@@ -120,6 +117,12 @@ layui.use(function() {
     //监听提交
     form.on('submit(formCodeGenerator)', function(data){
         handleFormSubmit(data);
+        return false;
+    });
+
+    // 监听点击保存配置按钮
+    form.on('submit(formCodeGeneratorConfigSave)', function(data){
+        formCache(data);
         return false;
     });
 
@@ -244,6 +247,19 @@ layui.use(function() {
         });
         return false;
 
+    }
+
+    // form 数据缓存
+    function formCache(data) {
+        setDataConfig(data.field)
+    }
+
+    // form 赋值
+    function formSetVal() {
+        let data = getDataConfig()
+        if (nonNull(data)) {
+            form.val('formFull', data)
+        }
     }
 
 });

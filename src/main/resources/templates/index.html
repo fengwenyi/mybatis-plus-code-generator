@@ -36,6 +36,7 @@
     <script th:src="'/static/util/AjaxUtils.js?v=' + ${version}"></script>
     <script th:src="'/static/util/CacheUtils.js?v=' + ${version}"></script>
     <script th:src="'/static/data/DatabaseConfig.js?v=' + ${version}"></script>
+    <script th:src="'/static/data/DataConfig.js?v=' + ${version}"></script>
 
     <script th:src="'/static/js/index.js?v=' + ${version}"></script>
 </head>
@@ -159,6 +160,10 @@
                         <button class="layui-btn" lay-submit lay-filter="formCodeGenerator">立即生成</button>
                         <button type="reset" class="layui-btn layui-btn-primary">重置</button>
                     </div>
+                    <div class="layui-input-block bottom-panel">
+                        <button class="layui-btn layui-btn-normal" lay-submit lay-filter="formCodeGeneratorConfigSave">保存配置</button>
+                        <button class="layui-btn layui-btn-danger" lay-submit lay-filter="formCodeGeneratorConfigDelete">清除配置</button>
+                    </div>
                 </div>
 
             </div>
@@ -268,7 +273,7 @@
                                 <label class="layui-form-label">mapper</label>
                                 <div class="layui-input-block">
                                     <input type="text" name="fileNamePatternMapper" placeholder="请输入Mapper文件名格式"
-                                           value="I%sDao" autocomplete="off" class="layui-input">
+                                           value="%sDao" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
                             <div class="layui-form-item">
@@ -283,7 +288,7 @@
                                 <label class="layui-form-label">service</label>
                                 <div class="layui-input-block">
                                     <input type="text" name="fileNamePatternService" placeholder="请输入service文件名格式"
-                                           value="MP%sRepository" autocomplete="off" class="layui-input">
+                                           value="%sRepository" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
                             <div class="layui-form-item">
