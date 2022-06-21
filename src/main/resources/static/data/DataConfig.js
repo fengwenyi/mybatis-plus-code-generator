@@ -9,3 +9,8 @@ function dataConfigSave(val) {
 function dataConfigQueryAll() {
     return getDataConfig()
 }
+
+// 删除
+function dataConfigDelete() {
+    removeDataConfig()
+}

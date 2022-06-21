@@ -6,19 +6,14 @@ layui.use(function() {
 
     let $ = jQuery;
 
-    let ERWIN_FENG = '<a href="https://fengwenyi.com?fs=code">Erwin Feng</a>';
+    let author = '<a href="https://fengwenyi.com?fs=mpcg">Erwin Feng</a>';
     let htmlInitOptionSelect = '<option value="">请选择</option>';
     let htmlInitOptionAdd = '<option value="">添加新的配置</option>';
 
-    let author = getAuthor();
     let dbAddress = getDbAddress();
     let dbUsername = getDbUsername();
     let dbPassword = getDbPassword();
     let outputDir = getOutputDir();
-
-    if (isEmpty(author)) {
-        author = ERWIN_FENG;
-    }
 
     jQuery("#author").val(author);
     jQuery("#dbAddress").val(dbAddress);
@@ -252,6 +247,7 @@ layui.use(function() {
     // form 数据缓存
     function formCache(data) {
         setDataConfig(data.field)
+        layer.msg('保存成功')
     }
 
     // form 赋值
@@ -261,5 +257,10 @@ layui.use(function() {
             form.val('formFull', data)
         }
     }
+
+    jQuery('#formCodeGeneratorConfigDelete').on('click', function () {
+        dataConfigDelete()
+        layer.msg('清除成功')
+    })
 
 });
