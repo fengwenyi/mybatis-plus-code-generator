@@ -10,8 +10,10 @@
 - 优化 Dao 文件名，去掉前缀 `I`
 - 优化 Repository 文件名，去掉前缀 `MP`
 
+
 :arrow_up: Dependency Upgrades
 
+- Upgrade to Spring Boot 2.7.1
 - Upgrade to api-spring-boot-starter 1.3.2
 
 

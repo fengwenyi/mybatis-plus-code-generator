@@ -129,7 +129,7 @@ update_date_time
 update_user_id
 update_user_name
 enabled_state
-delete_state
+deleted_state
 ```
 
 ## 问题
