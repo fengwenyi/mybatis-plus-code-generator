@@ -1,6 +1,7 @@
 package com.fengwenyi.codegenerator.controller;
 
 import com.fengwenyi.api.result.ResponseTemplate;
+import com.fengwenyi.apistarter.annotation.IgnoreResponseAdvice;
 import com.fengwenyi.codegenerator.config.ErwinProperties;
 import com.fengwenyi.codegenerator.service.IIndexService;
 import com.fengwenyi.codegenerator.vo.CodeGeneratorRequestVo;
@@ -44,6 +45,7 @@ public class IndexController {
 
     @GetMapping("/upgrade")
     @ResponseBody
+    @IgnoreResponseAdvice
     private String upgrade() {
         return indexService.upgrade(erwinProperties.getApp().getVersion());
     }
