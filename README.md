@@ -56,10 +56,10 @@ jdk 17
 
 ```shell
 # 拉取镜像
-docker pull fengwenyi/mybatis-plus-code-generator:3.5.2.6
+docker pull fengwenyi/mybatis-plus-code-generator
 
 # 启动服务
-docker run -d -p 8899:8899 --name code-generator -v ~/temp:/temp fengwenyi/mybatis-plus-code-generator:3.5.2.6
+docker run -d -p 8899:8899 --name code-generator -v ~/temp:/temp fengwenyi/mybatis-plus-code-generator
 
 # 查看日志
 docker logs -f code-generator
