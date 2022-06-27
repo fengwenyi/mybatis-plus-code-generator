@@ -4,6 +4,10 @@
 
 2022.06.27 ~
 
+:star: New Features
+
+- 控制台提供访问地址日志打印，点击即可访问
+
 :bug: Bug Fixes
 
 - 修复版本校验更新失败的问题 ([#31](https://github.com/fengwenyi/mybatis-plus-code-generator/issues/31))
