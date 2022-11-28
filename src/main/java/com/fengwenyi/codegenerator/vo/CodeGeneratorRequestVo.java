@@ -78,6 +78,8 @@ public class CodeGeneratorRequestVo {
     private Boolean swaggerSupport;
     // JDK版本
     private String jdkVersion;
+    // 日期时间类型
+    private String dateTimeType;
 
     // 是否开启Lombok
     private Boolean lombokModel;

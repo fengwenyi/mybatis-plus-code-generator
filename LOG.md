@@ -1,5 +1,21 @@
 # 更新日志
 
+## v3.5.2.8
+
+这是一个常规版本升级。
+
+:star: New Features
+
+- 更改日期时间类型选择描述。（之前是 jdk 版本）
+- 逻辑删除字段名称：deleted_state。（之前是 delete_state）
+- jdk 版本改为 8。（之前是 17，spring boot 3.0.0 会改回17）
+
+:arrow_up: Dependency Upgrades
+
+- Upgrade to Spring Boot 2.7.6
+
+
+
 ## v3.5.2.7
 
 2022.06.27 ~ 2022.07.02

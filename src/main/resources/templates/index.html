@@ -315,7 +315,7 @@
                                 <label class="layui-form-label">逻辑删除</label>
                                 <div class="layui-input-block">
                                     <input type="text" name="fieldLogicDelete" placeholder="请输入逻辑删除字段名"
-                                           value="delete_state" autocomplete="off" class="layui-input">
+                                           value="deleted_state" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
 
@@ -340,11 +340,18 @@
                                 </div>
                             </div>
 
-                            <div class="layui-form-item">
+                            <!--<div class="layui-form-item">
                                 <label class="layui-form-label">JDK版本</label>
                                 <div class="layui-input-block">
                                     <input type="radio" name="jdkVersion" value="8-" title="8以前">
                                     <input type="radio" name="jdkVersion" value="8" title="8" checked>
+                                </div>
+                            </div>-->
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">日期时间类型</label>
+                                <div class="layui-input-block">
+                                    <input type="radio" name="dateTimeType" value="java.util" title="java.util.Date">
+                                    <input type="radio" name="dateTimeType" value="java.time" title="java.time.LocalDateTime" checked>
                                 </div>
                             </div>
 

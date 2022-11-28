@@ -49,8 +49,12 @@ public class MyAutoGenerator {
         }
         builder.outputDir(outDir);
 
+        /*if (!"8".equalsIgnoreCase(bo.getJdkVersion())) {
+
+        }*/
+
         DateType dateType = DateType.TIME_PACK;
-        if (!"8".equalsIgnoreCase(bo.getJdkVersion())) {
+        if (!"java.util".equalsIgnoreCase(bo.getDateTimeType())) {
             dateType = DateType.ONLY_DATE;
         }
         builder.dateType(dateType);
