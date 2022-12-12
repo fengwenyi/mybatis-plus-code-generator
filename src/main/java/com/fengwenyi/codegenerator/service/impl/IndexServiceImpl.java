@@ -6,10 +6,8 @@ import com.fengwenyi.apistarter.utils.Asserts;
 import com.fengwenyi.codegenerator.bo.CodeGeneratorBo;
 import com.fengwenyi.codegenerator.generator.MyAutoGenerator;
 import com.fengwenyi.codegenerator.service.IIndexService;
-import com.fengwenyi.codegenerator.util.HttpUtils;
 import com.fengwenyi.codegenerator.vo.CodeGeneratorRequestVo;
-import com.fengwenyi.codegenerator.vo.VersionResponseVo;
-import com.fengwenyi.javalib.convert.JsonUtils;
+import com.fengwenyi.javalib.http.HttpUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.beans.BeanUtils;
@@ -18,7 +16,6 @@ import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * @author <a href="https://www.fengwenyi.com">Erwin Feng</a>

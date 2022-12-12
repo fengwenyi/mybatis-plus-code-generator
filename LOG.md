@@ -13,6 +13,7 @@
 :arrow_up: Dependency Upgrades
 
 - Upgrade to Spring Boot 2.7.6
+- Upgrade to JavaLib 2.2.2
 
 
 
