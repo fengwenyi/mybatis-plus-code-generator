@@ -54,7 +54,7 @@ public class MyAutoGenerator {
         }*/
 
         DateType dateType = DateType.TIME_PACK;
-        if (!"java.util".equalsIgnoreCase(bo.getDateTimeType())) {
+        if ("java.util".equalsIgnoreCase(bo.getDateTimeType())) {
             dateType = DateType.ONLY_DATE;
         }
         builder.dateType(dateType);
