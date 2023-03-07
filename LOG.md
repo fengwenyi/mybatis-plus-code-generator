@@ -3,6 +3,10 @@
 
 ## v3.5.2.9
 
+:bug: Bug Fixes
+
+- 应该是一处判断错误导致始终无法使用util.Date ([#33](https://github.com/fengwenyi/mybatis-plus-code-generator/pull/33))
+
 
 ## v3.5.2.8
 
