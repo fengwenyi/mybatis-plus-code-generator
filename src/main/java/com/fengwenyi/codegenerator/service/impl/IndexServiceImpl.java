@@ -75,6 +75,9 @@ public class IndexServiceImpl implements IIndexService {
         } else if (DbType.getDbType(requestVo.getDbTypeName()) == DbType.SQL_SERVER){
             dbUrl = "jdbc:sqlserver://" + requestVo.getHost() + ";DatabaseName=" + requestVo.getDbName();
             driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+        } else if (DbType.getDbType(requestVo.getDbTypeName()) == DbType.POSTGRE_SQL) {
+            dbUrl = "jdbc:postgresql://" + requestVo.getHost() + "/" + requestVo.getDbName();
+            driver = "org.postgresql.Driver";
         } else {
             Asserts.fail("暂不支持的数据库类型");
         }
