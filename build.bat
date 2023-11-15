@@ -1,5 +1,5 @@
 :: #!/bin/bash
-version=3.5.2.8
+version=3.5.4.1-1
 echo $version
 jdk17
 mvn clean package -DskipTests

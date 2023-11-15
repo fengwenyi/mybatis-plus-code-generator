@@ -1,7 +1,19 @@
 # 更新日志
 
+## v3.5.4.1-1
 
-## v3.5.2.9
+:star: New Features
+
+- 支持 PostgreSQL
+- mapper接口文件命名：I%sMapper, service接口文件命名：IMp%sService, serviceImpl文件命名：Mp%sServiceImpl。
+- 同上文件夹名字做调整
+
+:arrow_up: Dependency Upgrades
+
+- Upgrade to Spring Boot 2.7.17
+- Upgrade to mybatis-plus-generator 3.5.4.1
+- Upgrade to mybatis-plus 3.5.4.1
+- Upgrade to JavaLib 2.2.2
 
 :bug: Bug Fixes
 

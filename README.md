@@ -2,7 +2,7 @@
 
 ## Current Version
 
-3.5.2.9
+3.5.4.1-1
 
 说明： 除最后一位，前面的为mybatis-plus-generator的版本号，最后一位为该版本迭代次数。
 
@@ -45,7 +45,7 @@
 运行:
 
 ```shell
-java -jar mybatis-plus-code-generator-3.5.2.9.jar
+java -jar mybatis-plus-code-generator-3.5.4.1-1.jar
 ```
 
 #### 方案2: docker
