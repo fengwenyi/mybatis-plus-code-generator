@@ -6,7 +6,7 @@
 
 - 支持 PostgreSQL
 - mapper接口文件命名：I%sMapper, service接口文件命名：IMp%sService, serviceImpl文件命名：Mp%sServiceImpl。
-- 同上文件夹名字做调整
+- service 包名改为 mp
 
 :arrow_up: Dependency Upgrades
 
