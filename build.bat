@@ -1,10 +1,11 @@
 :: #!/bin/bash
-version=3.5.4.1-1
-echo $version
-jdk17
+@echo off
+set version=3.5.4.1-1
+echo %version%
 mvn clean package -DskipTests
 docker build -t fengwenyi/mybatis-plus-code-generator .
 docker tag fengwenyi/mybatis-plus-code-generator fengwenyi/mybatis-plus-code-generator
 docker push fengwenyi/mybatis-plus-code-generator
-git tag -a $version -m "v$version"
-git push origin $version
+git tag -a %version% -m "v%version%"
+git push origin %version%
+pause
