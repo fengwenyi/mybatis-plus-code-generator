@@ -1,5 +1,13 @@
 # 更新日志
 
+## v3.5.4.1-2
+
+:arrow_up: Dependency Upgrades
+
+- Upgrade to Spring Boot 2.7.18
+- Upgrade to layui 2.9.0
+
+
 ## v3.5.4.1-1 (2023-11-26)
 
 :star: New Features

@@ -7,7 +7,7 @@
 
     <groupId>com.fengwenyi</groupId>
     <artifactId>mybatis-plus-code-generator</artifactId>
-    <version>3.5.4.1-1</version>
+    <version>3.5.4.1-2-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>mybatis-plus-code-generator</name>
     <description>MyBatis-Plus Code Generator</description>
@@ -15,7 +15,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.17</version>
+        <version>2.7.18</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -23,7 +23,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>8</java.version>
-        <spring-boot.version>2.7.6</spring-boot.version>
+        <spring-boot.version>2.7.18</spring-boot.version>
         <mybatis-plus-generator.version>3.5.4.1</mybatis-plus-generator.version>
         <mybatis-plus.version>3.5.4.1</mybatis-plus.version>
         <mysql5.version>5.1.49</mysql5.version>
