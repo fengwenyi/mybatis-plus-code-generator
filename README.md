@@ -40,9 +40,7 @@
 
 #### 方案1: jar
 
-[免费下载jar](https://download.csdn.net/download/qq_28336351/84042963)
-
-[下载列表](download-list.md)
+下载：[mybatis-plus-code-generator-3.5.4.1-2.jar](https://github.com/fengwenyi/mybatis-plus-code-generator/releases/download/3.5.4.1-2/mybatis-plus-code-generator-3.5.4.1-2.jar)
 
 运行:
 

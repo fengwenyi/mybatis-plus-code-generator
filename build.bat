@@ -1,6 +1,6 @@
 :: #!/bin/bash
 @echo off
-set version=3.5.4.1-1
+set version=3.5.4.1-2
 echo %version%
 mvn clean package -DskipTests
 docker build -t fengwenyi/mybatis-plus-code-generator .

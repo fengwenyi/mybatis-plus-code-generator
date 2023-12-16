@@ -1,11 +1,15 @@
 # 更新日志
 
-## v3.5.4.1-2
+## v3.5.4.1-2 (2023-12-16)
+
+这个版本主要是对前端库 layui 进行版本升级
 
 :arrow_up: Dependency Upgrades
 
 - Upgrade to Spring Boot 2.7.18
 - Upgrade to layui 2.9.0
+
+不再提供单独的下载链接！
 
 
 ## v3.5.4.1-1 (2023-11-26)
