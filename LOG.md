@@ -1,12 +1,12 @@
 # 更新日志
 
-## v3.5.5-1
+## v3.5.7-1
 
 从这个版本开始，采用 Java 17，spring boot 使用 3 系列
 
 :arrow_up: Dependency Upgrades
 
-- Upgrade to Spring Boot 3.2.3
+- Upgrade to Spring Boot 3.3.2
 - java version 17
 
 

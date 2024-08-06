@@ -1,6 +1,5 @@
 package com.fengwenyi.codegenerator;
 
-import com.fengwenyi.apistarter.EnableApiStarter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,7 +14,7 @@ import java.net.UnknownHostException;
  * @since 2021-07-12
  */
 @SpringBootApplication
-@EnableApiStarter
+//@EnableApiStarter
 @Slf4j
 public class MyBatisPlusCodeGeneratorApplication {
 

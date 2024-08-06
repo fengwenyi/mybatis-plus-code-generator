@@ -41,7 +41,7 @@ public class MyAutoGenerator {
 
     public void globalConfigBuilder(GlobalConfig.Builder builder) {
 
-        builder.fileOverride().author(bo.getAuthor());
+        builder.author(bo.getAuthor());
 
         String outDir = Config.OUTPUT_DIR;
         if (StringUtils.hasText(bo.getOutDir())) {

@@ -1,6 +1,6 @@
 package com.fengwenyi.codegenerator.service;
 
-import com.fengwenyi.api.result.ResponseTemplate;
+import com.fengwenyi.api.result.ResultTemplate;
 import com.fengwenyi.codegenerator.vo.CodeGeneratorRequestVo;
 
 /**
@@ -14,11 +14,11 @@ public interface IIndexService {
      * @param requestVo
      * @return
      */
-    ResponseTemplate<Void> codeGenerator(CodeGeneratorRequestVo requestVo);
+    ResultTemplate<Void> codeGenerator(CodeGeneratorRequestVo requestVo);
 
     /**
      * 升级检查
      * */
-    String upgrade(String version);
+    String versionCheck(String version);
 
 }

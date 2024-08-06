@@ -168,6 +168,7 @@ layui.use(function() {
     });
 
     // 监听点击检查更新按钮
+    jQuery('#btnVersionCheck').on('click', handleVersionCheck)
     jQuery('#btnUpgrade').on('click', function () {
         let url = '/upgrade'
         ajaxGet(jQuery, layer, url, '', function (response) {
@@ -201,15 +202,15 @@ layui.use(function() {
     });
 
     // 检查版本更新
-    checkUpgrade()
+    handleVersionCheck()
 
-    function checkUpgrade() {
-        let url = '/upgrade'
+    function handleVersionCheck() {
+        let url = '/versionCheck'
         let data = ''
 
         jQuery.ajax({
             url: url,
-            type: HTTP_GET,
+            type: HTTP_POST,
             data: data,
             success: function (response) {
                 response = JSON.parse(response)

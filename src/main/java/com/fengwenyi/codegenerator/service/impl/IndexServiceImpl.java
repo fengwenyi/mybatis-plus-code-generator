@@ -1,8 +1,7 @@
 package com.fengwenyi.codegenerator.service.impl;
 
 import com.baomidou.mybatisplus.annotation.DbType;
-import com.fengwenyi.api.result.ResponseTemplate;
-import com.fengwenyi.apistarter.utils.Asserts;
+import com.fengwenyi.api.result.ResultTemplate;
 import com.fengwenyi.codegenerator.bo.CodeGeneratorBo;
 import com.fengwenyi.codegenerator.generator.MyAutoGenerator;
 import com.fengwenyi.codegenerator.service.IIndexService;
@@ -26,7 +25,7 @@ import java.util.List;
 public class IndexServiceImpl implements IIndexService {
 
     @Override
-    public ResponseTemplate<Void> codeGenerator(CodeGeneratorRequestVo requestVo) {
+    public ResultTemplate<Void> codeGenerator(CodeGeneratorRequestVo requestVo) {
 
         CodeGeneratorBo bo = new CodeGeneratorBo();
 
@@ -40,21 +39,21 @@ public class IndexServiceImpl implements IIndexService {
     }
 
     @Override
-    public String upgrade(String version) {
-        String url = "https://erwin-api.fengwenyi.com/erwin/app/upgrade?" +
+    public String versionCheck(String version) {
+        String url = "https://windrunner-api.fengwenyi.com/wr-basic/app-version/check?" +
                 "appCode=mybatis-plus-code-generator&version=" + version;
         return HttpUtils.get(url);
     }
 
-    private ResponseTemplate<Void> execute(CodeGeneratorBo bo) {
+    private ResultTemplate<Void> execute(CodeGeneratorBo bo) {
         try {
             new MyAutoGenerator(bo).execute();
-            return ResponseTemplate.success();
+            return ResultTemplate.success();
         } catch (Exception e) {
             String errMsg = ExceptionUtils.getStackTrace(e);
             log.error(errMsg);
         }
-        return ResponseTemplate.fail();
+        return ResultTemplate.fail();
     }
 
 
@@ -79,7 +78,8 @@ public class IndexServiceImpl implements IIndexService {
             dbUrl = "jdbc:postgresql://" + requestVo.getHost() + "/" + requestVo.getDbName();
             driver = "org.postgresql.Driver";
         } else {
-            Asserts.fail("暂不支持的数据库类型");
+//            Asserts.fail("暂不支持的数据库类型");
+            throw new RuntimeException("暂不支持的数据库类型");
         }
         bo.setDbUrl(dbUrl).setDriver(driver).setUsername(username).setPassword(password);
     }

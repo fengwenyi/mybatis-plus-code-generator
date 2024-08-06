@@ -1,7 +1,7 @@
 package com.fengwenyi.codegenerator.controller;
 
-import com.fengwenyi.api.result.ResponseTemplate;
-import com.fengwenyi.apistarter.annotation.IgnoreResponseAdvice;
+import com.fengwenyi.api.result.ResultTemplate;
+//import com.fengwenyi.apistarter.annotation.IgnoreResponseAdvice;
 import com.fengwenyi.codegenerator.config.ErwinProperties;
 import com.fengwenyi.codegenerator.service.IIndexService;
 import com.fengwenyi.codegenerator.vo.CodeGeneratorRequestVo;
@@ -29,7 +29,7 @@ public class IndexController {
 
     @PostMapping("/code-generator")
     @ResponseBody
-    public ResponseTemplate<Void> codeGenerator(@RequestBody @Validated CodeGeneratorRequestVo requestVo) {
+    public ResultTemplate<Void> codeGenerator(@RequestBody @Validated CodeGeneratorRequestVo requestVo) {
         return indexService.codeGenerator(requestVo);
     }
 
@@ -43,10 +43,10 @@ public class IndexController {
         this.erwinProperties = erwinProperties;
     }
 
-    @GetMapping("/upgrade")
+    @PostMapping("/versionCheck")
     @ResponseBody
-    @IgnoreResponseAdvice
-    private String upgrade() {
-        return indexService.upgrade(erwinProperties.getApp().getVersion());
+//    @IgnoreResponseAdvice
+    public String versionCheck() {
+        return indexService.versionCheck(erwinProperties.getApp().getVersion());
     }
 }
