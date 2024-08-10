@@ -28,16 +28,18 @@
         <mybatis-plus.version>3.5.7</mybatis-plus.version>
         <mysql5.version>5.1.49</mysql5.version>
         <mysql8.version>8.0.29</mysql8.version>
+        <mysql9.version>9.0.0</mysql9.version>
         <oracle.version>11.2.0.3</oracle.version>
         <sql-server.version>10.2.1.jre17</sql-server.version>
         <slf4j.version>1.7.26</slf4j.version>
         <velocity.version>2.3</velocity.version>
         <freemarker.version>2.3.33</freemarker.version>
         <beetl.version>3.16.2.RELEASE</beetl.version>
-        <junit.version>4.13.2</junit.version>
-        <api-starter.version>1.3.2</api-starter.version>
         <JavaLib.version>3.0.0</JavaLib.version>
         <postgresql.version>42.3.8</postgresql.version>
+        <api-result.version>3.0.0-SNAPSHOT</api-result.version>
+        <apache-commons-lang3.version>3.16.0</apache-commons-lang3.version>
+        <slf4j.version>2.0.13</slf4j.version>
     </properties>
 
     <dependencies>
@@ -54,11 +56,18 @@
             <version>${mybatis-plus.version}</version>
         </dependency>
 
-        <!-- mysql -->
-        <dependency>
+        <!-- mysql-8 -->
+        <!--<dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql8.version}</version>
+        </dependency>-->
+
+        <!-- mysql 9 -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>${mysql9.version}</version>
         </dependency>
 
         <!-- 添加 Oracle Driver 支持 -->
@@ -79,12 +88,6 @@
             <groupId>org.apache.velocity</groupId>
             <artifactId>velocity-engine-core</artifactId>
             <version>${velocity.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-api</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>
@@ -127,12 +130,6 @@
             <artifactId>lombok</artifactId>
         </dependency>
 
-        <!--<dependency>
-            <groupId>com.fengwenyi</groupId>
-            <artifactId>api-spring-boot-starter</artifactId>
-            <version>${api-starter.version}</version>
-        </dependency>-->
-
         <dependency>
             <groupId>com.fengwenyi</groupId>
             <artifactId>JavaLib</artifactId>
@@ -156,7 +153,19 @@
         <dependency>
             <groupId>com.fengwenyi</groupId>
             <artifactId>api-result</artifactId>
-            <version>2.7.4</version>
+            <version>${api-result.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${apache-commons-lang3.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
         </dependency>
     </dependencies>
 

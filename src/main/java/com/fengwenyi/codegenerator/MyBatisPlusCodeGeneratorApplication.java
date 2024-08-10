@@ -14,7 +14,6 @@ import java.net.UnknownHostException;
  * @since 2021-07-12
  */
 @SpringBootApplication
-//@EnableApiStarter
 @Slf4j
 public class MyBatisPlusCodeGeneratorApplication {
 
