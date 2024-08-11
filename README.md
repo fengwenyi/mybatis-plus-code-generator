@@ -2,7 +2,7 @@
 
 ## Current Version
 
-3.5.4.1-2
+3.5.7-1
 
 说明： 除最后一位，前面的为mybatis-plus-generator的版本号，最后一位为该版本迭代次数。
 
@@ -40,12 +40,12 @@
 
 #### 方案1: jar
 
-下载：[mybatis-plus-code-generator-3.5.4.1-2.jar](https://github.com/fengwenyi/mybatis-plus-code-generator/releases/download/3.5.4.1-2/mybatis-plus-code-generator-3.5.4.1-2.jar)
+下载：[mybatis-plus-code-generator-3.5.7-1.jar](https://github.com/fengwenyi/mybatis-plus-code-generator/releases/download/3.5.4.1-2/mybatis-plus-code-generator-3.5.7-1.jar)
 
 运行:
 
 ```shell
-java -jar mybatis-plus-code-generator-3.5.4.1-2.jar
+java -jar mybatis-plus-code-generator-3.5.7-1.jar
 ```
 
 #### 方案2: docker

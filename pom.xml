@@ -7,10 +7,11 @@
 
     <groupId>com.fengwenyi</groupId>
     <artifactId>mybatis-plus-code-generator</artifactId>
-    <version>3.5.7-1-SNAPSHOT</version>
+    <version>3.5.7-1</version>
     <packaging>jar</packaging>
     <name>mybatis-plus-code-generator</name>
     <description>MyBatis-Plus Code Generator</description>
+    <url>https://github.com/fengwenyi/mybatis-plus-code-generator</url>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -36,8 +37,8 @@
         <freemarker.version>2.3.33</freemarker.version>
         <beetl.version>3.16.2.RELEASE</beetl.version>
         <JavaLib.version>3.0.0</JavaLib.version>
-        <postgresql.version>42.3.8</postgresql.version>
-        <api-result.version>3.0.0-SNAPSHOT</api-result.version>
+        <postgresql.version>42.7.3</postgresql.version>
+        <api-result.version>3.0.0</api-result.version>
         <apache-commons-lang3.version>3.16.0</apache-commons-lang3.version>
         <slf4j.version>2.0.13</slf4j.version>
     </properties>
